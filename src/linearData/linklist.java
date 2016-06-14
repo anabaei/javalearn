@@ -13,10 +13,15 @@ public class linklist {
 		// since it is an integer so if we know the location of first one by adding four byts the next available memory can be found
 		
        // also when we use print, it automatically goes to toString method in intNode class
+		// call a link list class (intNode)
+	//	IntNode front = new IntNode(17,null);
+	//	System.out.println(front);
+	//	System.out.println(front.data);
 		
-		IntNode front = new IntNode(17,null);
-		System.out.println(front);
-		System.out.println(front.data);
+		
+	// Calling rotate data
+		
+		
 	}
 
 }
