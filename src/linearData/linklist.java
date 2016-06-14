@@ -19,7 +19,11 @@ public class linklist {
 	//	System.out.println(front.data);
 		
 		
-	// Calling rotate data
+	// Calling rotate array
+		
+		int age1 [] = {1,2,3,4,5};
+		Rotatearray var1 = new Rotatearray ( age1, 2);
+		var1.rotate();
 		
 		
 	}
