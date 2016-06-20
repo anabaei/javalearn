@@ -21,10 +21,12 @@ public class linklist {
 		
 	// Calling rotate array
 		
-		int age1 [] = {1,2,3,4,5};
-		Rotatearray var1 = new Rotatearray ( age1, 2);
-		var1.rotate();
-		
+	//	int age1 [] = {1,2,3,4,5};
+	//	Rotatearray var1 = new Rotatearray ( age1, 2);
+	//	var1.rotate();
+		String in  = "How are you doing today? ";
+		Stringreverse var2 = new Stringreverse(in);
+		var2.reverse();
 		
 	}
 
