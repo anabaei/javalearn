@@ -32,7 +32,7 @@ public class Stringreverse {
 	}
 
 	public void rev(char[] str, int j, int i) {
-		// TODO Auto-generated method stub
+		// 
 		char temp;
 		while (j < i)
 		{
