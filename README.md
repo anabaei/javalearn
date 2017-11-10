@@ -13,6 +13,8 @@ In linklist.java there is a main test source. I use unit test for each class in 
  Scanner in = new Scanner(System.in); int a; a = in.nextInt();
  System.out.println(sum);
  int n = in.nextInt(); int[] ar = new int[n]; // define an array with size of n
+ long input = in.nextLong();
+ float myFloat = 2.001f;
 ```
 
 ### Return an array in function
@@ -23,6 +25,14 @@ static int Sum(int n, int[] ar) {} // return an integer
 * initialize array
 ```java
 int[] series = {4,2};
+long[] ar = new long[n];
+int[] ar = new int[n];
+int a[][] = new int[n][n];
+```
+* integer numbsers are 32-bit so the range is `(-2^31, 2^31 -1)` therefore a number like `5123456789` is bigger than `2147483647` or two power 31 so we need long type.
+* To represent decimal numbsrs with 2 decimal floats 
+```java
+System.out.printf("%.2f", val);
 ```
 * The size of array is immutable in java, it means after we created we can not change it, however we can have different collection as
 ```java
@@ -51,9 +61,11 @@ static int[] addElement(int[] a, int e) {
 * Only for the last item it prints "end!"
 ```java
 for (int i = 0; i < result.length; i++) {
-            System.out.print(result[i] + (i != result.length - 1 ? " " : "end!"));
-        }
+            System.out.print(result[i] + (i != result.length - 1 ? " " : "end!")); }
 ```
 
+#### Debug in Eclipse
+* create a java project and create a class name 
+* Add breaking line and on class right click debug java
 
 
