@@ -15,9 +15,10 @@ In linklist.java there is a main test source. I use unit test for each class in 
  int n = in.nextInt(); int[] ar = new int[n]; // define an array with size of n
 ```
 
-#### Return type array
+### Return an array in function
 ```java 
 static int[] solve(int a) {} // this returns an array 
+static int Sum(int n, int[] ar) {} // return an integer
 ```
 * initialize array
 ```java
@@ -35,3 +36,24 @@ public void addMember(Integer x) {
     myList.add(x);
 };
 ```
+* with a trick you can add item to an array with fixed size only if you copy it like:
+```java
+public static void main(String[] args) {
+    int[] series = {4,2}; series = addElement(series, 1);
+}
+static int[] addElement(int[] a, int e) {
+    a  = Arrays.copyOf(a, a.length + 1); a[a.length - 1] = e;
+    return a;
+}
+```
+
+#### Print for last item
+* Only for the last item it prints "end!"
+```java
+for (int i = 0; i < result.length; i++) {
+            System.out.print(result[i] + (i != result.length - 1 ? " " : "end!"));
+        }
+```
+
+
+
