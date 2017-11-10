@@ -14,3 +14,24 @@ In linklist.java there is a main test source. I use unit test for each class in 
  System.out.println(sum);
  int n = in.nextInt(); int[] ar = new int[n]; // define an array with size of n
 ```
+
+#### Return type array
+```java 
+static int[] solve(int a) {} // this returns an array 
+```
+* initialize array
+```java
+int[] series = {4,2};
+```
+* The size of array is immutable in java, it means after we created we can not change it, however we can have different collection as
+```java
+List<Integer> myList = new ArrayList<Integer>();
+myList.add(5);
+myList.add(7);
+```
+* With a wrapper method
+```java
+public void addMember(Integer x) {
+    myList.add(x);
+};
+```
