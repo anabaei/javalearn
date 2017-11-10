@@ -56,6 +56,17 @@ static int[] addElement(int[] a, int e) {
     return a;
 }
 ```
+#### 1.3333334
+* To create fraction numbers use double format which give you a big decimal result
+```java
+double frac = 1.0000/n;
+```
+* But you are able to display them as float numbers as below with `6` decimal numbers
+```java
+System.out.printf("%.6f",frac);  System.out.printf("%n");
+```
+* %n is used for next line in printf 
+
 
 #### Print for last item
 * Only for the last item it prints "end!"
