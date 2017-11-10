@@ -66,7 +66,13 @@ double frac = 1.0000/n;
 System.out.printf("%.6f",frac);  System.out.printf("%n");
 ```
 * %n is used for next line in printf 
-
+##### 64 bits numbers
+* To avoid stackover felow with big numbres we use double numbers, and to present them still use float as below
+```java
+double[] result={0,0};
+System.out.printf("%.0f", result[0]);
+```
+* Result is an array may contain big numbers, print with 0 decimal numbers
 
 #### Print for last item
 * Only for the last item it prints "end!"
