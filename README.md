@@ -81,6 +81,19 @@ for (int i = 0; i < result.length; i++) {
             System.out.print(result[i] + (i != result.length - 1 ? " " : "end!")); }
 ```
 
+### Char vs String
+* find charAt from string and split
+```java
+String[] res = s.split('-');
+char mil = s.charAt(8);
+```
+* To compare Char and one charactor
+```java
+mil == 'p' // it is true
+mil == "p" // it assumes p as string not char!
+```
+
+
 #### Debug in Eclipse
 * create a java project and create a class name 
 * Add breaking line and on class right click debug java
