@@ -94,7 +94,7 @@ mil == "p" // it assumes p as string not char!
 ```
 
 
-#### Debug in Eclipse
+### Debug in Eclipse
 * create a java project and create a class name 
 * Add breaking line and on class right click debug java
 
