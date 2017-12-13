@@ -23,7 +23,7 @@ p2(int a, String b) {}
 ### JDK
 * Because java widely used by developer so there is a java development kit available for download for anyone. It includes two main tools
 
-Markup : <details>
+ JDK :<details>
            <summary>1- Java Runtime Environment (JRE) </summary>
            <p>* JRE includes the code behind all the variable types and built-in functions ex. the println() function. It also include a Java Virtual Machine (JVM) which allow to java run on all platforms. So many computers have installed JRE to be run java on applications.</p>
          </details>
