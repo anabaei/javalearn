@@ -23,7 +23,7 @@ p2(int a, String b) {}
 
 ### JDK (java development kit) :<details>
            <summary>1- Java Runtime Environment (JRE) </summary>
-           <p>* JRE includes the code behind all the variable types and built-in functions ex. the println() function. It also include a Java Virtual Machine (JVM) which allow to java run on all platforms. So many computers have installed JRE to be run java on applications.</p>
+    <details>       <p>* JRE includes the code behind all the variable types and built-in functions ex. the println() function. It also include a Java Virtual Machine (JVM) which allow to java run on all platforms. So many computers have installed JRE to be run java on applications.</p>
          </details>
  <details>
            <summary>2- Java Compiler (javac) </summary>
