@@ -24,6 +24,11 @@ p2(int a, String b) {}
 * Because java widely used by developer so there is a java development kit available for download for anyone. It includes two main tools
 1- Java Runtime Environment (JRE) 
 2- Java Compiler (javac)
+Markup : <details>
+           <summary>Title 1</summary>
+           <p>Content 1 Content 1 Content 1 Content 1 Content 1</p>
+         </details>
+
 
 * JRE includes the code behind all the variable types and built-in functions ex. the println() function. It also include a Java Virtual Machine (JVM) which allow to java run on all platforms. So many computers have installed JRE to be run java on applications.
 * To develop a program we need java compilor. A compilor is a special type of program it translate code in a particular language into a form that computer understand. Computers at most basic level only react to electronic signals in 0,1. For example main compiler for java is javac. Javac read java program and convert it to bytecode. Then this bytecode get passed into JVM which does the final translation step. 
