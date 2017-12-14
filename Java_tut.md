@@ -37,7 +37,7 @@ p2(int a, String b) {}
 <details>
            <summary>1- Syntax Errors ( Compile time) </summary>
              <p> Violation of Java grammatical rules and will not even compile</p>
-         </details>
+        
  <details>
  <details>
            <summary>2- Run time error </summary>
