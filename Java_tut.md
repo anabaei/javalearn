@@ -42,12 +42,12 @@ p2(int a, String b) {}
  <details>
            <summary>2- Run time error </summary>
              <p> Happen when program run like devide a number by zero or ran out of index </p>
-         </details>
+        
  <details>
   <details>
            <summary>3- Bug </summary>
              <p>not like compile error has syntax error and not like run time error cause crashing, it just has logic error </p>
-         </details>
+       
  <details> 
 
 
