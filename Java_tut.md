@@ -32,6 +32,23 @@ p2(int a, String b) {}
            <p>* To develop a program we need java compilor. A compilor is a special type of program it translate code in a particular language into a form that computer understand. Computers at most basic level only react to electronic signals in 0,1. For example main compiler for java is javac. Javac read java program and convert it to bytecode. Then this bytecode get passed into JVM which does the final translation step</p>
          </details>
 
+### Errors
+
+<details>
+           <summary>1- Syntax Errors ( Compile time) </summary>
+             <p> Violation of Java grammatical rules and will not even compile</p>
+         </details>
+ <details>
+ <details>
+           <summary>2- Run time error </summary>
+             <p> Happen when program run like devide a number by zero or ran out of index </p>
+         </details>
+ <details>
+  <details>
+           <summary>3- Bug </summary>
+             <p>not like compile error has syntax error and not like run time error cause crashing, it just has logic error </p>
+         </details>
+ <details> 
 
 
  
