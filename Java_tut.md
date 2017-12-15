@@ -51,4 +51,4 @@ p2(int a, String b) {}
  </details> 
 
 
- [Top 5 Java performance metrics](!http://info.appdynamics.com/rs/031-WIX-618/images/AppD-ebook-top-5-java-performance.pdf)
+ [Top 5 Java performance metrics](http://info.appdynamics.com/rs/031-WIX-618/images/AppD-ebook-top-5-java-performance.pdf)
