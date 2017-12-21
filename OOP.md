@@ -17,5 +17,6 @@ is all about building blocks and objects.
 - [ ] J2EE pattern: It specifies concerned with the presentation tier.
 [source](https://www.tutorialspoint.com/design_pattern/design_pattern_overview.htm)
 #### Factory pattern Design
-* Is common most used design under creational pattern.  
+* Is common most used design under creational pattern. 
+* You suppose to draw a java based design on the fly based on below image (source)[https://www.tutorialspoint.com/design_pattern/factory_pattern.htm]
 ![image](https://user-images.githubusercontent.com/7471619/34269117-096006c4-e638-11e7-83a7-4b71cdb0d3c5.jpg)
