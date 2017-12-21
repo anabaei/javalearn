@@ -1,5 +1,12 @@
 
 ### OOP vs Procedural 
+* A class is defined as a template/blueprint that describes the behavior/state that the object of its type support.
+* An object is an instance of a class
+* An interface is a blueprint of a class and is a mechanism to achieve abstraction and not be able to be instantiated like abstract class. Methods of an interface are abstract by default so we never can use static word in abstract method. Variable are implicitly in interface are public. 
+* Static keyword is used for memory management and it belongs to a class and not instance. Static variables can refer to a common property of all objects to save memory and is 
+[difference between heap and stack](https://www.journaldev.com/4098/java-heap-space-vs-stack-memory)
+
+
 * procedural uses a list of instrcuctions to tell computer what to do. it uses procedures which contains a series of computation steps to be carried out.
 procedural programming also called `imperative` programming or top-down language. It is intutitive since it works as we expect how a computer should work.
 Most of first languages are procedural like Cobol RPG II C Fortran. Procedural language expose data to external entities  
