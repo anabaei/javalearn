@@ -20,4 +20,4 @@ is all about building blocks and objects.
 * Is common most used design under creational pattern. 
 * You suppose to draw a java based design on the fly based on below image [link](https://www.tutorialspoint.com/design_pattern/factory_pattern.htm)
 ![image](https://user-images.githubusercontent.com/7471619/34269117-096006c4-e638-11e7-83a7-4b71cdb0d3c5.jpg)
-* Also to make it independent than a class type, we define an Abstract class in middle to make it abstract calling the getshape method which is another type of design 'Abstract factory pattern'
+* Also to make it independent than a class type, we define an Abstract class in middle to make it abstract calling the getshape method which is another type of design `Abstract factory pattern`
