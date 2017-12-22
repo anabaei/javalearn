@@ -36,4 +36,4 @@ is all about building blocks and objects.
 - 3 Serve/cache static content:  A reverse proxy can offload the web servers by caching static content like pictures and other static graphical content.
 - 4 Spoon feeding: reduces resource usage caused by slow clients on the web servers by caching the content the web server sent and slowly "spoon feeding" it to the client. This especially benefits dynamically generated pages.
 - 5 Security: the proxy server is an additional layer of defence and can protect against some OS and Web Server specific attacks. However, it does not provide any protection from attacks against the web application or service itself
-
+As an example [NGINX](https://www.nginx.com/resources/glossary/reverse-proxy-server/) can be used.
