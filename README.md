@@ -34,6 +34,8 @@ int a[][] = new int[n][n];
 ```java
 System.out.printf("%.2f", val);
 ```
+#### Array vs ArrayList
+* ArrayList has a set of methods to access elements and modify them. Array is a fixed size data structure while ArrayList is not. One need not to mention the size of Arraylist while creating its object.
 * The size of array is immutable in java, it means after we created we can not change it, however we can have different collection as
 ```java
 List<Integer> myList = new ArrayList<Integer>();
