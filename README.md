@@ -7,7 +7,7 @@ In linklist.java there is a main test source. I use unit test for each class in 
 
 #### Java 7
 * Some basic exerceise with chronological order 
-
+* Strong vs Weak, Dynamic vs Static type of language
 #### In/Out
 ```java
  Scanner in = new Scanner(System.in); int a; a = in.nextInt();
