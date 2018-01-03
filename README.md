@@ -42,6 +42,15 @@ List<Integer> myList = new ArrayList<Integer>();
 myList.add(5);
 myList.add(7);
 ```
+####  Travers a List 
+* Convert Array to ArrayList and to Set (hash)
+```java
+ Integer[] A = {-1,-2,1,3,6,43};
+ List<Integer> assetList = Arrays.asList(A); // to arraylist
+ Set<Integer> set = new HashSet<Integer>(assetList); // to Set
+ set.contains(-2) // true 
+```
+
 * With a wrapper method
 ```java
 public void addMember(Integer x) {
