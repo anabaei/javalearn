@@ -42,6 +42,10 @@ List<Integer> myList = new ArrayList<Integer>();
 myList.add(5);
 myList.add(7);
 ```
+#### Array vs Hash Set
+* Hash Set have unique value and you have O(1) `cotains` 
+* Array are does not ensure there are duplicates `contains` is O(n)
+
 ####  Travers a List 
 * Convert Array to ArrayList and to Set (hash)
 ```java
