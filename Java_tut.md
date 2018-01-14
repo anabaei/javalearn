@@ -54,3 +54,9 @@ p2(int a, String b) {}
 
 
  [Top 5 Java performance metrics](http://info.appdynamics.com/rs/031-WIX-618/images/AppD-ebook-top-5-java-performance.pdf)
+ 
+ #### Java Data Type
+ [linke](https://www.journaldev.com/6431/java-data-types-primitives-and-binary-literals)
+ 
+ 
+ 
