@@ -41,4 +41,5 @@ As an example [NGINX](https://www.nginx.com/resources/glossary/reverse-proxy-ser
 ### Testing
 [link](https://www.inflectra.com/ideas/topic/testing-methodologies.aspx)
 
-
+### Binary Data (String) 
+* A binary string is a sequence of octets, or bytes. Binary strings store raw-byte data, while character strings store text.
