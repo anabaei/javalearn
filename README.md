@@ -113,18 +113,18 @@ mil == "p" // it assumes p as string not char!
 * create a java project and create a class name 
 * Add breaking line and on class right click debug java
 
-#### Input/Output
-######BufferReader
+### Input/Output
+#### BufferReader
 * Allows to read line by line from user inputs or from a txt file and has autoclose. Bufferreader has `readLine` function and since it doesnt have close tag so we have to put it inside try catch as below
 ```java
 import java.io.*;
 public static void main(String[] args) {
 
-	try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
+try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
     System.out.println("you typed:"+ br.readLine());
     	}
-    	catch(IOException e)
-    	{
+catch(IOException e)
+   {
        System.out.print(e.getMessage());
     }
  }
