@@ -121,7 +121,7 @@ import java.io.*;
 public static void main(String[] args) {
 
 try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
-    System.out.println("you typed:"+ br.readLine());
+    System.out.println("you typed:"+ br.readLine()); //return line by line, read() return ascii code
     	}
 catch(IOException e)
    {
