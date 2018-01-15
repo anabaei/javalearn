@@ -38,8 +38,16 @@ is all about building blocks and objects.
 - 5 Security: the proxy server is an additional layer of defence and can protect against some OS and Web Server specific attacks. However, it does not provide any protection from attacks against the web application or service itself
 As an example [NGINX](https://www.nginx.com/resources/glossary/reverse-proxy-server/) can be used.
 #### [REST](https://www.sitepoint.com/developers-rest-api/)
-### Testing
-[link](https://www.inflectra.com/ideas/topic/testing-methodologies.aspx)
+### Software Developer Testing Methodologies
+* In today’s Software Testing Class, we will see what all Software Testing Methodologies & software testing technique is used in the day today software testing life cycle [link2](https://www.inflectra.com/ideas/topic/testing-methodologies.aspx)
+Here are the few commonly used Software Development Life Cycle used in actual testing:
+
+Waterfall model
+V model
+Agile model
+Spiral model
+RUP
+RAD
 
 ### Binary Data (String) 
 * A binary string is a sequence of octets, or bytes. Binary strings store raw-byte data, while character strings store text.
