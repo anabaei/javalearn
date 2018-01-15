@@ -48,6 +48,13 @@ V model -> Requirement -> Design -> Implement -> Unit test case executation -> I
 ,Spiral model
 ,RUP
 ,RAD
+* Test-driven development. TDD is a development technique where you must first write a test that fails before you write new functional code
 
 ### Binary Data (String) 
 * A binary string is a sequence of octets, or bytes. Binary strings store raw-byte data, while character strings store text.
+
+### Git
+* Git has two states you can be there `on a branch` and `not on a branch`.
+If you are `on a branch` then all commits are saved into your branch, but if you are `not on a branch` then new commits are not saved and if you get out of that branch git forgets all those commits
+
+
