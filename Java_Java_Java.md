@@ -114,6 +114,7 @@ mil == "p" // it assumes p as string not char!
 * Add breaking line and on class right click debug java
 
 ## [Input Output](https://www.tutorialspoint.com/java/io/index.htm) 
+#### [Scanner next](https://www.javatpoint.com/Scanner-class)
 #### BufferReader with inputstreamreader
 * Allows to read line by line from user inputs or from a txt file and has autoclose. Bufferreader has `readLine` function and since it doesnt have close tag so we have to put it inside try catch as below from [link](https://docs.oracle.com/javase/7/docs/api/java/io/InputStreamReader.html)
 ```java
