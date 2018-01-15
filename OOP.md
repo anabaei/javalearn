@@ -42,12 +42,12 @@ As an example [NGINX](https://www.nginx.com/resources/glossary/reverse-proxy-ser
 * In today’s Software Testing Class, we will see what all Software Testing Methodologies & software testing technique is used in the day today software testing life cycle [link2](https://www.inflectra.com/ideas/topic/testing-methodologies.aspx)
 Here are the few commonly used Software Development Life Cycle used in actual testing:
 
-Waterfall model
-V model
-Agile model
-Spiral model
-RUP
-RAD
+,Waterfall model
+,V model
+.Agile model
+,Spiral model
+,RUP
+,RAD
 
 ### Binary Data (String) 
 * A binary string is a sequence of octets, or bytes. Binary strings store raw-byte data, while character strings store text.
