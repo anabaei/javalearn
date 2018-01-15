@@ -44,7 +44,7 @@ Here are the few commonly used Software Development Life Cycle used in actual te
 
 Waterfall model
 ,V model
-.Agile model
+,Agile model
 ,Spiral model
 ,RUP
 ,RAD
