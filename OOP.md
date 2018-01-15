@@ -53,8 +53,12 @@ V model -> Requirement -> Design -> Implement -> Unit test case executation -> I
 ### Binary Data (String) 
 * A binary string is a sequence of octets, or bytes. Binary strings store raw-byte data, while character strings store text.
 
-### Git
+### [Git](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 * Git has two states you can be there `on a branch` and `not on a branch`.
 If you are `on a branch` then all commits are saved into your branch, but if you are `not on a branch` then new commits are not saved and if you get out of that branch git forgets all those commits
-
+* Create new branch `git checkout -b newbranch` 
+* push it `git push origin newbranch`
+* Switch branches `git checkout anotherbranch`
+* Merge br1 into master and delete it `git checkout master, git merge br1, git chekcout -d br1`
+* Conflict in merge: git status shows where the conflicts came from `git status` 
 
