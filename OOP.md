@@ -15,6 +15,7 @@ is all about building blocks and objects.
 ### Static vs Singleton Classes 
 * A `static` class is one that has only static methods, for which a better word would be "functions". The design style embodied in a static class is purely procedural. 
 * `Singleton` on the other hand, is a pattern specific to OO design. It is an instance of an object (with all the possibilities inherent in that, such as polymorphism), with a creation procedure that ensures that there is only ever one instance of that particular role over its entire lifetime (garbage collector)
+* Heap memory has garbage collectors 
 
 
 ### Design Pattern
