@@ -72,6 +72,44 @@ If you are `on a branch` then all commits are saved into your branch, but if you
 * Switch branches `git checkout anotherbranch`
 * Merge br1 into master and delete it `git checkout master, git merge br1, git chekcout -d br1`
 * Conflict in merge: git status shows where the conflicts came from `git status` 
+```git
+# Starting a project
+
+1. Generate app, add .gitignore and commit "Create project"
+2. Push it to Github
+3. Add all team members as a collaborator
+4. Create a "integration" from master and push it up
+5. Set "integration" branch as the default
+6. Every team member clones the project
+7. (optional) Protect the master branch from destructive operations
+
+# Branches
+
+- "master" branch is only for releases. Code that is 100% reader for the public.
+- "integration" branch which will be the branch share work between team members.
+- feature branches (to be named after feature name) will be created by developer to implement the features they're tasked to do. No dev. should directly work on "integration". features should always be created from the latest commit on "integration"
+
+# Starting a feature
+
+1. `git fetch` (Get latest data from your remotes such as Github)
+2. `git checkout -b <feature_name> origin/integration` (Creates and switches to new branch named <feature_name> from the latest version of "integration" from your "origin" remote)
+3. Do some work. Do a bunch of commits until your feature is finished.
+4. `git push -u origin <feature_name>`
+5. Go to Github and do a pull request of your branch to "integration".
+6. If merge conflict shown, do:
+  1. `git checkout <feature_name>`
+  2. `git fetch`
+  3. `git merge origin/integration`
+  4. Solve conflicts.
+  5. `git push origin <feature_name>`
+  6. Go back to PR URL.
+7. Send PR URL to a team member for review.
+8. Team member approves.
+9. Click "Squash and Merge" button.
+10. Click "Delete" button.
+11. (optional) To delete branch locally, `git branch -D <feature_name>`
+
+```
 
 ### UML Diagrams 
 UML Unified Modeling Language has two main types : 
