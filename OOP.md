@@ -72,7 +72,7 @@ If you are `on a branch` then all commits are saved into your branch, but if you
 * Switch branches `git checkout anotherbranch`
 * Merge br1 into master and delete it `git checkout master, git merge br1, git chekcout -d br1`
 * Conflict in merge: git status shows where the conflicts came from `git status` 
-```git
+```javascript
 # Starting a project
 
 1. Generate app, add .gitignore and commit "Create project"
