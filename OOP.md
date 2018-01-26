@@ -74,7 +74,7 @@ If you are `on a branch` then all commits are saved into your branch, but if you
 * Conflict in merge: git status shows where the conflicts came from `git status` 
 
 ### UML Diagrams 
-* Unified Modeling Language has two main types : 
+UML Unified Modeling Language has two main types : 
 * Structural UML diagrams like Class diagram, Package diagram, Object diagram
 * Behavioral UML diagrams like Activity diagram, Use case diagram, State diagram
 [this](https://www.smartdraw.com/uml-diagram/)
