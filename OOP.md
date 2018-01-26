@@ -78,3 +78,8 @@ UML Unified Modeling Language has two main types :
 * Structural UML diagrams like Class diagram, Package diagram, Object diagram
 * Behavioral UML diagrams like Activity diagram, Use case diagram, State diagram
 [this](https://www.smartdraw.com/uml-diagram/)
+two common uses:
+###### Activity diagram 
+* Activity diagrams illustrate the dynamic nature of a system by modeling the flow of control from action to action. 
+###### State diagram
+* A diagram from one state to another which connected with an actions, this one is more difficult than activity diagrams
