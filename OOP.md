@@ -64,7 +64,7 @@ V model -> Requirement -> Design -> Implement -> Unit test case executation -> I
 ### Binary Data (String) 
 * A binary string is a sequence of octets, or bytes. Binary strings store raw-byte data, while character strings store text.
 
-### [Git](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
+### [Git](https://github.com/git/git/blob/master/Documentation/RelNotes/2.9.0.txt#L58-L68)
 * Git has two states you can be there `on a branch` and `not on a branch`.
 If you are `on a branch` then all commits are saved into your branch, but if you are `not on a branch` then new commits are not saved and if you get out of that branch git forgets all those commits
 * Create new branch `git checkout -b newbranch` 
@@ -108,8 +108,15 @@ If you are `on a branch` then all commits are saved into your branch, but if you
 9. Click "Squash and Merge" button.
 10. Click "Delete" button.
 11. (optional) To delete branch locally, `git branch -D <feature_name>`
-
 ```
+#### Rebasing Git 
+* When we have two unrelated branches that have no common 
+* `git remote add origin https://github.com/user/repo.git`
+* git pull address
+* git add filename, git push origin master 
+* error `refusing to merge unrelated histories`
+* git pull address --allow-unrelated-histories
+* git push origin master 
 
 ### UML Diagrams 
 UML Unified Modeling Language has two main types : 
