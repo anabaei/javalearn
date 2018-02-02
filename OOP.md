@@ -110,7 +110,7 @@ If you are `on a branch` then all commits are saved into your branch, but if you
 11. (optional) To delete branch locally, `git branch -D <feature_name>`
 ```
 #### Rebasing Git 
-* When we have two unrelated branches that have no common 
+ When we have two unrelated branches that have no common 
 * `git remote add origin https://github.com/user/repo.git`
 * git pull address
 * git add filename, git push origin master 
