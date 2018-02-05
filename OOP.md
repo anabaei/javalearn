@@ -17,15 +17,15 @@ is all about building blocks and objects.
 * A `static` class is one that has only static methods, for which a better word would be "functions". The design style embodied in a static class is purely procedural. 
 * `Singleton` on the other hand, is a pattern specific to OO design. It is an instance of an object (with all the possibilities inherent in that, such as polymorphism), with a creation procedure that ensures that there is only ever one instance of that particular role over its entire lifetime (garbage collector)
 * Heap memory has garbage collectors 
+
+#### Multi Threads
+* To have more than one thread when executing a main mehtod in Java, create an object of a class which extends thread class using run method. Therefore inside main method a new object on a nother class call run method for another class which is second thread as [here](https://www.javaworld.com/article/2074217/java-concurrency/java-101--understanding-java-threads--part-1--introducing-threads-and-runnables.html)
 * Instances created in heap memory are available via other threads but static methods can not be accessible by other threads. Thus we say Heap memory is `thread safe`.
 * Thread Safe means a method or class instance can be used by multiple threads at the same time without any problems occuring
 * Making a thread safe mehtod is adding the word `synchronized`, this means that only one thread can execute that method at a given time. The other threads wait in line. This makes a method thread safe, but if there is a lot of work to be done in a method, then this wastes a lot of time. 
 * Another technique is to `mark` only a small part of a method as synchronized by creating a `lock` or `semaphore`, and locking this small part (usually called the critical section)
 * There are even some methods that are implemented as lockless thread safe, which means that they are built in such a way that multiple threads can race through them at the same time without ever causing problems, this can be the case when a method only executes one `atomic` call. Atomic calls are calls that can't be interrupted and can only be done by one thread at a time
 * `race condition` in order to have a race between two threads, there must be shared state between those two threads and interaction (reading and writing) to that state must occur outside of a mutualy exclusive block (aka syncronized) [this](https://stackoverflow.com/questions/25156724/code-to-simulate-race-condition-in-java-thread)
-
-#### Multi Threads
-* To have more than one thread when executing a main mehtod in Java, create an object of a class which extends thread class using run method. Therefore inside main method a new object on a nother class call run method for another class which is second thread as [here](https://www.javaworld.com/article/2074217/java-concurrency/java-101--understanding-java-threads--part-1--introducing-threads-and-runnables.html)
 
 ### Design Pattern
 ##### 4 authors wrote a book with a name of `Design Patterns - Elements of Reusable Object-Oriented Software` which is known as Gang of four (GOF). According to them design is based on two principles
