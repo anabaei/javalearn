@@ -24,6 +24,8 @@ is all about building blocks and objects.
 * There are even some methods that are implemented as lockless thread safe, which means that they are built in such a way that multiple threads can race through them at the same time without ever causing problems, this can be the case when a method only executes one `atomic` call. Atomic calls are calls that can't be interrupted and can only be done by one thread at a time
 * `race condition` in order to have a race between two threads, there must be shared state between those two threads and interaction (reading and writing) to that state must occur outside of a mutualy exclusive block (aka syncronized) [this](https://stackoverflow.com/questions/25156724/code-to-simulate-race-condition-in-java-thread)
 
+#### Multi Threads
+* To have more than one thread when executing a main mehtod in Java, create an object of a class which extends thread class using run method. Therefore inside main method a new object on a nother class call run method for another class which is second thread as [here](https://www.javaworld.com/article/2074217/java-concurrency/java-101--understanding-java-threads--part-1--introducing-threads-and-runnables.html)
 
 ### Design Pattern
 ##### 4 authors wrote a book with a name of `Design Patterns - Elements of Reusable Object-Oriented Software` which is known as Gang of four (GOF). According to them design is based on two principles
