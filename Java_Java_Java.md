@@ -130,6 +130,16 @@ catch(IOException e)
     }
  }
 ```
-
-
+### Break outer loop
+* This code breaks only inside loop if you want to break outer loop check [this](https://stackoverflow.com/questions/886955/breaking-out-of-nested-loops-in-java) linke
+```java
+for (Type type : types) {
+    for (Type t : types2) {
+         if (some condition) {
+             // Do something and break...
+             break; // Breaks out of the inner loop
+         }
+    }
+}
+```
 
