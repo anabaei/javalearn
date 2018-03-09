@@ -56,8 +56,8 @@ As an example [NGINX](https://www.nginx.com/resources/glossary/reverse-proxy-ser
 * In today’s Software Testing Class, we will see what all Software Testing Methodologies & software testing technique is used in the day today software testing life cycle [link2](https://www.inflectra.com/ideas/topic/testing-methodologies.aspx)
 Here are the few commonly used Software Development Life Cycle used in actual testing:
 
-Waterfall model -> Requirements -> Design -> Implementation -> Test -> Maintainance
-V model -> Requirement -> Design -> Implement -> Unit test case executation -> Integration test -> Accetance test 
+* Waterfall model -> Requirements -> Design -> Implementation -> Test -> Maintainance
+* V model -> Requirement -> Design -> Implement -> Unit test case executation -> Integration test -> Accetance test 
 ,Agile model
 ,Spiral model
 ,RUP
