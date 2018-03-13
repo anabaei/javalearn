@@ -32,7 +32,7 @@ is all about building blocks and objects.
 - [ ] Program to an interface not an implementation
 - [ ] Favor object composition over inheritance 
 ##### There are 23 desgin patterns which can be classified into three categories plus one
-- [ ] [Creational patterns](https://sourcemaking.com/design_patterns/creational_patterns): it provides a way to create objects while hiding the creation login rather than instantiation objects directly using new operator by using common interface.
+- [ ] [Creational patterns](https://sourcemaking.com/design_patterns/creational_patterns): trying to create objects in a manner suitable to the situation.
 - [ ] Structural pattern: Conecpt of inheritance is used to compose interfaces 
 - [ ] Behavioral pattern: It design based on communication among objects
 - [ ] J2EE pattern: It specifies concerned with the presentation tier.
