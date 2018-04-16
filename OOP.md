@@ -134,3 +134,11 @@ two common uses:
 
 ### Interview
 * source for cloud [position](http://blog.alto9.com/critical-interview-questions-for-hiring-a-cloud-computing-expert)
+### Ethical Developer
+* Selflessness: has a great muteability. Humality say I dont know. As yourself it is good for me or team. 
+* Ask a person I dont know dont shut down me or harvest me and accept your are wrong. dont criticize them or be mean. 
+* Consensus: what activity you do to bring the other team along to reach the technology. Concept of collaboration and encouragement.
+* Happy ppl make happy code
+
+
+
