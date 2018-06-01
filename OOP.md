@@ -78,6 +78,11 @@ git push origin newbranch // push it
 git checkout master // to switch to a master 
 git branch -d newbranc // to delete the branch
 ```
+* Alternatively you can use merge the branch into master then push the origin master it gives same results and also from github no boby needs to approve the merge later
+```javascript
+git checkout newbranch
+git rebase master
+```
 Then you would have this image ![alt text](https://user-images.githubusercontent.com/7471619/40859394-7db1fd88-6596-11e8-8112-bfa7b98be88c.png)
 
 * Switch branches `git checkout anotherbranch`
@@ -120,6 +125,9 @@ Then you would have this image ![alt text](https://user-images.githubusercontent
 10. Click "Delete" button.
 11. (optional) To delete branch locally, `git branch -D <feature_name>`
 ```
+#### Rebase and Merge
+* Merge and Rebase from [here](https://www.atlassian.com/git/tutorials/merging-vs-rebasing)
+*
 #### Rebasing Git 
  When we have two unrelated branches that have no common 
 * `git remote add origin https://github.com/user/repo.git`
