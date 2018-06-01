@@ -78,7 +78,7 @@ git push origin newbranch // push it
 git checkout master // to switch to a master 
 git branch -d newbranc // to delete the branch
 ```
-Then you would have this image ![alt text]()
+Then you would have this image ![alt text](https://user-images.githubusercontent.com/7471619/40859394-7db1fd88-6596-11e8-8112-bfa7b98be88c.png)
 
 * Switch branches `git checkout anotherbranch`
 * Merge br1 into master and delete it `git checkout master, git merge br1, git chekcout -d br1`
