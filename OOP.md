@@ -70,8 +70,16 @@ Here are the few commonly used Software Development Life Cycle used in actual te
 ### [Git](https://github.com/git/git/blob/master/Documentation/RelNotes/2.9.0.txt#L58-L68)
 * Git has two states you can be there `on a branch` and `not on a branch`.
 If you are `on a branch` then all commits are saved into your branch, but if you are `not on a branch` then new commits are not saved and if you get out of that branch git forgets all those commits
-* Create new branch `git checkout -b newbranch` 
-* push it `git push origin newbranch`
+ 
+```java
+git checkout -b newbranc // Create new branch
+git push origin newbranch // push it 
+// then inside gitpub page you need to pull it out from repository to able to merge it with current master one 
+git checkout master // to switch to a master 
+git branch -d newbranc // to delete the branch
+```
+Then you would have this image ![alt text]()
+
 * Switch branches `git checkout anotherbranch`
 * Merge br1 into master and delete it `git checkout master, git merge br1, git chekcout -d br1`
 * Conflict in merge: git status shows where the conflicts came from `git status` 
