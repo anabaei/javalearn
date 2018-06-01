@@ -127,7 +127,11 @@ Then you would have this image ![alt text](https://user-images.githubusercontent
 ```
 #### Rebase and Merge
 * Merge and Rebase from [here](https://www.atlassian.com/git/tutorials/merging-vs-rebasing)
-*
+```java
+git checkout feature
+git rebase master
+```
+* Rebase like above move the latest changes into a branch and keep it as the base, so any changes in feetures would write on top of it. Rebase write  from a better [example](https://hackernoon.com/git-merge-vs-rebase-whats-the-diff-76413c117333)
 #### Rebasing Git 
  When we have two unrelated branches that have no common 
 * `git remote add origin https://github.com/user/repo.git`
