@@ -16,7 +16,11 @@ In linklist.java there is a main test source. I use unit test for each class in 
 #### Java 7
 * Some basic exerceise with chronological order 
 * Strong vs Weak, Dynamic vs Static type of language
-#### In/Out
+
+<details>
+           <summary>In/Out </summary>
+           
+           
 ```java
  Scanner in = new Scanner(System.in); int a; a = in.nextInt();
  System.out.println(sum);
@@ -24,12 +28,21 @@ In linklist.java there is a main test source. I use unit test for each class in 
  long input = in.nextLong();
  float myFloat = 2.001f;
 ```
+ </details>
 
-### Return an array in function
+
+<details>
+           <summary>Return an array in function </summary>
+
 ```java 
 static int[] solve(int a) {} // this returns an array 
 static int Sum(int n, int[] ar) {} // return an integer
 ```
+</details>
+<details>
+           <summary>Return an array in function </summary>
+           
+           
 * initialize array
 ```java
 int[] series = {4,2};
@@ -37,20 +50,48 @@ long[] ar = new long[n];
 int[] ar = new int[n];
 int a[][] = new int[n][n];
 ```
+</details>
+<details>
+           <summary>Integers & Float </summary>
+
 * integer numbsers are 32-bit so the range is `(-2^31, 2^31 -1)` therefore a number like `5123456789` is bigger than `2147483647` or two power 31 so we need long type.
 * To represent decimal numbsrs with 2 decimal floats 
 ```java
 System.out.printf("%.2f", val);
 ```
-#### Array vs ArrayList
+#### 1.3333334
+* To create fraction numbers use double format which give you a big decimal result
+```java
+double frac = 1.0000/n;
+```
+* But you are able to display them as float numbers as below with `6` decimal numbers
+```java
+System.out.printf("%.6f",frac);  System.out.printf("%n");
+```
+* %n is used for next line in printf 
+##### 64 bits numbers
+* To avoid stackover felow with big numbres we use double numbers, and to present them still use float as below
+```java
+double[] result={0,0};
+System.out.printf("%.0f", result[0]);
+```
+* Result is an array may contain big numbers, print with 0 decimal numbers
+</details>
+<details>
+           <summary>Array vs ArrayList </summary>
 * ArrayList has a set of methods to access elements and modify them. Array is a fixed size data structure while ArrayList is not. One need not to mention the size of Arraylist while creating its object.
 * The size of array is immutable in java, it means after we created we can not change it, however we can have different collection as
+
 ```java
 List<Integer> myList = new ArrayList<Integer>();
 myList.add(5);
 myList.add(7);
 ```
-#### Array vs Hash Set
+</details>
+
+<details>
+           <summary>Array vs Hash Set </summary>
+
 * Hash Set have unique value and you have O(1) `cotains` 
 * Array are does not ensure there are duplicates `contains` is O(n)
 
@@ -79,32 +120,21 @@ static int[] addElement(int[] a, int e) {
     return a;
 }
 ```
-#### 1.3333334
-* To create fraction numbers use double format which give you a big decimal result
-```java
-double frac = 1.0000/n;
-```
-* But you are able to display them as float numbers as below with `6` decimal numbers
-```java
-System.out.printf("%.6f",frac);  System.out.printf("%n");
-```
-* %n is used for next line in printf 
-##### 64 bits numbers
-* To avoid stackover felow with big numbres we use double numbers, and to present them still use float as below
-```java
-double[] result={0,0};
-System.out.printf("%.0f", result[0]);
-```
-* Result is an array may contain big numbers, print with 0 decimal numbers
+</details>
 
-#### Print for last item
+<details>
+           <summary> Print Last Item </summary>
+           
 * Only for the last item it prints "end!"
 ```java
 for (int i = 0; i < result.length; i++) {
             System.out.print(result[i] + (i != result.length - 1 ? " " : "end!")); }
 ```
+</details>
 
-### Char vs String
+<details>
+           <summary> Char vs String </summary>
+
 * find charAt from string and split
 ```java
 String[] res = s.split('-');
@@ -115,6 +145,7 @@ char mil = s.charAt(8);
 mil == 'p' // it is true
 mil == "p" // it assumes p as string not char!
 ```
+</details>
 
 
 ### Debug in Eclipse
@@ -123,7 +154,10 @@ mil == "p" // it assumes p as string not char!
 
 ## [Input Output](https://www.tutorialspoint.com/java/io/index.htm) 
 #### [Scanner next](https://www.javatpoint.com/Scanner-class)
-#### BufferReader with inputstreamreader
+
+<details>
+           <summary> BufferReader with inputstreamreader </summary>
+
 * Allows to read line by line from user inputs or from a txt file and has autoclose. Bufferreader has `readLine` function and since it doesnt have close tag so we have to put it inside try catch as below from [link](https://docs.oracle.com/javase/7/docs/api/java/io/InputStreamReader.html)
 ```java
 import java.io.*;
@@ -138,7 +172,10 @@ catch(IOException e)
     }
  }
 ```
-### Break outer loop
+</details>
+<details>
+           <summary>Break outer loop </summary>
+
 * This code breaks only inside loop if you want to break outer loop check [this](https://stackoverflow.com/questions/886955/breaking-out-of-nested-loops-in-java) linke
 ```java
 for (Type type : types) {
@@ -150,4 +187,4 @@ for (Type type : types) {
     }
 }
 ```
-
+</details>
