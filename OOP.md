@@ -128,7 +128,7 @@ Then you would have this image ![alt text](https://user-images.githubusercontent
 11. (optional) To delete branch locally, `git branch -D <feature_name>`
 ```
 #### Rebase and Merge
-* Merge and Rebase from [here](https://www.atlassian.com/git/tutorials/merging-vs-rebasing)
+* Merge and Rebase from [here](https://www.atlassian.com/git/tutorials/merging-vs-rebasing) and [good one](https://git-scm.com/book/en/v2/Git-Branching-Rebasing)
 ```java
 git checkout feature
 git rebase master
