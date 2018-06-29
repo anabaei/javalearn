@@ -133,6 +133,12 @@ Then you would have this image ![alt text](https://user-images.githubusercontent
 git checkout feature
 git rebase master
 ```
+* In order to pull a branch into your repository use 
+```java
+git pull --rebase origin version4
+```
+* When your changes dont deserve be in the branch you can add them to your master and then push 
+
 * Rebase like above move the latest changes into a branch and keep it as the base, so any changes in feetures would write on top of it. Rebase write  from a better [example](https://hackernoon.com/git-merge-vs-rebase-whats-the-diff-76413c117333)
 #### Rebasing Git 
  When we have two unrelated branches that have no common 
