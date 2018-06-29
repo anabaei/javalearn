@@ -7,6 +7,7 @@ public class HelloWorld {
        String am = null;
        if (am == null){
 
+          System.out.println("Hello, World");
        }else
        {
         System.out.println("Hello, World"+ am); 
