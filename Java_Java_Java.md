@@ -146,15 +146,6 @@ mil == 'p' // it is true
 mil == "p" // it assumes p as string not char!
 ```
 </details>
-
-
-### Debug in Eclipse
-* create a java project and create a class name 
-* Add breaking line and on class right click debug java
-
-## [Input Output](https://www.tutorialspoint.com/java/io/index.htm) 
-#### [Scanner next](https://www.javatpoint.com/Scanner-class)
-
 <details>
            <summary> BufferReader with inputstreamreader </summary>
 
@@ -188,3 +179,13 @@ for (Type type : types) {
 }
 ```
 </details>
+
+
+#### Debug in Eclipse
+* create a java project and create a class name 
+* Add breaking line and on class right click debug java
+
+#### [Input Output](https://www.tutorialspoint.com/java/io/index.htm) 
+#### [Scanner next](https://www.javatpoint.com/Scanner-class)
+
+
