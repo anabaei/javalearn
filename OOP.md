@@ -46,7 +46,7 @@ is all about building blocks and objects.
 ### Reverse Proxy
 * Is a proxy server that apprears to be an ordinary server. They forward requests to one or more ordinary servers which handle requests.There are several benefitial to installing reverse proxy server
 - 1 Encryption/SSL acceleration: SSL usually is done not by server itself but by a reverse proxy server. 
-- 2 Load Balancing: A reverse proxy act as a traffic coop and distribute alient requests acroos a group of servers to maximize speed and liablity to distribute the load to several web servers
+- 2 Load Balancing: A reverse proxy act as a traffic coop and distribute alient requests across a group of servers to maximize speed and liablity to distribute the load to several web servers
 - 3 Serve/cache static content:  A reverse proxy can offload the web servers by caching static content like pictures and other static graphical content.
 - 4 Spoon feeding: reduces resource usage caused by slow clients on the web servers by caching the content the web server sent and slowly "spoon feeding" it to the client. This especially benefits dynamically generated pages.
 - 5 Security: the proxy server is an additional layer of defence and can protect against some OS and Web Server specific attacks. However, it does not provide any protection from attacks against the web application or service itself
