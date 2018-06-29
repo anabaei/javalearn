@@ -1,8 +1,10 @@
 Java Learn
 
 <details>
-           <summary>JRE </summary>
-             <p>JRE includes the code behind all the variable types and built-in functions ex. the println() function. It also include a Java Virtual Machine (JVM) which allow to java run on all platforms. So many computers have installed JRE to be run java on applications.</p>
+           <summary>JRE & JDK </summary>
+             <p>JRE includes a Java Virtual Machine (JVM) which allow to java run on all platforms. JRE required to run an application so end users only required to install it but JDK provide tools for us to build an app so normally developers install JDK and JDK includes JRE </p>
+           <P> When create a source code in order to running we need JDK. We feed up source code into JDK and produce Java application. Java is not like C which when you compile then you can run it. JDK produces `ByteCode` which is an abstraction platform independent and only JRE provides what Bytecode needs to execute on any host environment 
+           </p>
 </details>
 
 
