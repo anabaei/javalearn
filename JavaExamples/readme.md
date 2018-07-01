@@ -31,3 +31,10 @@ java HelloWorld         // this command feeding JRE which use JVM to run it
     }
    ```
  </details>
+ <details>
+  <summary> MergeArrays </summary>
+   
+   ```java
+ 
+   ```
+ </details>
