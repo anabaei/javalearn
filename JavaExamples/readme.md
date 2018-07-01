@@ -38,27 +38,25 @@ java HelloWorld         // this command feeding JRE which use JVM to run it
  
    ```
  </details>
-
-<details>
-  <summary> String Buffer & String </summart>
-  * The difference is in order to loop through a array of string and add, it takes O(n^2) because everytime append or add run, it makes a copy of string which costs O(n). Therefore we use StringBuffer which doesnt duplicate everytime it append to string 
-   * It takes O(n)
+ 
+  <details>
+  <summary> String Buffer & String </summary>
+    The difference is in order to loop through a array of string and add, it takes O(n^2) because everytime append or add run, it makes a copy of string which costs O(n). Therefore we use StringBuffer which doesnt duplicate everytime it append to string 
   
-  ```java
-      String a = "amir nabaei";
-      String[] arra = a.split("");
-      StringBuffer sentence = new StringBuffer();
-      for(String w: arra) sentence.append(w);
-  ```
-  * But below takes O(n^2)
-  ```java
+   ```java
+  It takes O(n)
+        String a = "amir nabaei";
+        String[] arra = a.split("");
+        StringBuffer sentence = new StringBuffer();
+        for(String w: arra) sentence.append(w);
+     takes O(n^2)
       String a = "amir nabaei";
       String[] arra = a.split("");
       String[] res = new String[13];
       for (int i = 0; i < arra.length; i++) {\
          res[i] = arra[i];
       }
-  ```
+   ```
+ </details>
+ 
   
-  </details>
-
