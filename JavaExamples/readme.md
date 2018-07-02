@@ -57,6 +57,7 @@ java HelloWorld         // this command feeding JRE which use JVM to run it
          res[i] = arra[i];
       }
    ```
+   Some usefull methos to manipulate strings in stringBuffer class [here](https://www.tutorialspoint.com/java/java_string_buffer.htm)
  </details>
  
   
