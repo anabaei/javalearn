@@ -25,8 +25,10 @@ public class Hsh {
       // test 1.3
       //t.remdup("aab");
       // test 1.4
-       Boolean res = t.isanagram("str", "srt");
-       System.out.println(res);
+      // Boolean res = t.isanagram("str", "srt");
+      // System.out.println(res);
+      char[] arr = { 'a', 'r', 't', 'i', 's', 't' };
+         t.removeDuplicatesEff(arr);
     }
 
     public HashMap<Integer, String> buildMap(){
@@ -182,13 +184,47 @@ public boolean isanagram(String str1, String str2)
   int i=0;
   while(i<s1.length())
   {
-    System.out.println(s1.indexOf( s1.charAt(i).toString() ));
-   System.out.println(s1.charAt(i));
+  //  System.out.println(s1.indexOf( s1.charAt(i) ));
+  // System.out.println(s1.charAt(i));
     i++;
   }
 
   return true;
 }
+
+
+
+public static void removeDuplicatesEff(char[] str)
+{
+   if (str == null) return;
+    int len = str.length;
+    if (len < 2) return;
+    boolean[] hit = new boolean[256];
+
+    for (int i = 0; i < 6; ++i)
+    {
+    hit[i] = false;
+    //System.out.println(hit[str[0]]);
+
+    int tail = 1;
+    for ( i = 1; i < len; ++i)
+    {
+       if (!hit[str[i]])
+       {
+       str[tail] = str[i]; ++tail; hit[str[i]] = true;
+       }
+    }
+    //hit[str[i]] = true;
+    str[tail] = i;
+  }
+  for(int i=0; i< 256; i++)
+  if (hit[i])
+  System.out.println(i);
+}
+
+
+
+
 
 
 }  // End of the class
