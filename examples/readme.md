@@ -72,7 +72,9 @@ java HelloWorld         // this command feeding JRE which use JVM to run it
    // in Java 8 
    String str1 = String.join("", temp);
   ```
+  Char array [link](https://www.dotnetperls.com/char-array-java)
  </details>
+ 
  
  
  
