@@ -61,7 +61,7 @@ java HelloWorld         // this command feeding JRE which use JVM to run it
  </details>
  
  <details>
-  <summary> Split & Append </summary>
+  <summary> Split & Append String</summary>
   
   ```java
   String[] temp = str.split("");  // convert string to array 
