@@ -60,4 +60,18 @@ java HelloWorld         // this command feeding JRE which use JVM to run it
    Some usefull methos to manipulate strings in stringBuffer class [here](https://www.tutorialspoint.com/java/java_string_buffer.htm)
  </details>
  
+ <details>
+  <summary> Split & Append </summary>
   
+  ```java
+  String[] temp = str.split("");  // convert string to array 
+  StringBuilder builder = new StringBuilder();
+  for(String s: temp)
+   builder.append(s);
+   // in Java 8 
+   String str1 = String.join("", temp);
+  ```
+ </details>
+ 
+ 
+ 
