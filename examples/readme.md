@@ -58,6 +58,7 @@ java HelloWorld         // this command feeding JRE which use JVM to run it
       }
    ```
    Some usefull methos to manipulate strings in stringBuffer class [here](https://www.tutorialspoint.com/java/java_string_buffer.htm)
+   `StringBuffer` and `StringBuilder` are same and have same methods except `StringBuffer` is `thread safe` 
  </details>
  
  <details>
