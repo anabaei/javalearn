@@ -10,7 +10,7 @@ public class Hsh {
     // res = tem.aaa;
 }
     public static void main(String[] args) {
-        // System.out.println("Hello, World");
+
         Hsh t = new Hsh();
         //t.buildMap();
         // String[] iarray = new String[]{ "aa","bb","cc" };
@@ -23,7 +23,10 @@ public class Hsh {
       // test 1.2
       // t.rev("amir nabaei");
       // test 1.3
-      t.remdup("abcdeafghija");
+      //t.remdup("aab");
+      // test 1.4
+       Boolean res = t.isanagram("str", "srt");
+       System.out.println(res);
     }
 
     public HashMap<Integer, String> buildMap(){
@@ -118,10 +121,6 @@ public class Hsh {
  }
 
 
-
-
-
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -133,20 +132,63 @@ public class Hsh {
 
 public void remdup(String str)
 {
-  String[] temp = str.split("");
-  for(int i=0; i<temp.length; i++)
-  {
-    for(int j=0;j<temp.length; j++)
-    {
-      if(j != i && temp[j] == temp[i])
-      {
-          System.out.println(temp[j]);
-      }
 
+  String[] temp = str.split("");
+  int i,cnt;
+
+  for(i=0; i<temp.length; i++)
+  {
+   cnt = 0;
+   for(int j=0; j <= i; j++)
+   {
+
+    if(temp[i] == temp[j])
+    {
+
+      cnt = cnt +1;
+     System.out.print(  cnt + " " );
+      if (cnt > 1)
+      {
+
+        temp[i] = "";
+
+      }
     }
+   }
   }
+  String str1;
+//String str1 = new String(temp);
+StringBuilder builder = new StringBuilder();
+//for(String s: temp)
+ //builder.append(s);
+ // str1 = String.join("", temp);
+
+System.out.println( "" );
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //// 1.4 Find a string is anagram or not
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+public boolean isanagram(String str1, String str2)
+{
+  StringBuffer s1 = new StringBuffer(str1);
+  StringBuffer s2 = new StringBuffer(str2);
+ // if(str1.length != str2.length)
+ // return false;
+
+  System.out.println(s1.capacity());
+  int i=0;
+  while(i<s1.length())
+  {
+    System.out.println(s1.indexOf( s1.charAt(i).toString() ));
+   System.out.println(s1.charAt(i));
+    i++;
+  }
+
+  return true;
+}
 
 
 }  // End of the class
