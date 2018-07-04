@@ -1,7 +1,7 @@
 ### Start
 
 <details>
-  <summary>Hello Java </summary>
+  <summary>Hello </summary>
 
 ```java
 public class HelloWorld {
@@ -17,6 +17,8 @@ javac -d results HelloWorld.java /// creates java files in result directory
 java HelloWorld         // this command feeding JRE which use JVM to run it 
 ```
 </details>
+
+## Arrays
 
 <details>
   <summary> HashMap </summary>
@@ -76,5 +78,12 @@ java HelloWorld         // this command feeding JRE which use JVM to run it
  </details>
  
  
+ ## LinkList 
+ * A good practice [here](https://www.geeksforgeeks.org/linked-list-set-1-introduction/)
+ * There is a linklist class which inside keeps node classes
+ * Each Linklist class has a head to tell from where to start nodes
  
- 
+
+
+
+
