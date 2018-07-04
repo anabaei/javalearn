@@ -3,6 +3,7 @@
 <details>
   <summary>Hello </summary>
 
+
 ```java
 public class HelloWorld {
     public static void main(String[] args) {
@@ -23,7 +24,7 @@ java HelloWorld         // this command feeding JRE which use JVM to run it
 <details>
   <summary> HashMap </summary>
    
-   ```java
+```java
    import java.util.*;
      public HashMap<Integer, String> buildMap(){
       HashMap<Integer, String> temp = new HashMap<Integer, String>();
@@ -36,7 +37,7 @@ java HelloWorld         // this command feeding JRE which use JVM to run it
  <details>
   <summary> MergeArrays </summary>
    
-   ```java
+```java
  
    ```
  </details>
@@ -45,7 +46,7 @@ java HelloWorld         // this command feeding JRE which use JVM to run it
   <summary> String Buffer & String </summary>
     The difference is in order to loop through a array of string and add, it takes O(n^2) because everytime append or add run, it makes a copy of string which costs O(n). Therefore we use StringBuffer which doesnt duplicate everytime it append to string 
   
-   ```java
+```java
   It takes O(n)
         String a = "amir nabaei";
         String[] arra = a.split("");
@@ -66,7 +67,7 @@ java HelloWorld         // this command feeding JRE which use JVM to run it
  <details>
   <summary> Split & Append String</summary>
   
-  ```java
+```java
   String[] temp = str.split("");  // convert string to array 
   StringBuilder builder = new StringBuilder();
   for(String s: temp)
@@ -79,6 +80,21 @@ java HelloWorld         // this command feeding JRE which use JVM to run it
  
  
  ## LinkList 
+ <details>
+  <summary> Node </summary>
+     
+     
+  ```java
+     public class Node{
+       int data;
+       Node next;
+       public Node(int d)
+       {
+          data = d;
+       }
+     }
+  ```
+  </details>
  * A good practice [here](https://www.geeksforgeeks.org/linked-list-set-1-introduction/)
  * There is a linklist class which inside keeps node classes
  * Each Linklist class has a head to tell from where to start nodes
