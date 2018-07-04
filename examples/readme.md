@@ -97,6 +97,7 @@ java HelloWorld         // this command feeding JRE which use JVM to run it
   </details>
   <details>
   <summary> Linkedlist </summary>
+  
   A good practice [here](https://www.geeksforgeeks.org/linked-list-set-1-introduction/)
   There is a linklist class which inside keeps node classes
   Each Linklist class has a head to tell from where to start nodes
