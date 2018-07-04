@@ -107,6 +107,7 @@ java HelloWorld         // this command feeding JRE which use JVM to run it
      
  </details>
 
-
+## Trees
+* Unlike Arrays, Linked Lists, Stack and queues, which are linear data structures, trees are hierarchical data structures.
 
 
