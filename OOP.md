@@ -116,6 +116,12 @@ git remote -v // it list the default origin and the one we added
 git push myorigin1 master // to bitbucket  
 git push origin master    // to github
 ```
+#### Add long comment
+* To have comment message 
+```java
+git commit --amend
+```
+
 ----------------------- 
 
 * Switch branches `git checkout anotherbranch`
