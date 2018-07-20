@@ -70,6 +70,8 @@ Here are the few commonly used Software Development Life Cycle used in actual te
 * A binary string is a sequence of octets, or bytes. Binary strings store raw-byte data, while character strings store text.
 
 ### [Git](https://github.com/git/git/blob/master/Documentation/RelNotes/2.9.0.txt#L58-L68)
+
+
 * Git has two states you can be there `on a branch` and `not on a branch`.
 If you are `on a branch` then all commits are saved into your branch, but if you are `not on a branch` then new commits are not saved and if you get out of that branch git forgets all those commits
  
@@ -86,6 +88,24 @@ git checkout newbranch
 git rebase master
 ```
 Then you would have this image ![alt text](https://user-images.githubusercontent.com/7471619/40859394-7db1fd88-6596-11e8-8112-bfa7b98be88c.png)
+
+#### Branches
+* On git repository if you want to clone a branch and work on it 
+```java
+git fetch && git checkout branchName
+```
+* List of all branches 
+```java
+git branch     // branches locally
+git branch -r // branches on the repository
+```
+* To merge from branch B into A 
+```
+Git checkout A
+git merge B   // it merges everything from B into A(current branch)
+```
+* If conflict occured then it listed then it shows you the current difference by `<<<<<` and below displays changes on branch B by `>>>>>>` select one and remove other then gir add and commit. Now the branch is merged 
+
 
 * Switch branches `git checkout anotherbranch`
 * Merge br1 into master and delete it `git checkout master, git merge br1, git chekcout -d br1`
