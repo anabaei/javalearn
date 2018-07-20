@@ -105,7 +105,17 @@ Git checkout A
 git merge B   // it merges everything from B into A(current branch)
 ```
 * If conflict occured then it listed then it shows you the current difference by `<<<<<` and below displays changes on branch B by `>>>>>>` select one and remove other then gir add and commit. Now the branch is merged 
-
+#### different origins
+* we can have different origins like for one github another bitocin just need to add them as
+```java
+git add remote myorigin1 https://bitbucket.com/anabaei/javalearn/edit/master/OOP.md
+git remote -v // it list the default origin and the one we added 
+```
+* To push each one just we call as
+```java
+git push myorigin1 master // to bitbucket  
+git push origin master    // to github
+```
 
 * Switch branches `git checkout anotherbranch`
 * Merge br1 into master and delete it `git checkout master, git merge br1, git chekcout -d br1`
