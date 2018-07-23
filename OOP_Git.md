@@ -108,7 +108,7 @@ git merge B   // it merges everything from B into A(current branch)
 * To undo a push use `git revert 9F83728` 
 * To undo a merge use `git reset --hard HEAD~1` it falls back one push
 * To undo a merge that is already pushed `git revert -m 1 commit_hash`
-* If there is a branch in repository and the same in local and you want to push the local tells you need to pull and even if you pull still has issue, you need to use `git pull --rebase ` because there is parallel work 
+* If there is a branch in repository and the same in local and you want to push the local tells you need to pull and even if you pull still has issue, you need to use `git pull --rebase ` because there is parallel work that you need to update your branch first 
 
 #### More than one repo
 * we can have different origins like for one github another bitocin just need to add them as
