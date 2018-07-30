@@ -74,7 +74,8 @@ Here are the few commonly used Software Development Life Cycle used in actual te
 
 * Git has two states you can be there `on a branch` and `not on a branch`.
 If you are `on a branch` then all commits are saved into your branch, but if you are `not on a branch` then new commits are not saved and if you get out of that branch git forgets all those commits
- 
+* Best practice is to create branch from master and git add commit push to the branch, then keep working on it. 
+
 ```java
 git checkout -b newbranc // Create new branch
 git push origin newbranch // push it 
