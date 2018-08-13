@@ -141,6 +141,7 @@ git commit --amend
 * Switch branches `git checkout anotherbranch`
 * Merge br1 into master and delete it `git checkout master, git merge br1, git chekcout -d br1`
 * Conflict in merge: git status shows where the conflicts came from `git status` 
+* To check gitignore we have `git status --ignored`
 ```java
 # Starting a project
 
