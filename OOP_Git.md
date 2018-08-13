@@ -91,6 +91,13 @@ git rebase master
 Then you would have this image ![alt text](https://user-images.githubusercontent.com/7471619/40859394-7db1fd88-6596-11e8-8112-bfa7b98be88c.png)
 
 #### Branches
+* Generally you have your branch and use it to push to origin yourbranch name. you can delete your branch and then create a new one with the same name and push and it works. 
+```
+git checkout branchname
+```
+* By using above you have different types of your projects in different branches. So any change to one branch does not affect other branches unless you push them and pull request changes on the other branch
+* For example if you change amir branch and push to git your master branch in computer and git repository still unchanged
+
 * On git repository if you want to clone a branch and work on it 
 ```java
 git fetch && git checkout branchName
