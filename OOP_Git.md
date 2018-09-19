@@ -201,6 +201,7 @@ git pull --rebase origin version4
 * git pull address --allow-unrelated-histories
 * git push origin master 
 
+
 ### UML Diagrams 
 UML Unified Modeling Language has two main types : 
 * Structural UML diagrams like Class diagram, Package diagram, Object diagram
@@ -219,6 +220,6 @@ two common uses:
 * Ask a person I dont know dont shut down me or harvest me and accept your are wrong. dont criticize them or be mean. 
 * Consensus: what activity you do to bring the other team along to reach the technology. Concept of collaboration and encouragement.
 * Happy ppl make happy code
-
+* Common [git](https://medium.com/@i_AnkurBiswas/common-git-mistakes-and-how-to-fix-them-10184cd5fa77) mistakes 
 
 
