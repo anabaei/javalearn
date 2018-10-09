@@ -110,4 +110,9 @@ java HelloWorld         // this command feeding JRE which use JVM to run it
 ## Trees
 * Unlike Arrays, Linked Lists, Stack and queues, which are linear data structures, trees are hierarchical data structures.
 
+<details>
+  <summary> Graph </summary>
+  
+ * BFS search [BFS for a Graph](https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/) 
+ </details> 
 
