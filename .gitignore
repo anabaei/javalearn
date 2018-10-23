@@ -1,0 +1,13 @@
+*~
+.vagrant
+
+Gemfile.lock
+log/*
+.bundle
+
+.vscode
+.vscode/*
+
+*.DS_Store
+
+*.log
