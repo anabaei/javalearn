@@ -5,5 +5,3 @@
 
 ## Running the Application
 - TBD
-- 
-#### Test
