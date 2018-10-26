@@ -38,6 +38,7 @@ body {
     width: 94vw;
     height: 6vw;
     background-color: white;
+    margin-bottom: 2vw;
 }
 
 .dmHeaderImg {
@@ -45,15 +46,33 @@ body {
     width: 6vw;
 }
 
+#topBarApplicationTitle {
+    margin-top: 1.44vw;
+    margin-left: 2vw;
+    margin-bottom: 2vw;
+    display: inline-block;
+}
+
 .header1Common {
     font-family: Helvetica;
     font-weight: bold;
     font-size: 2.56vw;
-    display: inline-block;
     margin-block-start: 0em;
     margin-block-end: 0em;
-    margin-left: 2vw;
-    margin-top: 1.44vw;
+    margin-left: 4vw;
+    margin-top: 0vw;
+    margin-bottom: 2vw;
+}
+
+.header2Common {
+    font-family: Helvetica;
+    font-weight: normal;
+    font-size: 2.56vw;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-left: 4vw;
+    margin-top: 0vw;
+    margin-bottom: 2vw;
 }
 
 .headerButtonGroup {
@@ -69,12 +88,14 @@ body {
     padding-left: 0.5vw;
     cursor: pointer;
     user-select: none;
+    vertical-align: top;
 }
 
 .headerButton {
     margin-left: 0.5vw !important;
     font-family: Helvetica;
-    font-size: 2vw;
+    font-size: 1.5vw;
     cursor: pointer;
     user-select: none;
+    vertical-align: top;
 }
