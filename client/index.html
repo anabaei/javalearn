@@ -18,16 +18,17 @@
         <!-- DM Header -->
         <div class="dmHeaderContainer">
             <div class="dmLogoBlock">
-                <!-- TODO image -->
+                <img class="dmHeaderImg" ng-src="images/DM-Logo-HiRes.gif"/>
             </div>
             <div class="dmHeader">
                 <h1 class="header1Common dmDarkGrey">
                     Dialectical Maps
                 </h1>
                 <div class="headerButtonGroup dmDarkGrey">
-                    <i class="fas fa-undo"></i>
-                    <i class="fas fa-redo"></i>
-                    <i class="fas fa-download"></i>
+                    <i ng-click="undo()" class="fas fa-undo headerIconIndividual"></i>
+                    <i ng-click="redo()" class="fas fa-redo headerIconIndividual"></i>
+                    <i ng-click="download()" class="fas fa-download headerIconIndividual"></i>
+                    <button ng-click="submit()" class="headerButton">Submit</button>
                 </div>
             </div>
         </div>

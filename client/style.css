@@ -40,6 +40,11 @@ body {
     background-color: white;
 }
 
+.dmHeaderImg {
+    height: 6vw;
+    width: 6vw;
+}
+
 .header1Common {
     font-family: Helvetica;
     font-weight: bold;
@@ -57,4 +62,19 @@ body {
     margin-top: 2vw;
     margin-bottom: 2vw;
     margin-right: 4vw;
+}
+
+.headerIconIndividual {
+    font-size: 2vw;
+    padding-left: 0.5vw;
+    cursor: pointer;
+    user-select: none;
+}
+
+.headerButton {
+    margin-left: 0.5vw !important;
+    font-family: Helvetica;
+    font-size: 2vw;
+    cursor: pointer;
+    user-select: none;
 }
