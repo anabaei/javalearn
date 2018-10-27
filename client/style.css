@@ -18,6 +18,10 @@ body {
     color: #C9C9C9;
 }
 
+.dmWhite {
+    color: white;
+}
+
 .dmHeaderContainer {
     height: 6vw;
     width: 100%;
@@ -98,4 +102,18 @@ body {
     cursor: pointer;
     user-select: none;
     vertical-align: top;
+}
+
+.reasonContainer {
+    margin-left: 4vw;
+    margin-right: 4vw;
+}
+
+.addReasonContainer {
+    height: 6vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-bottom: 2vw;
+    padding-top: 2vw;
+    display: inline-block;
 }
