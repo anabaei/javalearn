@@ -16,6 +16,12 @@ python -m SimpleHTTPServer 8000
 http://localhost:8000/
 ```
 
+## Running the SPRING
+```java
+mvn jetty:run
+```
+* URL : `http://localhost:8080/spring3`
+
 #### Remote
 - TBD
 
