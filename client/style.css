@@ -1,12 +1,13 @@
 body {
     margin: 0px 0px 0px 0px;
-}
-
-.dmBlue {
-    color: #FBBD65;
+    background-color: #C9C9C9;
 }
 
 .dmYellow {
+    color: #FBBD65;
+}
+
+.dmBlue {
     color: #1E3B4F;
 }
 
@@ -25,24 +26,19 @@ body {
 .dmHeaderContainer {
     height: 6vw;
     width: 100%;
-    background-color: orange;
-    margin-bottom: 2vw;
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid #4F4F51;
 }
 
 .dmLogoBlock {
     float: left;
     width: 6vw;
     height: 6vw;
-    background-color: yellow;
 }
 
 .dmHeader {
-    display: inline-block;
-    width: 94vw;
+    width: 100vw;
     height: 6vw;
     background-color: white;
-    margin-bottom: 2vw;
 }
 
 .dmHeaderImg {
@@ -107,6 +103,7 @@ body {
 .reasonContainer {
     margin-left: 4vw;
     margin-right: 4vw;
+    height: 30vw;
 }
 
 .addReasonContainer {
@@ -117,3 +114,61 @@ body {
     padding-top: 2vw;
     display: inline-block;
 }
+
+.conclusionContainer {
+    width: 100vw;
+    padding-top: 2vw;
+    background-color: #C9C9C9;
+    padding-bottom: 4vw;
+}
+
+.conclusionContent {
+    width: 44vw;
+    margin-left: 28vw;
+    margin-right: 28vw;
+    background-color: white;
+}
+
+#conclusionTitle {
+    margin-left: 0vw;
+    padding-top: 2vw;
+    padding-left: 2vw;
+    padding-bottom: 2vw;
+    border-bottom: 1px solid #4F4F51;
+}
+
+.conclusionText {
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-bottom: 2vw;
+}
+
+.bodyType {
+    font-size: 9pt;
+    font-family: Helvetica;
+}
+
+.stanceContainer {
+    background-color: white;
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+}
+
+.halfVContainer {
+    width: 100vw;
+}
+
+.halfV {
+    display: inline-block;
+    width: 50vw;
+    height: 4vw;
+}
+ 
+.leftV {
+    float: left;
+    background: linear-gradient(to left bottom, white 49%, #C9C9C9 50%);
+}
+
+.rightV {
+    background: linear-gradient(to right bottom, white 49%, #C9C9C9 50%);
+}  

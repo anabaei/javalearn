@@ -39,7 +39,7 @@ app.controller('MainController', ['$scope', function($scope) {
         $scope.mapState.topic = "Are dialectical maps an effective teaching tool?";
         $scope.mapState.stanceBlue = "Pro/Agree";
         $scope.mapState.stanceYellow = "Con/Disagree";
-        $scope.mapState.conclusion = "Lorem ipsums";
+        $scope.mapState.conclusion = "Lorem ipsums lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems";
 
         var firstReason = _.cloneDeep(reasonTemplate);
         firstReason.id = 0;
