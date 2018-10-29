@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Dialectical Map</title>
+
+        <link rel="icon" href="favicon.gif">
+        <link rel="stylesheet" href="style.css">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/solid.css" integrity="sha384-osqezT+30O6N/vsMqwW8Ch6wKlMofqueuia2H7fePy42uC05rm1G+BUPSd2iBSJL" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/fontawesome.css" integrity="sha384-BzCy2fixOYd0HObpx3GMefNqdbA7Qjcc91RgYeDjrHTIEXqiF00jKvgQG0+zY/7I" crossorigin="anonymous">
+        <script src="app.js"></script>
+    </head>
+
+    <body ng-app="dmApp" ng-controller="MainController" ng-init="prebuild()">
+        <!-- DM Header -->
+        <div class="dmHeaderContainer">
+            <div class="dmLogoBlock">
+                <img class="dmHeaderImg" ng-src="images/DM-Logo-HiRes.gif"/>
+            </div>
+            <div class="dmHeader">
+                <h1 id="topBarApplicationTitle" class="header1Common dmDarkGrey">
+                    Dialectical Maps
+                </h1>
+                <div class="headerButtonGroup dmDarkGrey">
+                    <i title="Undo" ng-click="undo()" class="fas fa-undo headerIconIndividual"></i>
+                    <i title="Redo" ng-click="redo()" class="fas fa-redo headerIconIndividual"></i>
+                    <i title="Download" ng-click="download()" class="fas fa-download headerIconIndividual"></i>
+                    <button ng-click="submit()" class="headerButton">Submit</button>
+                </div>
+            </div>
+            <h2 class="header2Common dmDarkGrey">
+                {{mapState.assignment}}
+            </h2>
+            <h1 class="header1Common dmDarkGrey">
+                {{mapState.topic}}
+            </h1>
+
+            <!-- reason area -->
+        </div>
+    </body>
+</html>
