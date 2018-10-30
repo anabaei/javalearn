@@ -1,5 +1,22 @@
+html {
+    width:100vw;
+    overflow-x:hidden;
+}
+
 body {
     margin: 0px 0px 0px 0px;
+    background-color: #C9C9C9;
+}
+
+.dmBlueBackground {
+    background-color: #1E3B4F;
+}
+
+.dmYellowBackground {
+    background-color: #FBBD65;
+}
+
+.dmLightGreyBackground {
     background-color: #C9C9C9;
 }
 
@@ -161,38 +178,68 @@ body {
     border-color: #ffffff transparent transparent transparent;
 }
 
-.addReasonContainer {
-    height: 6vw;
-    padding-left: 2vw;
-    padding-right: 2vw;
-    padding-bottom: 2vw;
-    padding-top: 2vw;
-    display: inline-block;
-}
-
 .reasonContainer {
     margin-left: 4vw;
     margin-right: 4vw;
 }
 
-.blueStance {
-    background-color: blue;
+.stanceContainer {
     width: 44vw;
-    height: 2vw;
     display: inline-block;
-}
-
-.yellowStance {
-    background-color: yellow;
-    width: 44vw;
-    height: 2vw;
-    display: inline-block;
+    vertical-align: top;
 }
 
 .stanceSpacer {
-    background-color: grey;
+    background-color: white;
     width: 4vw;
-    height: 2vw;
+    height: 4vw;
     display: inline-block;
 }
 
+.whiteSpaceRemove {
+    font-size: 0;
+}
+
+.stanceTitle {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    height: 4vw;
+}
+
+.linker {
+    display: inline-block;
+    height: 4vw;
+    width: 4vw;
+    vertical-align: top;
+    text-align: center;
+}
+
+#linkerArrow {
+    color: white;
+    font-size: 3vw;
+    padding-top: 0.5vw;
+    padding-bottom: 0.5vw;
+}
+
+.commonCol {
+    width: 44vw;
+    display: inline-block;
+}
+
+.addReasonBlock {
+    padding-top: 2vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-bottom: 2vw;
+}
+
+.reasonBlockHeaderOv {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+}
+
+.reasonBlock {
+    
+}

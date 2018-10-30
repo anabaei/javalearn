@@ -44,19 +44,48 @@
             <!-- container for reason area -->
             <div class="reasonContainer">
                 <!-- container for stances -->
-                <div>
-                    <div class="blueStance">
-
+                <div class="whiteSpaceRemove">
+                    <div class="stanceContainer">
+                        <h1 class="header1Common dmBlue stanceTitle">{{mapState.stanceBlue}}</h1>
                     </div>
-                    <div class="stanceSpacer">
-
-                    </div>
-                    <div class="yellowStance">
-
+                    <div class="stanceSpacer"></div>
+                    <div class="stanceContainer">
+                        <h1 class="header1Common dmYellow stanceTitle">{{mapState.stanceYellow}}</h1>
                     </div>
                 </div>
-                <!-- TODO reason blocks -->
-                <!-- TODO add reason blocks -->
+                <!-- TODO linked reason blocks, empty if no links -->
+                <div>
+                    <!-- TODO -->
+                </div>
+                <div class="whiteSpaceRemove">
+                    <div class="commonCol">
+                        <!-- Blue existing reason block -->
+                        <div class="reasonBlock dmBlueBackground">
+
+                        </div>
+                        <!-- Blue add reason block -->
+                        <div class="addReasonBlock dmBlueBackground reasonBlockHeaderOv">
+                            <h1 class="header1Common reasonBlockHeaderOv dmWhite">
+                                <i class="fas fa-plus"></i> Add Reason
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="linker dmLightGreyBackground">
+                        <i id="linkerArrow" class="fas fa-arrows-alt-h"></i>
+                    </div>
+                    <div class="commonCol">
+                        <!-- Yellow existing reason block -->
+                        <div>
+
+                        </div>
+                        <!-- Yellow add reason block -->
+                        <div class="addReasonBlock dmYellowBackground">
+                            <h1 class="header1Common reasonBlockHeaderOv dmBlue">
+                                <i class="fas fa-plus"></i> Add Reason
+                            </h1>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- Color v area -->
