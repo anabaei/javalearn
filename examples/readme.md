@@ -113,6 +113,19 @@ java HelloWorld         // this command feeding JRE which use JVM to run it
 <details>
   <summary> Graph </summary>
   
+  * Graphs are a bunch of nodes connected to each other. We need `node` and a list of nodes connected to it so to build Graph
+  ```java
+  import java.util.Hashmap;
+import java.util.ArrayList;
+
+class Node {
+    String label;
+    ArrayList<Node> adjacencyList;
+}
+
+HashMap<String, Node> graph = new HashMap<String, Node>();
+  ```
+  
  * BFS search [BFS for a Graph](https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/) 
  </details> 
 
