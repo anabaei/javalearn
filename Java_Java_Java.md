@@ -15,6 +15,11 @@
  * WAR(Web Application Archive) files are for web applicaitons. JAR(Java Archive) files can be saved as any format but WAR files are created from Servlets. WAR has a WEB-INF/lib directory, xml and classes.  
  * EJB are packed as JAR files whereas web modules are packaged as WAR files which contains JSP files
 </details>
+<details>
+           <summary> Serialize </summary>
+           
+* To serialize an object means to convert its state to a byte stream so that the byte stream can be reverted back into a copy of the object.            
+</details>
 
 These codes are Java 8 exercises for keeping in mind fresh objects in object oriented concepts. 
 
