@@ -9,7 +9,12 @@
            <P> When create a source code in order to running we need JDK. We feed up source code into JDK and produce Java application. Java is not like C which when you compile then you can run it. JDK produces `ByteCode` which is an abstraction platform independent and only JRE provides what Bytecode needs to execute on any host environment 
            </p>
 </details>
-
+<details> 
+           <summary> JAR & WAR</summary>  
+  
+ * WAR(Web Application Archive) files are for web applicaitons. JAR(Java Archive) files can be saved as any format but WAR files are created from Servlets. WAR has a WEB-INF/lib directory, xml and classes.  
+ * EJB are packed as JAR files whereas web modules are packaged as WAR files which contains JSP files
+</details>
 
 These codes are Java 8 exercises for keeping in mind fresh objects in object oriented concepts. 
 
