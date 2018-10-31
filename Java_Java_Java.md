@@ -1,7 +1,7 @@
 ### Java Learn
 
-* Static methods can not access to instance variables outside, unless the instance was created inside static mehthods like calling non static classes inside main static
-* 
+* Static methods can not access to instance variables outside, unless the instance was created inside static mehthods like calling non static classes inside main static [here](https://www.quora.com/What-is-the-difference-between-static-and-non-static-methods-memory-allocation-in-java)
+* Static methods are not-thread safe so only one thread running but non-static methods are thread-safe and more than one thread can run. 
 
 <details>
            <summary>JRE & JDK </summary>
