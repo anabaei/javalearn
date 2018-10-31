@@ -112,8 +112,9 @@ java HelloWorld         // this command feeding JRE which use JVM to run it
 
 <details>
   <summary> Graph </summary>
+  
   * Usually showing graph using two types of data adjacing list and adjacing matrix from [here](https://www.geeksforgeeks.org/graph-and-its-representations/)
-  * Graphs are a bunch of nodes connected to each other. We need `node` and a list of nodes connected to it so to build Graph
+  * Graphs are a bunch of nodes connected to each other. We need `node`. Below is adjacing list 
   ```java
   import java.util.Hashmap;
 import java.util.ArrayList;
