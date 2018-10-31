@@ -1,4 +1,7 @@
-Java Learn
+### Java Learn
+
+* Static methods can not access to instance variables outside, unless the instance was created inside static mehthods like calling non static classes inside main static
+* 
 
 <details>
            <summary>JRE & JDK </summary>
