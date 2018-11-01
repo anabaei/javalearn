@@ -53,6 +53,9 @@ app.controller('MainController', ['$scope', function($scope) {
         $scope.logMapState();
     };
 
+    $scope.blueToggle = false;
+    $scope.yellowToggle = false;
+
     $scope.logMapState = function() {
         console.log($scope.mapState);
     };
@@ -71,6 +74,10 @@ app.controller('MainController', ['$scope', function($scope) {
 
     $scope.download = function() {
         console.log("download function");
+    }
+
+    $scope.linkArguments = function() {
+        console.log("link function for arguments");
     }
     
 }]);

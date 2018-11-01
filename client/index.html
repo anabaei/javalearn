@@ -27,13 +27,14 @@
                     Dialectical Maps
                 </h1>
                 <div class="headerButtonGroup dmDarkGrey">
-                    <i title="Undo" ng-click="undo()" class="fas fa-undo headerIconIndividual"></i>
-                    <i title="Redo" ng-click="redo()" class="fas fa-redo headerIconIndividual"></i>
-                    <i title="Download" ng-click="download()" class="fas fa-download headerIconIndividual"></i>
+                    <i title="Undo" ng-click="undo()" class="fas fa-undo headerIconIndividual noSelect"></i>
+                    <i title="Redo" ng-click="redo()" class="fas fa-redo headerIconIndividual noSelect"></i>
+                    <i title="Download" ng-click="download()" class="fas fa-download headerIconIndividual noSelect"></i>
                     <button ng-click="submit()" class="headerButton">Submit</button>
                 </div>
             </div>
         </div>
+        <!-- DM Application body -->
         <div class="dialecticalContainer">
             <h2 class="header2Common dmDarkGrey">
                 {{mapState.assignment}}
@@ -63,33 +64,48 @@
                         <div class="reasonBlock dmBlueBackground">
                             <!-- Reason control and strength -->
                             <div>
-                                <h1 class="reasonBlockTitle header1Common dmWhite">Reason</h1>
+                                <h1 class="reasonBlockTitle header1Common dmWhite noSelect">
+                                    Reason
+                                    <div class="reasonButtonGroup">
+                                        <i class="fas fa-caret-square-up"></i>
+                                        <i class="fas fa-caret-square-down"></i>
+                                        <i class="fas fa-minus-square"></i>
+                                    </div>
+                                </h1>
                             </div>
                             <!-- Reason content -->
                             <div class="reasonContent">
-                                <!--TODO better to have a custom text area, easier to control.-->
+                                <textarea class="reasonTextArea bodyType" placeholder="Insert Reason"></textarea>
                             </div>
                             <!-- Evidence Control -->
-                            <div>
+                            <div class="noSelect">
                                 <h1 class="reasonBlockTitle header1Common dmWhite evidenceTitleOv">
-                                    <i class="fas fa-caret-right"></i> Evidence
+                                    <div class="toggleCaret clickable">
+                                        <i ng-show="!blueToggle" ng-click="blueToggle = true" class="fas fa-caret-right"></i>
+                                        <i ng-show="blueToggle" ng-click="blueToggle = false" class="fas fa-caret-down"></i>
+                                    </div> Evidence
                                 </h1>
                             </div>
                             <!-- Evidence content -->
-                            <div>
-
+                            <div ng-if="blueToggle" class="evidenceContent">
+                                <!-- TODO select box polish -->
+                                <select class="supportsDropdown"></select>
+                                <textarea class="evidenceTextArea bodyType" placeholder="Insert Evidence"></textarea>
+                                <textarea class="evidenceTextArea bodyType" placeholder="Warrants"></textarea>
+                                <!-- TODO add evidence empty block -->
                             </div>
                         </div>
                         <!-- Blue add reason block -->
-                        <div class="addReasonBlock dmBlueBackground reasonBlockHeaderOv">
+                        <div class="addReasonBlock dmBlueBackground reasonBlockHeaderOv noSelect clickable">
                             <h1 class="header1Common reasonBlockHeaderOv dmWhite">
                                 <i class="fas fa-plus"></i> Add Reason
                             </h1>
                         </div>
                     </div>
-                    <div class="linker dmLightGreyBackground">
+                    <div ng-click="linkArguments()" class="linker dmLightGreyBackground clickable">
                         <i id="linkerArrow" class="fas fa-arrows-alt-h"></i>
                     </div>
+                    <!-- Replace later with swapped blue grid -->
                     <div class="commonCol">
                         <!-- Yellow existing reason block -->
                         <div class="reasonBlock dmYellowBackground">
@@ -102,6 +118,7 @@
                             </h1>
                         </div>
                     </div>
+                    <!-- end of replace later -->
                 </div>
             </div>
         </div>
