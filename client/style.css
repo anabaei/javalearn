@@ -220,14 +220,18 @@ body {
     height: 4vw;
     width: 4vw;
     vertical-align: top;
-    text-align: center;
+}
+
+.innerLinker {
+    display: flex;
+    height: 4vw;
+    align-items: center;
+    justify-content: center;
 }
 
 #linkerArrow {
     color: white;
     font-size: 3vw;
-    padding-top: 0.5vw;
-    padding-bottom: 0.5vw;
 }
 
 .commonCol {
