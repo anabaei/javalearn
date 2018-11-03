@@ -96,6 +96,8 @@ body {
     font-family: Helvetica;
     font-weight: bold;
     font-size: 1.54vw;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
 }
 
 .headerButtonGroup {
@@ -264,6 +266,7 @@ body {
 .reasonBlockTitle {
     margin-left: 0vw;
     margin-right: 0vw;
+    display: inline-block;
 }
 
 .reasonContent {
@@ -296,8 +299,19 @@ body {
     height: 4vw;
 }
 
-.supportsDropdown {
+.supportsSwap {
     width: 40vw;
+    height: 2.54vw;
+    background-color: white;
+    border: 1px solid gray;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+
+.swapIcon {
+    margin-left: 0.5vw;
+    margin-right: 0.5vw;
 }
 
 .bodyType {
@@ -317,4 +331,24 @@ body {
 
 .reasonButtonGroup {
     display: inline-block;
+}
+
+.strengthBlock {
+    background-color: orange;
+    float: right;
+    height: 2.56vw;
+    display: flex;
+    align-items: center;
+}
+
+.strengthNumOv {
+    margin-left: 0;
+    margin-bottom: 0;
+    margin-right: 0;
+}
+
+.strengthControls {
+    margin-left: 1.5vw;
+    border: 1px white solid;
+    padding: 0.5vw;
 }

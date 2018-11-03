@@ -67,11 +67,19 @@
                                 <h1 class="reasonBlockTitle header1Common dmWhite noSelect">
                                     Reason
                                     <div class="reasonButtonGroup">
-                                        <i class="fas fa-caret-square-up"></i>
-                                        <i class="fas fa-caret-square-down"></i>
-                                        <i class="fas fa-minus-square"></i>
+                                        <i class="fas fa-caret-square-up clickable"></i>
+                                        <i class="fas fa-caret-square-down clickable"></i>
+                                        <i class="fas fa-minus-square clickable"></i>
                                     </div>
                                 </h1>
+                                <div class="strengthBlock">
+                                    <h3 class="header3Common dmWhite">
+                                        STRENGTH
+                                    </h3>
+                                    <div class="strengthControls">
+                                            <h1 class="header1Common strengthNumOv dmWhite">1</h1>
+                                    </div>
+                                </div>
                             </div>
                             <!-- Reason content -->
                             <div class="reasonContent">
@@ -89,7 +97,12 @@
                             <!-- Evidence content -->
                             <div ng-if="blueToggle" class="evidenceContent">
                                 <!-- TODO select box polish -->
-                                <select class="supportsDropdown"></select>
+                                <div class="supportsSwap">
+                                    <h3 class="header3Common dmDarkGrey">
+                                        <i class="fas fa-exchange-alt swapIcon"></i>
+                                        SUPPORTS
+                                    </h3>
+                                </div>
                                 <textarea class="evidenceTextArea bodyType" placeholder="Insert Evidence"></textarea>
                                 <textarea class="evidenceTextArea bodyType" placeholder="Warrants"></textarea>
                                 <!-- TODO add evidence empty block -->

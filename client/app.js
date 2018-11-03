@@ -31,6 +31,14 @@ app.controller('MainController', ['$scope', function($scope) {
 
     $scope.mapState = {};
 
+    $scope.strengthValues = [
+        1,
+        2,
+        3,
+        4,
+        5
+    ];
+
     $scope.prebuild = function() {
 
         //Instantiate a new map
@@ -53,7 +61,7 @@ app.controller('MainController', ['$scope', function($scope) {
         $scope.logMapState();
     };
 
-    $scope.blueToggle = false;
+    $scope.blueToggle = true;
     $scope.yellowToggle = false;
 
     $scope.logMapState = function() {
