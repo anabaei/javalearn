@@ -1,11 +1,10 @@
 # Dialectical Maps
 
-## Environment Setup
+## Local Environment Dependencies 
 - TBD
 
-## Running the Application
-### Client
-#### Local
+## Running the Application (Locally)
+
 - In terminal, navigate to the `client` folder
 - With Python installed, run:
 ```
@@ -16,19 +15,12 @@ python -m SimpleHTTPServer 8000
 http://localhost:8000/
 ```
 
-## Running the SPRING
+## Running the Backend (Locally)
 ```java
 mvn jetty:run
 ```
 * URL : `http://localhost:8080/spring3`
 
-#### Remote
+## Running the Database (Locally)
 - TBD
 
-### Server
-
-#### Local
-- TBD
-
-#### Remote
-- TBD
