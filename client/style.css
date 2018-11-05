@@ -20,6 +20,10 @@ body {
     background-color: #C9C9C9;
 }
 
+.dmWhiteBackground {
+    background-color: white;
+}
+
 .dmYellow {
     color: #FBBD65;
 }
@@ -153,11 +157,6 @@ body {
     padding-left: 2vw;
     padding-right: 2vw;
     padding-bottom: 2vw;
-}
-
-.bodyType {
-    font-size: 17px;
-    font-family: Helvetica;
 }
 
 .dialecticalContainer {
@@ -301,8 +300,7 @@ body {
 
 .supportsSwap {
     width: 40vw;
-    height: 2.54vw;
-    background-color: white;
+    height: 2.56vw;
     border: 1px solid gray;
     box-sizing: border-box;
     display: flex;
@@ -317,7 +315,6 @@ body {
 .bodyType {
     font-family: Helvetica;
     font-size: 1.54vw;
-    color: #4F4F51;
 }
 
 .toggleCaret {
@@ -334,7 +331,6 @@ body {
 }
 
 .strengthBlock {
-    background-color: orange;
     float: right;
     height: 2.56vw;
     display: flex;
@@ -345,10 +341,58 @@ body {
     margin-left: 0;
     margin-bottom: 0;
     margin-right: 0;
+
 }
 
 .strengthControls {
-    margin-left: 1.5vw;
-    border: 1px white solid;
-    padding: 0.5vw;
+    margin-left: 1vw;
+    border: 1px solid white;
+    padding: 0.25vw;
+}
+
+.minusIcon {
+    font-size: 2.56vw;
+}
+
+.minusBlock {
+    width: 2.2vw;
+}
+
+.supportsHeader {
+    width: 37.8vw;
+}
+
+.addEvidenceBlock {
+    border: 1px solid white;
+    margin-top: 2vw;
+    height: 5vw;
+    display: flex;
+    justify-content: center;
+}
+
+.innerEvidenceBlock {
+   height: 5vw;
+   display: flex;
+   align-items: center;
+}
+
+.strengthPlus {
+    padding-left: 0.8vw;
+    padding-right: 0.5vw;
+    font-size: 2vw;
+}
+
+.strengthMinus {
+    padding-right: 0.8vw;
+    padding-left: 0.5vw;
+    font-size: 2vw;
+}
+
+.strengthHeader {
+    align-self: flex-end;
+}
+
+.strengthAdjustContainer {
+    display: flex;
+    align-items: center;
 }

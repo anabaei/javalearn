@@ -64,6 +64,9 @@ app.controller('MainController', ['$scope', function($scope) {
     $scope.blueToggle = true;
     $scope.yellowToggle = false;
 
+    $scope.blueSupports = true;
+    $scope.yellowSupports = true;
+
     $scope.logMapState = function() {
         console.log($scope.mapState);
     };
@@ -74,18 +77,22 @@ app.controller('MainController', ['$scope', function($scope) {
 
     $scope.submit = function() {
         console.log("submit function");
-    }
+    };
 
     $scope.undo = function() {
         console.log("undo function");
-    }
+    };
 
     $scope.download = function() {
         console.log("download function");
-    }
+    };
 
     $scope.linkArguments = function() {
         console.log("link function for arguments");
-    }
+    };
+
+    $scope.toggleSupport = function() {
+        $scope.blueSupports = !$scope.blueSupports;
+    };
     
 }]);

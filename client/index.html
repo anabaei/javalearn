@@ -72,18 +72,24 @@
                                         <i class="fas fa-minus-square clickable"></i>
                                     </div>
                                 </h1>
-                                <div class="strengthBlock">
-                                    <h3 class="header3Common dmWhite">
+                                <div class="strengthBlock noSelect">
+                                    <h3 class="header3Common dmWhite strengthHeader">
                                         STRENGTH
                                     </h3>
                                     <div class="strengthControls">
-                                            <h1 class="header1Common strengthNumOv dmWhite">1</h1>
+                                        <h1 class="header1Common strengthNumOv dmWhite">
+                                            <div class="strengthAdjustContainer">
+                                                <i class="fas fa-minus clickable strengthMinus"></i>
+                                                <span>1</span>
+                                                <i class="fas fa-plus clickable strengthPlus"></i>
+                                            </div>
+                                        </h1>
                                     </div>
                                 </div>
                             </div>
                             <!-- Reason content -->
                             <div class="reasonContent">
-                                <textarea class="reasonTextArea bodyType" placeholder="Insert Reason"></textarea>
+                                <textarea class="reasonTextArea bodyType dmDarkGrey" placeholder="Insert Reason"></textarea>
                             </div>
                             <!-- Evidence Control -->
                             <div class="noSelect">
@@ -97,15 +103,24 @@
                             <!-- Evidence content -->
                             <div ng-if="blueToggle" class="evidenceContent">
                                 <!-- TODO select box polish -->
-                                <div class="supportsSwap">
-                                    <h3 class="header3Common dmDarkGrey">
+                                <div ng-class="blueSupports ? 'dmWhiteBackground' : 'dmYellowBackground'" class="supportsSwap noSelect clickable">
+                                    <h3 ng-click="toggleSupport()" class="header3Common dmDarkGrey supportsHeader">
                                         <i class="fas fa-exchange-alt swapIcon"></i>
-                                        SUPPORTS
+                                        <span ng-if="blueSupports">SUPPORTS</span>
+                                        <span ng-if="!blueSupports">OPPOSES</span>
                                     </h3>
+                                    <div class="minusBlock">
+                                        <i class="fas fa-minus-square minusIcon dmDarkGrey"></i>
+                                    </div>
                                 </div>
-                                <textarea class="evidenceTextArea bodyType" placeholder="Insert Evidence"></textarea>
-                                <textarea class="evidenceTextArea bodyType" placeholder="Warrants"></textarea>
-                                <!-- TODO add evidence empty block -->
+                                <textarea class="evidenceTextArea bodyType dmDarkGrey" placeholder="Insert Evidence"></textarea>
+                                <textarea class="evidenceTextArea bodyType dmDarkGrey" placeholder="Warrants"></textarea>
+                                <!-- evidence empty block -->
+                                <div class="addEvidenceBlock clickable">
+                                    <div class="bodyType dmWhite innerEvidenceBlock noSelect">
+                                            <span><i class="fas fa-plus"></i> Add Evidence</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <!-- Blue add reason block -->
@@ -149,7 +164,7 @@
                 <h1 id="conclusionTitle" class="header1Common dmDarkGrey">
                     Conclusion
                 </h1>
-                <div class="conclusionText dmDarkGrey bodyType">
+                <div class="conclusionText dmDarkGrey bodyType dmDarkGrey">
                     {{mapState.conclusion}}
                 </div>
             </div>
