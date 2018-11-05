@@ -2,23 +2,73 @@ var app = angular.module("dmApp", []);
 
 app.controller('MainController', ['$scope', function($scope) {
     
+    const evidenceTemplate = {
+        id: null,
+        supports: true,
+        evidenceText: "",
+        warrantText: ""
+    };
+
     const reasonTemplate = {
-        id: "",
-        alignment: "",
+        id: null,
+        linkID: null,
         reasonText: "",
-        strength: 0,
+        strength: 1,
         evidences: []
     };
 
-    $scope.mapState = {
-        assignment: "Assignment 1",
-        topic: "Are Dialectical maps an effective teaching tool?",
-        ownerID: "jtoering",
-        reasons: []
+    const mapTemplate = {
+        id: null,
+        ownerID: null,
+        assignment: "",
+        topic: "",
+        stanceBlue: "",
+        blueReasons: [],
+        stanceYellow: "",
+        yellowReasons: [],
+        conclusion: ""
     };
 
+    $scope.mapState = {};
+
+    $scope.strengthValues = [
+        1,
+        2,
+        3,
+        4,
+        5
+    ];
+
     $scope.prebuild = function() {
-        console.log("ng-init ran");
+
+        //Instantiate a new map
+        $scope.mapState = _.cloneDeep(mapTemplate);
+        $scope.mapState.assignment = "Assignment 1";
+        $scope.mapState.topic = "Are dialectical maps an effective teaching tool?";
+        $scope.mapState.stanceBlue = "Pro/Agree";
+        $scope.mapState.stanceYellow = "Con/Disagree";
+        $scope.mapState.conclusion = "Lorem ipsums lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems";
+
+        var firstReason = _.cloneDeep(reasonTemplate);
+        firstReason.id = 0;
+
+        var secondReason = _.cloneDeep(reasonTemplate);
+        secondReason.id = 1;
+        
+        $scope.mapState.blueReasons.push(firstReason);
+        $scope.mapState.yellowReasons.push(secondReason);
+
+        $scope.logMapState();
+    };
+
+    $scope.blueToggle = true;
+    $scope.yellowToggle = false;
+
+    $scope.blueSupports = true;
+    $scope.yellowSupports = true;
+
+    $scope.logMapState = function() {
+        console.log($scope.mapState);
     };
 
     $scope.redo = function() {
@@ -27,14 +77,26 @@ app.controller('MainController', ['$scope', function($scope) {
 
     $scope.submit = function() {
         console.log("submit function");
-    }
+    };
 
     $scope.undo = function() {
         console.log("undo function");
-    }
+    };
 
     $scope.download = function() {
         console.log("download function");
+    };
+
+    $scope.linkArguments = function() {
+        console.log("link function for arguments");
+    };
+
+    $scope.toggleSupportBlue = function() {
+        $scope.blueSupports = !$scope.blueSupports;
+    };
+
+    $scope.toggleSupportYellow = function() {
+        $scope.yellowSupports = !$scope.yellowSupports;
     }
     
 }]);

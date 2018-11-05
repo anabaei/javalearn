@@ -9,6 +9,8 @@
         <link rel="stylesheet" href="style.css">
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js"></script>
+
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/solid.css" integrity="sha384-osqezT+30O6N/vsMqwW8Ch6wKlMofqueuia2H7fePy42uC05rm1G+BUPSd2iBSJL" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/fontawesome.css" integrity="sha384-BzCy2fixOYd0HObpx3GMefNqdbA7Qjcc91RgYeDjrHTIEXqiF00jKvgQG0+zY/7I" crossorigin="anonymous">
         <script src="app.js"></script>
@@ -17,7 +19,7 @@
     <body ng-app="dmApp" ng-controller="MainController" ng-init="prebuild()">
         <!-- DM Header -->
         <div class="dmHeaderContainer">
-            <div class="dmLogoBlock">
+            <div ng-click="logMapState()" class="dmLogoBlock">
                 <img class="dmHeaderImg" ng-src="images/DM-Logo-HiRes.gif"/>
             </div>
             <div class="dmHeader">
@@ -25,20 +27,205 @@
                     Dialectical Maps
                 </h1>
                 <div class="headerButtonGroup dmDarkGrey">
-                    <i title="Undo" ng-click="undo()" class="fas fa-undo headerIconIndividual"></i>
-                    <i title="Redo" ng-click="redo()" class="fas fa-redo headerIconIndividual"></i>
-                    <i title="Download" ng-click="download()" class="fas fa-download headerIconIndividual"></i>
+                    <i title="Undo" ng-click="undo()" class="fas fa-undo headerIconIndividual noSelect"></i>
+                    <i title="Redo" ng-click="redo()" class="fas fa-redo headerIconIndividual noSelect"></i>
+                    <i title="Download" ng-click="download()" class="fas fa-download headerIconIndividual noSelect"></i>
                     <button ng-click="submit()" class="headerButton">Submit</button>
                 </div>
             </div>
+        </div>
+        <!-- DM Application body -->
+        <div class="dialecticalContainer">
             <h2 class="header2Common dmDarkGrey">
                 {{mapState.assignment}}
             </h2>
             <h1 class="header1Common dmDarkGrey">
                 {{mapState.topic}}
             </h1>
+            <!-- container for reason area -->
+            <div class="reasonContainer">
+                <!-- container for stances -->
+                <div class="whiteSpaceRemove">
+                    <div class="stanceContainer">
+                        <h1 class="header1Common dmBlue stanceTitle">{{mapState.stanceBlue}}</h1>
+                    </div>
+                    <div class="stanceSpacer"></div>
+                    <div class="stanceContainer">
+                        <h1 class="header1Common dmYellow stanceTitle">{{mapState.stanceYellow}}</h1>
+                    </div>
+                </div>
+                <!-- TODO linked reason blocks, empty if no links -->
+                <div>
+                    <!-- TODO -->
+                </div>
+                <div class="whiteSpaceRemove">
+                    <div class="commonCol">
+                        <!-- Blue existing reason block -->
+                        <div class="reasonBlock dmBlueBackground">
+                            <!-- Reason control and strength -->
+                            <div>
+                                <h1 class="reasonBlockTitle header1Common dmWhite noSelect">
+                                    Reason
+                                    <div class="reasonButtonGroup">
+                                        <i class="fas fa-caret-square-up clickable"></i>
+                                        <i class="fas fa-caret-square-down clickable"></i>
+                                        <i class="fas fa-minus-square clickable"></i>
+                                    </div>
+                                </h1>
+                                <div class="strengthBlock noSelect">
+                                    <h3 class="header3Common dmWhite strengthHeader">
+                                        STRENGTH
+                                    </h3>
+                                    <div class="strengthControlsBlue">
+                                        <h1 class="header1Common strengthNumOv dmWhite">
+                                            <div class="strengthAdjustContainer">
+                                                <i class="fas fa-minus clickable strengthMinus"></i>
+                                                <span>1</span>
+                                                <i class="fas fa-plus clickable strengthPlus"></i>
+                                            </div>
+                                        </h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Reason content -->
+                            <div class="reasonContent">
+                                <textarea class="reasonTextArea bodyType dmDarkGrey" placeholder="Insert Reason"></textarea>
+                            </div>
+                            <!-- Evidence Control -->
+                            <div class="noSelect">
+                                <h1 class="reasonBlockTitle header1Common dmWhite evidenceTitleOv">
+                                    <div class="toggleCaret clickable">
+                                        <i ng-show="!blueToggle" ng-click="blueToggle = true" class="fas fa-caret-right"></i>
+                                        <i ng-show="blueToggle" ng-click="blueToggle = false" class="fas fa-caret-down"></i>
+                                    </div> Evidence
+                                </h1>
+                            </div>
+                            <!-- Evidence content -->
+                            <div ng-if="blueToggle" class="evidenceContent">
+                                <!-- TODO select box polish -->
+                                <div ng-class="blueSupports ? 'dmWhiteBackground' : 'dmYellowBackground'" class="supportsSwap noSelect clickable">
+                                    <h3 ng-click="toggleSupportBlue()" class="header3Common dmDarkGrey supportsHeader">
+                                        <i class="fas fa-exchange-alt swapIcon"></i>
+                                        <span ng-if="blueSupports">SUPPORTS</span>
+                                        <span ng-if="!blueSupports">OPPOSES</span>
+                                    </h3>
+                                    <div class="minusBlock">
+                                        <i class="fas fa-minus-square minusIcon dmDarkGrey"></i>
+                                    </div>
+                                </div>
+                                <textarea class="evidenceTextArea bodyType dmDarkGrey" placeholder="Insert Evidence"></textarea>
+                                <textarea class="evidenceTextArea bodyType dmDarkGrey" placeholder="Warrants"></textarea>
+                                <!-- evidence empty block -->
+                                <div class="addEvidenceBlock blueAddEvidenceBlock clickable">
+                                    <div class="bodyType dmWhite innerEvidenceBlock noSelect">
+                                            <span><i class="fas fa-plus"></i> Add Evidence</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Blue add reason block -->
+                        <div class="addReasonBlock dmBlueBackground reasonBlockHeaderOv noSelect clickable">
+                            <h1 class="header1Common reasonBlockHeaderOv dmWhite">
+                                <i class="fas fa-plus"></i> Add Reason
+                            </h1>
+                        </div>
+                    </div>
+                    <div ng-click="linkArguments()" class="linker dmLightGreyBackground clickable">
+                        <div class="innerLinker">
+                            <i id="linkerArrow" class="fas fa-arrows-alt-h"></i>
+                        </div>
+                    </div>
+                    <!-- Yellow side -->
+                    <div class="commonCol">
+                            <!-- Yellow existing reason block -->
+                            <div class="reasonBlock dmYellowBackground">
+                                <!-- Reason control and strength -->
+                                <div>
+                                    <h1 class="reasonBlockTitle header1Common dmDarkGrey noSelect">
+                                        Reason
+                                        <div class="reasonButtonGroup">
+                                            <i class="fas fa-caret-square-up clickable"></i>
+                                            <i class="fas fa-caret-square-down clickable"></i>
+                                            <i class="fas fa-minus-square clickable"></i>
+                                        </div>
+                                    </h1>
+                                    <div class="strengthBlock noSelect">
+                                        <h3 class="header3Common dmDarkGrey strengthHeader">
+                                            STRENGTH
+                                        </h3>
+                                        <div class="strengthControlsYellow">
+                                            <h1 class="header1Common strengthNumOv dmDarkGrey">
+                                                <div class="strengthAdjustContainer">
+                                                    <i class="fas fa-minus clickable strengthMinus"></i>
+                                                    <span>1</span>
+                                                    <i class="fas fa-plus clickable strengthPlus"></i>
+                                                </div>
+                                            </h1>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Reason content -->
+                                <div class="reasonContent">
+                                    <textarea class="reasonTextArea bodyType dmDarkGrey" placeholder="Insert Reason"></textarea>
+                                </div>
+                                <!-- Evidence Control -->
+                                <div class="noSelect">
+                                    <h1 class="reasonBlockTitle header1Common dmDarkGrey evidenceTitleOv">
+                                        <div class="toggleCaret clickable">
+                                            <i ng-show="!yellowToggle" ng-click="yellowToggle = true" class="fas fa-caret-right"></i>
+                                            <i ng-show="yellowToggle" ng-click="yellowToggle = false" class="fas fa-caret-down"></i>
+                                        </div> Evidence
+                                    </h1>
+                                </div>
+                                <!-- Evidence content -->
+                                <div ng-if="yellowToggle" class="evidenceContent">
+                                    <div ng-class="yellowSupports ? 'dmWhiteBackground' : 'dmBlueBackground'" class="supportsSwap noSelect clickable">
+                                        <h3 ng-click="toggleSupportYellow()" ng-class="yellowSupports? '' : 'dmWhite'" class="header3Common dmDarkGrey supportsHeader">
+                                            <i class="fas fa-exchange-alt swapIcon"></i>
+                                            <span ng-if="yellowSupports">SUPPORTS</span>
+                                            <span ng-if="!yellowSupports">OPPOSES</span>
+                                        </h3>
+                                        <div ng-class="yellowSupports? '' : 'dmWhite'" class="minusBlock dmDarkGrey">
+                                            <i class="fas fa-minus-square minusIcon"></i>
+                                        </div>
+                                    </div>
+                                    <textarea class="evidenceTextArea bodyType dmDarkGrey" placeholder="Insert Evidence"></textarea>
+                                    <textarea class="evidenceTextArea bodyType dmDarkGrey" placeholder="Warrants"></textarea>
+                                    <!-- evidence empty block -->
+                                    <div class="addEvidenceBlock yellowAddEvidenceBlock clickable">
+                                        <div class="bodyType dmDarkGrey innerEvidenceBlock noSelect">
+                                                <span><i class="fas fa-plus"></i> Add Evidence</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- yellow add reason block -->
+                            <div class="addReasonBlock dmYellowBackground reasonBlockHeaderOv noSelect clickable">
+                                <h1 class="header1Common reasonBlockHeaderOv dmDarkGrey">
+                                    <i class="fas fa-plus"></i> Add Reason
+                                </h1>
+                            </div>
+                        </div>
+                    <!-- end of replace later -->
+                </div>
+            </div>
+        </div>
+        <!-- Color v area -->
+        <div class="halfVContainer">
+            <div class="triBorder">
 
-            <!-- reason area -->
+            </div>
+        </div>
+        <!-- container for conclusion area -->
+        <div class="conclusionContainer">
+            <div class="conclusionContent">
+                <h1 id="conclusionTitle" class="header1Common dmDarkGrey">
+                    Conclusion
+                </h1>
+                <div class="conclusionText dmDarkGrey bodyType dmDarkGrey">
+                    {{mapState.conclusion}}
+                </div>
+            </div>
         </div>
     </body>
 </html>
