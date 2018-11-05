@@ -22,3 +22,14 @@ defaults write com.app.finder AppleShowAllFiles TRUE
 mvn archetype:generate -DgroupId=com.jcg.maven -DartifactId=MavenHelloWorldProject -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 ```
 * Then follow [this](https://examples.javacodegeeks.com/enterprise-java/maven/apache-maven-hello-world-example/) to create Maven from Eclipse
+
+<details>
+  <summary> MySQL </summary>
+  
+ * If you forgot mysql password when running 
+ ```java
+ mysql -u root -p
+ ```
+ * Then you need to remove mysql and dowload it again as [here](https://coderwall.com/p/os6woq/uninstall-all-those-broken-versions-of-mysql-and-re-install-it-with-brew-on-mac-mavericks)
+ 
+  </details>
