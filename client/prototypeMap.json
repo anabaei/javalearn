@@ -1,0 +1,46 @@
+{
+    "mapID": 0,
+    "assignment": "Assignment 1",
+    "title": "Are dialectical maps an effective teaching tool",
+    "creationDate": 567393938734783,
+    "lastEditedDate": 32482894732894728,
+    "thesisBlue": "Pro/Agree",
+    "thesisYellow": "Con/Disagree",
+    "conclusion": "Lorem ipsum",
+    "reasons": [
+        {
+            "reasonID": 99,
+            "mapID": 0,
+            "strength": 1,
+            "order": 0,
+            "isBlue": true,
+            "content": "They help students learn.",
+            "linked": null,
+            "evidences": [
+                {
+                    "evidenceID": 333,
+                    "supports": true,
+                    "evidenceContent": "abc",
+                    "warrantContent": "def"
+                }
+            ]
+        },
+        {
+            "reasonID": 100,
+            "mapID": 0,
+            "strength": 1,
+            "order": 0,
+            "isBlue": false,
+            "content": "They are hard to use.",
+            "linked": null,
+            "evidences": [
+                {
+                    "evidenceID": 444,
+                    "supports": true,
+                    "evidenceContent": "ghi",
+                    "warrantContent": "jkl"
+                }
+            ]
+        }
+    ]
+}
