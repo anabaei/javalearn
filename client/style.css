@@ -344,9 +344,15 @@ body {
 
 }
 
-.strengthControls {
+.strengthControlsBlue {
     margin-left: 1vw;
     border: 1px solid white;
+    padding: 0.25vw;
+}
+
+.strengthControlsYellow {
+    margin-left: 1vw;
+    border: 1px solid #4F4F51;
     padding: 0.25vw;
 }
 
@@ -363,11 +369,18 @@ body {
 }
 
 .addEvidenceBlock {
-    border: 1px solid white;
     margin-top: 2vw;
     height: 5vw;
     display: flex;
     justify-content: center;
+}
+
+.blueAddEvidenceBlock {
+    border: 1px solid white;
+}
+
+.yellowAddEvidenceBlock {
+    border: 1px solid #4F4F51;
 }
 
 .innerEvidenceBlock {

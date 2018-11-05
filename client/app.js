@@ -91,8 +91,12 @@ app.controller('MainController', ['$scope', function($scope) {
         console.log("link function for arguments");
     };
 
-    $scope.toggleSupport = function() {
+    $scope.toggleSupportBlue = function() {
         $scope.blueSupports = !$scope.blueSupports;
     };
+
+    $scope.toggleSupportYellow = function() {
+        $scope.yellowSupports = !$scope.yellowSupports;
+    }
     
 }]);

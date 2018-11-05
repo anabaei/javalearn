@@ -76,7 +76,7 @@
                                     <h3 class="header3Common dmWhite strengthHeader">
                                         STRENGTH
                                     </h3>
-                                    <div class="strengthControls">
+                                    <div class="strengthControlsBlue">
                                         <h1 class="header1Common strengthNumOv dmWhite">
                                             <div class="strengthAdjustContainer">
                                                 <i class="fas fa-minus clickable strengthMinus"></i>
@@ -104,7 +104,7 @@
                             <div ng-if="blueToggle" class="evidenceContent">
                                 <!-- TODO select box polish -->
                                 <div ng-class="blueSupports ? 'dmWhiteBackground' : 'dmYellowBackground'" class="supportsSwap noSelect clickable">
-                                    <h3 ng-click="toggleSupport()" class="header3Common dmDarkGrey supportsHeader">
+                                    <h3 ng-click="toggleSupportBlue()" class="header3Common dmDarkGrey supportsHeader">
                                         <i class="fas fa-exchange-alt swapIcon"></i>
                                         <span ng-if="blueSupports">SUPPORTS</span>
                                         <span ng-if="!blueSupports">OPPOSES</span>
@@ -116,7 +116,7 @@
                                 <textarea class="evidenceTextArea bodyType dmDarkGrey" placeholder="Insert Evidence"></textarea>
                                 <textarea class="evidenceTextArea bodyType dmDarkGrey" placeholder="Warrants"></textarea>
                                 <!-- evidence empty block -->
-                                <div class="addEvidenceBlock clickable">
+                                <div class="addEvidenceBlock blueAddEvidenceBlock clickable">
                                     <div class="bodyType dmWhite innerEvidenceBlock noSelect">
                                             <span><i class="fas fa-plus"></i> Add Evidence</span>
                                     </div>
@@ -135,19 +135,77 @@
                             <i id="linkerArrow" class="fas fa-arrows-alt-h"></i>
                         </div>
                     </div>
-                    <!-- Replace later with swapped blue grid -->
+                    <!-- Yellow side -->
                     <div class="commonCol">
-                        <!-- Yellow existing reason block -->
-                        <div class="reasonBlock dmYellowBackground">
-
+                            <!-- Yellow existing reason block -->
+                            <div class="reasonBlock dmYellowBackground">
+                                <!-- Reason control and strength -->
+                                <div>
+                                    <h1 class="reasonBlockTitle header1Common dmDarkGrey noSelect">
+                                        Reason
+                                        <div class="reasonButtonGroup">
+                                            <i class="fas fa-caret-square-up clickable"></i>
+                                            <i class="fas fa-caret-square-down clickable"></i>
+                                            <i class="fas fa-minus-square clickable"></i>
+                                        </div>
+                                    </h1>
+                                    <div class="strengthBlock noSelect">
+                                        <h3 class="header3Common dmDarkGrey strengthHeader">
+                                            STRENGTH
+                                        </h3>
+                                        <div class="strengthControlsYellow">
+                                            <h1 class="header1Common strengthNumOv dmDarkGrey">
+                                                <div class="strengthAdjustContainer">
+                                                    <i class="fas fa-minus clickable strengthMinus"></i>
+                                                    <span>1</span>
+                                                    <i class="fas fa-plus clickable strengthPlus"></i>
+                                                </div>
+                                            </h1>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Reason content -->
+                                <div class="reasonContent">
+                                    <textarea class="reasonTextArea bodyType dmDarkGrey" placeholder="Insert Reason"></textarea>
+                                </div>
+                                <!-- Evidence Control -->
+                                <div class="noSelect">
+                                    <h1 class="reasonBlockTitle header1Common dmDarkGrey evidenceTitleOv">
+                                        <div class="toggleCaret clickable">
+                                            <i ng-show="!yellowToggle" ng-click="yellowToggle = true" class="fas fa-caret-right"></i>
+                                            <i ng-show="yellowToggle" ng-click="yellowToggle = false" class="fas fa-caret-down"></i>
+                                        </div> Evidence
+                                    </h1>
+                                </div>
+                                <!-- Evidence content -->
+                                <div ng-if="yellowToggle" class="evidenceContent">
+                                    <div ng-class="yellowSupports ? 'dmWhiteBackground' : 'dmBlueBackground'" class="supportsSwap noSelect clickable">
+                                        <h3 ng-click="toggleSupportYellow()" ng-class="yellowSupports? '' : 'dmWhite'" class="header3Common dmDarkGrey supportsHeader">
+                                            <i class="fas fa-exchange-alt swapIcon"></i>
+                                            <span ng-if="yellowSupports">SUPPORTS</span>
+                                            <span ng-if="!yellowSupports">OPPOSES</span>
+                                        </h3>
+                                        <div ng-class="yellowSupports? '' : 'dmWhite'" class="minusBlock dmDarkGrey">
+                                            <i class="fas fa-minus-square minusIcon"></i>
+                                        </div>
+                                    </div>
+                                    <textarea class="evidenceTextArea bodyType dmDarkGrey" placeholder="Insert Evidence"></textarea>
+                                    <textarea class="evidenceTextArea bodyType dmDarkGrey" placeholder="Warrants"></textarea>
+                                    <!-- evidence empty block -->
+                                    <div class="addEvidenceBlock yellowAddEvidenceBlock clickable">
+                                        <div class="bodyType dmDarkGrey innerEvidenceBlock noSelect">
+                                                <span><i class="fas fa-plus"></i> Add Evidence</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- yellow add reason block -->
+                            <div class="addReasonBlock dmYellowBackground reasonBlockHeaderOv noSelect clickable">
+                                <h1 class="header1Common reasonBlockHeaderOv dmDarkGrey">
+                                    <i class="fas fa-plus"></i> Add Reason
+                                </h1>
+                            </div>
                         </div>
-                        <!-- Yellow add reason block -->
-                        <div class="addReasonBlock dmYellowBackground">
-                            <h1 class="header1Common reasonBlockHeaderOv dmBlue">
-                                <i class="fas fa-plus"></i> Add Reason
-                            </h1>
-                        </div>
-                    </div>
                     <!-- end of replace later -->
                 </div>
             </div>
