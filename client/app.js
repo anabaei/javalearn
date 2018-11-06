@@ -6,31 +6,33 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
 
     $scope.possibleStrengthValues = [1,2,3,4,5];
 
+    //Adds only a visibility field for evidences
+    function prepInitialVisibility(storedMap) {
+        $scope.mapState = storedMap;
+        _.forEach($scope.mapState.reasons, function(value) {
+            value.expanded = true;
+        });
+        console.log("Sample data prepared for display.");
+    };
+
     $scope.initialize = function() {
 
         //get the sample data via http get
         $http.get('prototypeMap.json')
         .then(function buildInitialState(response) {
-            $scope.mapState = response.data;
-            console.log("Sample data loaded");
+            prepInitialVisibility(response.data);      
         }, function notifyInitialStateFailure(response) {
             console.log(response);
         });
     };
 
     $scope.blueFilter = function(item) {
-        return item.isBlue;
+        return item.isBlue === true;
     };
 
     $scope.yellowFilter = function(item) {
-        return !item.isBlue;
+        return item.isBlue === false;
     };
-
-    $scope.blueToggle = true;
-    $scope.yellowToggle = false;
-
-    $scope.blueSupports = true;
-    $scope.yellowSupports = true;
 
     $scope.logMapState = function() {
         console.log($scope.mapState);
@@ -56,12 +58,12 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
         console.log("link function for arguments");
     };
 
-    $scope.toggleSupportBlue = function() {
-        $scope.blueSupports = !$scope.blueSupports;
+    $scope.toggleSupport = function(evidence) {
+        evidence.supports = !evidence.supports;
     };
 
-    $scope.toggleSupportYellow = function() {
-        $scope.yellowSupports = !$scope.yellowSupports;
-    }
+    $scope.toggleEvidenceVisibility = function(reason) {
+        reason.expanded = !reason.expanded;
+    };
     
 }]);
