@@ -18,7 +18,7 @@
 
     <body ng-app="dmApp" ng-controller="MainController" ng-init="initialize()">
         <!-- DM Header -->
-        <div class="dmHeaderContainer">
+        <div class="dmHeaderContainer noSelect">
             <div ng-click="logMapState()" class="dmLogoBlock">
                 <img class="dmHeaderImg" ng-src="images/DM-Logo-HiRes.gif"/>
             </div>
@@ -105,7 +105,7 @@
                                 <!-- TODO select box polish -->
                                 <div ng-class="evidence.supports ? 'dmWhiteBackground' : 'dmYellowBackground'" class="supportsSwap noSelect clickable">
                                     <h3 ng-click="toggleSupport(evidence)" class="header3Common dmDarkGrey supportsHeader">
-                                        <i class="fas fa-exchange-alt swapIcon"></i>
+                                        <i class="fas fa-sort swapIcon"></i>
                                         <span ng-if="evidence.supports">SUPPORTS</span>
                                         <span ng-if="!evidence.supports">OPPOSES</span>
                                     </h3>
@@ -181,7 +181,7 @@
                                 <div ng-repeat="evidence in reason.evidences track by evidenceID" ng-if="reason.expanded" class="evidenceContent">
                                     <div ng-class="evidence.supports ? 'dmWhiteBackground' : 'dmBlueBackground'" class="supportsSwap noSelect clickable">
                                         <h3 ng-click="toggleSupport(evidence)" ng-class="evidence.supports ? '' : 'dmWhite'" class="header3Common dmDarkGrey supportsHeader">
-                                            <i class="fas fa-exchange-alt swapIcon"></i>
+                                            <i class="fas fa-sort swapIcon"></i>
                                             <span ng-if="evidence.supports">SUPPORTS</span>
                                             <span ng-if="!evidence.supports">OPPOSES</span>
                                         </h3>
@@ -219,10 +219,10 @@
         <!-- container for conclusion area -->
         <div class="conclusionContainer">
             <div class="conclusionContent">
-                <h1 id="conclusionTitle" class="header1Common dmDarkGrey">
+                <h1 id="conclusionTitle" class="header1Common dmDarkGrey noSelect">
                     Conclusion
                 </h1>
-                <div class="conclusionText dmDarkGrey bodyType dmDarkGrey">
+                <div contentEditable=true data-text="Enter a conclusion here." class="conclusionText dmDarkGrey bodyType dmDarkGrey">
                     {{mapState.conclusion}}
                 </div>
             </div>
