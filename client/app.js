@@ -16,6 +16,7 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
 
     const evidenceTemplate = {
         evidenceID: null,
+        reasonID: null,
         supports: true,
         evidenceContent: null,
         warrantContent: null
@@ -37,6 +38,7 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
         //get the sample data via http get
         $http.get('prototypeMap.json')
         .then(function buildInitialState(response) {
+            console.log(response);
             prepInitialVisibility(response.data);      
         }, function notifyInitialStateFailure(response) {
             console.log(response);
@@ -45,8 +47,17 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
 
     $scope.addReason = function(isBlue) {
         var newReason = _.cloneDeep(reasonTemplate);
-        var biggest = _.maxBy($scope.mapState.reasons, 'reasonID');
-        newReason.reasonID = biggest.reasonID++;
+        var newID;
+
+        if ($scope.mapState.reasons.length == 0) {
+            newID = 0;
+        }
+        else {
+            var maxReason = _.maxBy($scope.mapState.reasons, 'reasonID');
+            newID = maxReason.reasonID + 1;
+        }
+
+        newReason.reasonID = newID;
         newReason.mapID = $scope.mapState.mapID;
         newReason.strength = 3;
         //find new order var for the new reason TODO
@@ -65,12 +76,31 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
         });
     };
 
-    $scope.addEvidence = function() {
-        console.log("adding evidence");
+    $scope.addEvidence = function(reason) {
+        var newEvidence = _.cloneDeep(evidenceTemplate);
+        var newID;
+
+        if (reason.evidences.length == 0) {
+            newID = 0;
+        }
+        else {
+            var maxEvidence = _.maxBy(reason.evidences, 'evidenceID');
+            newID = maxEvidence.evidenceID + 1;
+        }
+
+        newEvidence.evidenceID = newID;
+        newEvidence.reasonID = reason.reasonID;
+        newEvidence.evidenceContent = "";
+        newEvidence.warrantContent = "";
+
+        console.log(newEvidence);
+        reason.evidences.push(newEvidence);
     };
 
-    $scope.removeEvidence = function() {
-        console.log("removing evidence");
+    $scope.removeEvidence = function(reason,evidence) {
+        _.remove(reason.evidences, function(item) {
+            return item.evidenceID == evidence.evidenceID;
+        });
     };
 
     $scope.blueFilter = function(item) {

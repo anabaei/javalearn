@@ -6,7 +6,7 @@
     "lastEditedDate": 1541463734,
     "thesisBlue": "Pro/Agree",
     "thesisYellow": "Con/Disagree",
-    "conclusion": "Dialectical maps are a great tool to help students dissect two different stances on an arguement.  There is a slight learning curve initially, but the structure of the maps helps students to organize their thoughts and improve their confidence in debate situations.",
+    "conclusion": "Dialectical maps are a great tool to help students dissect two different stances on an argument.  There is a slight learning curve initially, but the structure of the maps helps students to organize their thoughts and improve their confidence in debate situations.",
     "reasons": [
         {
             "reasonID": 99,
@@ -19,6 +19,7 @@
             "evidences": [
                 {
                     "evidenceID": 333,
+                    "reasonID": 99,
                     "supports": false,
                     "evidenceContent": "abc",
                     "warrantContent": "def"
@@ -36,6 +37,7 @@
             "evidences": [
                 {
                     "evidenceID": 444,
+                    "reasonID": 100,
                     "supports": true,
                     "evidenceContent": "ghi",
                     "warrantContent": "jkl"
