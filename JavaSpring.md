@@ -40,5 +40,5 @@ mvn archetype:generate -DgroupId=com.jcg.maven -DartifactId=MavenHelloWorldProje
   * A good resource to have hello world [Java](https://github.com/callicoder/spring-boot-mysql-rest-api-tutorial)
   * To overcome one issue, you may change the version from `2.0.0` to `2.0.1` 
   * Just clone it and make sure your username and passwords are same as the system username and passwords and also create approperiate databse for the app in mysql. 
-  <details>
+  </details>
   
