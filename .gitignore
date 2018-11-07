@@ -12,4 +12,4 @@ log/*
 
 *.log
 test/
-/back-end/src/main/resources/application.properties
+/back-end/**/application.properties
