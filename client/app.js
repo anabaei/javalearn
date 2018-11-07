@@ -2,9 +2,24 @@ var app = angular.module("dmApp", []);
 
 app.controller('MainController', ['$scope', '$http', function($scope,$http) {
 
-    $scope.mapState = {};
+    const reasonTemplate = {
+        reasonID: null,
+        mapID: null,
+        strength: null,
+        order: null,
+        isBlue: null,
+        content: null,
+        linked: null,
+        evidences: [],
+        expanded: false
+    };
 
-    $scope.possibleStrengthValues = [1,2,3,4,5];
+    const evidenceTemplate = {
+        evidenceID: null,
+        supports: true,
+        evidenceContent: null,
+        warrantContent: null
+    };
 
     //Adds only a visibility field for evidences
     function prepInitialVisibility(storedMap) {
@@ -15,6 +30,8 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
         console.log("Sample data prepared for display.");
     };
 
+    $scope.mapState = {};
+
     $scope.initialize = function() {
 
         //get the sample data via http get
@@ -24,6 +41,36 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
         }, function notifyInitialStateFailure(response) {
             console.log(response);
         });
+    };
+
+    $scope.addReason = function(isBlue) {
+        var newReason = _.cloneDeep(reasonTemplate);
+        var biggest = _.maxBy($scope.mapState.reasons, 'reasonID');
+        newReason.reasonID = biggest.reasonID++;
+        newReason.mapID = $scope.mapState.mapID;
+        newReason.strength = 3;
+        //find new order var for the new reason TODO
+        newReason.order = null;
+        newReason.isBlue = isBlue;
+        newReason.content = "";
+
+        //finally, push the new reason into the map state
+        console.log(newReason);
+        $scope.mapState.reasons.push(newReason);
+    };
+
+    $scope.removeReason = function(reason) {
+        _.remove($scope.mapState.reasons, function(item) {
+            return item.reasonID == reason.reasonID;
+        });
+    };
+
+    $scope.addEvidence = function() {
+        console.log("adding evidence");
+    };
+
+    $scope.removeEvidence = function() {
+        console.log("removing evidence");
     };
 
     $scope.blueFilter = function(item) {
@@ -56,6 +103,18 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
 
     $scope.linkArguments = function() {
         console.log("link function for arguments");
+    };
+
+    $scope.increaseStrength = function(reason) {
+        if (reason.strength < 5) {
+            reason.strength++;
+        };
+    };
+
+    $scope.decreaseStrength = function(reason) {
+        if (reason.strength > 1) {
+            reason.strength--;
+        };
     };
 
     $scope.toggleSupport = function(evidence) {

@@ -422,3 +422,8 @@ body {
     display: flex;
     align-items: center;
 }
+
+.softHide {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
