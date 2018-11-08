@@ -97,6 +97,34 @@ CREATE INDEX IDX_RES_DATE_ ON RESERVATION(RES_DATE);
   INSERT INTO ROOM (NAME, ROOM_NUMBER, BED_INFO) VALUES ('Westminster', 'W1', '1K');
   INSERT INTO GUEST (LAST_NAME, FIRST_NAME, EMAIL_ADDRESS, COUNTRY, ADDRESS, STATE, PHONE_NUMBER) VALUES('Wright', 'Kimberly', 'kwrightf@tinyurl.com', 'Brazil', '9893 Summit Plaza', '', '3-(288)433-6668');
   ```
+  ### Add Property
+  
+  * This add a property to application property file. It requires `hibernate` when we pre populating schema. This stop hibernate from generating schema on its own whhich can remove all data and create a new one. That is why we set it to none. 
+  ```java
+  spring.jpa.hibdernate.ddl-auto = none
+  ```
+  ### Sprng Data vs JDBC
+  * In `JDBC` you have to deal with connection, create the connection, build statement, execute query against that statement to get result set, then iterate thhrough our result to get objects. This process has to be done for each database call it would be like
+  ```java
+  connection= DriverManager.getConnectoin("jdbc:h2:~/test","sa","");
+  String sql = "SELECT Room_ID, ROOM_NAME from ROOM where ROOM_NUMBER= 'p1'");
+  statement = connection.CreateStatement();
+  ResultSet resultSet = statement.executeQuery(sql);
+  while(resultSet.Next()){
+   Room room = new Room();
+   room.setId(resultSet.getLong("ROOM_ID"));
+   room.setId(resultSet.getLong("ROOM_NAME"));
+   ...
+   return room 
+  }
+  .....
+  ```
+  But in spring data we have almost 20 lines of code with this but still needs a little setup as well. 
+  ```java
+  public Room getRoomSpringData(){
+       return this.roomRepository.findByNumber("p1")
+  }
+  ```
   
   ### Application Class
   * In `src/Java/com.example` subfolders you find applicaiton packages as `nameofyourproject.java` which this annotation `@SpringBootApplication` controls it.  
