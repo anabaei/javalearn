@@ -169,8 +169,7 @@ public interface RoomRepository extends CrudRepository<Room, Long>{
   ```
   * This is going to make query from ROOM table where the Number is equal to `number`! you can have all booleans and filters as this
   * It means we have an object Room from the class we already created and also a long for id of room. This allows us to have basic crud opertions. 
-  #### REST WebService
-  
- 
+  </details>
+<details>
   
   </details>
