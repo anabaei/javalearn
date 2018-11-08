@@ -129,4 +129,8 @@ CREATE INDEX IDX_RES_DATE_ ON RESERVATION(RES_DATE);
   ### Application Class
   * In `src/Java/com.example` subfolders you find applicaiton packages as `nameofyourproject.java` which this annotation `@SpringBootApplication` controls it.  
   
+  
+  ### Create A Package
+  * Navigate to `src/main/java` and create package like `com.yourappname` and then create a new class inside the package 
+  
   </details>
