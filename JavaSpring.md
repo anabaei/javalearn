@@ -59,7 +59,45 @@ mvn archetype:generate -DgroupId=com.jcg.maven -DartifactId=MavenHelloWorldProje
   ```java
   server.port = 8000
   ```
-  * 
+  ### Scheam.sql
+  * It is data defination language for embeded database. we can put it into resources foleder. It would be like
+  ```sql 
+  CREATE TABLE ROOM(
+  ROOM_ID BIGINT AUTO_INCREMENT PRIMARY KEY,
+  NAME VARCHAR(16) NOT NULL,
+  ROOM_NUMBER CHAR(2) NOT NULL UNIQUE,
+  BED_INFO CHAR(2) NOT NULL
+);
+
+CREATE TABLE GUEST(
+  GUEST_ID BIGINT AUTO_INCREMENT PRIMARY KEY,
+  FIRST_NAME VARCHAR(64),
+  LAST_NAME VARCHAR(64),
+  EMAIL_ADDRESS VARCHAR(64),
+  ADDRESS VARCHAR(64),
+  COUNTRY VARCHAR(32),
+  STATE VARCHAR(12),
+  PHONE_NUMBER VARCHAR(24)
+);
+
+CREATE TABLE RESERVATION(
+  RESERVATION_ID BIGINT AUTO_INCREMENT PRIMARY KEY,
+  ROOM_ID BIGINT NOT NULL,
+  GUEST_ID BIGINT NOT NULL,
+  RES_DATE DATE
+);
+
+ALTER TABLE RESERVATION ADD FOREIGN KEY (ROOM_ID) REFERENCES ROOM(ROOM_ID);
+ALTER TABLE RESERVATION ADD FOREIGN KEY (GUEST_ID) REFERENCES GUEST(GUEST_ID);
+CREATE INDEX IDX_RES_DATE_ ON RESERVATION(RES_DATE);
+  ```
+  * In order to have DML for us then we can have `data.sql` in resources folder as 
+  ```sql
+  INSERT INTO ROOM (NAME, ROOM_NUMBER, BED_INFO) VALUES ('Piccadilly', 'P1', '1Q');
+  INSERT INTO ROOM (NAME, ROOM_NUMBER, BED_INFO) VALUES ('Westminster', 'W1', '1K');
+  INSERT INTO GUEST (LAST_NAME, FIRST_NAME, EMAIL_ADDRESS, COUNTRY, ADDRESS, STATE, PHONE_NUMBER) VALUES('Wright', 'Kimberly', 'kwrightf@tinyurl.com', 'Brazil', '9893 Summit Plaza', '', '3-(288)433-6668');
+  ```
+  
   ### Application Class
   * In `src/Java/com.example` subfolders you find applicaiton packages as `nameofyourproject.java` which this annotation `@SpringBootApplication` controls it.  
   
