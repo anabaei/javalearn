@@ -131,6 +131,46 @@ CREATE INDEX IDX_RES_DATE_ ON RESERVATION(RES_DATE);
   
   
   ### Create A Package
-  * Navigate to `src/main/java` and create package like `com.yourappname` and then create a new class inside the package 
+  * Navigate to `src/main/java` and create package like `london.data.entity` and then create a new class(same name as a table) inside the package
+ * create several attributes like what we have in our tables
+  ```java
+  package come.frnkmoly.landon.data.entity;
+  
+  import javax.persistence.Entity;
+  import javax.persistence.Column;
+  import javax.persistence.GenerateValue;
+  import javax.persistence.GenerationType;
+  import javax.persistence.Id;
+  import javax.persistence.Table;
+  
+  @Entity
+  @Table(name="ROOM")
+  public class Room {
+  private long id;
+  @Column(name="NAME")
+  private String name;
+  @Column(name="ROOM_NUMBER")
+  private String number;
+  }
+  ```
+  * Since we use hybernet we neet to use some annotaion in this class. Then define for each one a setter and getter funcitons.
+  * Next we need to `get out` these from ROOM.JAVA. For this reason we create another package like (london.data.repository) And create a class (interface) and initate this class with add repository and we extend it with CRUD repository as
+  ```java
+ package com.frankmoley.landon.data.repository;
+
+import com.frankmoley.landon.data.entity.Room;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface RoomRepository extends CrudRepository<Room, Long>{
+    Room findByNumber(String number);  
+}
+  ```
+  * This is going to make query from ROOM table where the Number is equal to `number`! you can have all booleans and filters as this
+  * It means we have an object Room from the class we already created and also a long for id of room. This allows us to have basic crud opertions. 
+  #### REST WebService
+  
+ 
   
   </details>
