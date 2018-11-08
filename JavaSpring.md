@@ -1,6 +1,7 @@
 
 <details>
   <summary> Maven </summary>
+  
 * Maven is a tool to build and manage any java project. It is a software management and comprehension tool based on Project Object Model. It allows to to publish project information and share JARs accroos several projects. The result is a tool that can be used for building any java-based-project
 * POM (Project Object Model) is an XML file that contains information about project and configuration details use by Maven to build project
 #### Install Maven
