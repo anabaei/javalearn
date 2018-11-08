@@ -45,4 +45,22 @@ mvn archetype:generate -DgroupId=com.jcg.maven -DartifactId=MavenHelloWorldProje
   mvn spring-boot:run
   ```
   </details>
+  <details>
+  <summary> Spring MVC </summary>
   
+  * It helps to avoid boring boilerplate tasks (copy&paste) to write a java applicaiton. 
+  * `JavaBean` vs `POJO`. `POJO` is an object that has both attributes and behavior and this behavior doesn't have to be getter and setter only. On the other hand, `JavaBean` is a simple type of `POJO` which behavior is only getter and setter. 
+  * Now `DTO` is nothhing more than a JavaBean whose sole purpose is to transport data from one layer to another
+  * Spring has embedded `Tomcat` app server(other option is `Jetty`). 
+  * `dispatch serverlet` handle all URL requests. 
+  * Start spring Initializer from this [spring initializer](https://start.spring.io/). We make package name to same as group name. For packaging we have `jar`and `war`. If you wanna to deploy this to existed Tomcat, or Web Login or Websphere a `WAR` is better. This example is going to use `JAR`. In advances select `web` and `Thymeleaf` and under `SQL` select `JPA` and `H2` and in Ops section select `Actator`.
+  * Now if you run the application (in intelig you can run it from top corener green) then check port `8080` which you see 404 page. Then go to `resources/static` folder add new html file index.html. 
+  * In `resources/application.properties` you can change the port. Also we can use yaml and profile in more advances  
+  ```java
+  server.port = 8000
+  ```
+  * 
+  ### Application Class
+  * In `src/Java/com.example` subfolders you find applicaiton packages as `nameofyourproject.java` which this annotation `@SpringBootApplication` controls it.  
+  
+  </details>
