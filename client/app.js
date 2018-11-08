@@ -22,13 +22,24 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
         warrantContent: null
     };
 
-    //Adds only a visibility field for evidences
-    function prepInitialVisibility(storedMap) {
-        $scope.mapState = storedMap;
-        _.forEach($scope.mapState.reasons, function(value) {
-            value.expanded = true;
+    $scope.countBlueReasons = function() {
+        var count = 0;
+        _.forEach($scope.mapState.reasons, function(reason) {
+            if (reason.isBlue) {
+                count++;
+            }
         });
-        console.log("Sample data prepared for display.");
+        return count;
+    };
+
+    $scope.countYellowReasons = function() {
+        var count = 0;
+        _.forEach($scope.mapState.reasons, function(reason) {
+            if (!reason.isBlue) {
+                count++;
+            }
+        });
+        return count;
     };
 
     $scope.mapState = {};
@@ -38,8 +49,7 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
         //get the sample data via http get
         $http.get('prototypeMap.json')
         .then(function buildInitialState(response) {
-            console.log(response);
-            prepInitialVisibility(response.data);      
+            $scope.mapState = response.data;     
         }, function notifyInitialStateFailure(response) {
             console.log(response);
         });
@@ -48,24 +58,32 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
     $scope.addReason = function(isBlue) {
         var newReason = _.cloneDeep(reasonTemplate);
         var newID;
+        var newOrder;
 
         if ($scope.mapState.reasons.length == 0) {
             newID = 0;
+            newOrder = 0;
         }
         else {
             var maxReason = _.maxBy($scope.mapState.reasons, 'reasonID');
             newID = maxReason.reasonID + 1;
+
+            if (isBlue) {
+                newOrder = $scope.countBlueReasons();
+            }
+            else {
+                newOrder = $scope.countYellowReasons();
+            }
         }
 
         newReason.reasonID = newID;
+        newReason.order = newOrder;
+
         newReason.mapID = $scope.mapState.mapID;
         newReason.strength = 3;
-        //find new order var for the new reason TODO
-        newReason.order = null;
         newReason.isBlue = isBlue;
         newReason.content = "";
 
-        //finally, push the new reason into the map state
         console.log(newReason);
         $scope.mapState.reasons.push(newReason);
     };
@@ -101,6 +119,54 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
         _.remove(reason.evidences, function(item) {
             return item.evidenceID == evidence.evidenceID;
         });
+    };
+
+    $scope.moveUp = function(reason) {
+        if (reason.order != 0 && reason.isBlue && $scope.countBlueReasons() > 1) {
+            //find the blue candidate to move down
+            var swapTarget = _.find($scope.mapState.reasons, function(item) {
+                return (item.order == reason.order - 1 && item.isBlue);
+            });
+            var swapHolder = reason.order;
+            reason.order = swapTarget.order;
+            swapTarget.order = swapHolder;
+        }
+        else if (reason.order != 0 && !reason.isBlue && $scope.countYellowReasons() > 0) {
+            //find the yellow candidate to move down
+            var swapTarget = _.find($scope.mapState.reasons, function(item) {
+                return (item.order == reason.order - 1 && !item.isBlue);
+            });
+            var swapHolder = reason.order;
+            reason.order = swapTarget.order;
+            swapTarget.order = swapHolder;
+        }
+        else {
+            console.log("Cannot move up, already at top.")
+        }
+    };
+
+    $scope.moveDown = function(reason) {
+        if (reason.order != $scope.countBlueReasons()-1 && reason.isBlue && $scope.countBlueReasons() > 1) {
+            //find the blue candidate to move up
+            var swapTarget = _.find($scope.mapState.reasons, function(item) {
+                return (item.order == reason.order + 1 && item.isBlue);
+            });
+            var swapHolder = reason.order;
+            reason.order = swapTarget.order;
+            swapTarget.order = swapHolder;
+        }
+        else if (reason.order != $scope.countYellowReasons()-1 && !reason.isBlue && $scope.countYellowReasons() > 1) {
+            //find the yellow candidate to move down
+            var swapTarget = _.find($scope.mapState.reasons, function(item) {
+                return (item.order == reason.order + 1 && !item.isBlue);
+            });
+            var swapHolder = reason.order;
+            reason.order = swapTarget.order;
+            swapTarget.order = swapHolder;
+        }
+        else {
+            console.log("Cannot move down, already at bottom.")
+        }
     };
 
     $scope.blueFilter = function(item) {
