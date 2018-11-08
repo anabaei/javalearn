@@ -16,9 +16,9 @@
         <script src="app.js"></script>
     </head>
 
-    <body ng-app="dmApp" ng-controller="MainController" ng-init="prebuild()">
+    <body ng-app="dmApp" ng-controller="MainController" ng-init="initialize()">
         <!-- DM Header -->
-        <div class="dmHeaderContainer">
+        <div class="dmHeaderContainer noSelect">
             <div ng-click="logMapState()" class="dmLogoBlock">
                 <img class="dmHeaderImg" ng-src="images/DM-Logo-HiRes.gif"/>
             </div>
@@ -40,18 +40,18 @@
                 {{mapState.assignment}}
             </h2>
             <h1 class="header1Common dmDarkGrey">
-                {{mapState.topic}}
+                {{mapState.title}}
             </h1>
             <!-- container for reason area -->
             <div class="reasonContainer">
                 <!-- container for stances -->
                 <div class="whiteSpaceRemove">
-                    <div class="stanceContainer">
-                        <h1 class="header1Common dmBlue stanceTitle">{{mapState.stanceBlue}}</h1>
+                    <div class="stanceContainer noSelect">
+                        <h1 class="header1Common dmBlue stanceTitle">{{mapState.thesisBlue}}</h1>
                     </div>
-                    <div class="stanceSpacer"></div>
-                    <div class="stanceContainer">
-                        <h1 class="header1Common dmYellow stanceTitle">{{mapState.stanceYellow}}</h1>
+                    <div class="stanceSpacer noSelect"></div>
+                    <div class="stanceContainer noSelect">
+                        <h1 class="header1Common dmYellow stanceTitle">{{mapState.thesisYellow}}</h1>
                     </div>
                 </div>
                 <!-- TODO linked reason blocks, empty if no links -->
@@ -61,7 +61,7 @@
                 <div class="whiteSpaceRemove">
                     <div class="commonCol">
                         <!-- Blue existing reason block -->
-                        <div class="reasonBlock dmBlueBackground">
+                        <div ng-repeat="reason in mapState.reasons | filter: blueFilter track by reason.reasonID" class="reasonBlock dmBlueBackground">
                             <!-- Reason control and strength -->
                             <div>
                                 <h1 class="reasonBlockTitle header1Common dmWhite noSelect">
@@ -69,7 +69,7 @@
                                     <div class="reasonButtonGroup">
                                         <i class="fas fa-caret-square-up clickable"></i>
                                         <i class="fas fa-caret-square-down clickable"></i>
-                                        <i class="fas fa-minus-square clickable"></i>
+                                        <i ng-click="removeReason(reason)" class="fas fa-minus-square clickable"></i>
                                     </div>
                                 </h1>
                                 <div class="strengthBlock noSelect">
@@ -79,9 +79,9 @@
                                     <div class="strengthControlsBlue">
                                         <h1 class="header1Common strengthNumOv dmWhite">
                                             <div class="strengthAdjustContainer">
-                                                <i class="fas fa-minus clickable strengthMinus"></i>
-                                                <span>1</span>
-                                                <i class="fas fa-plus clickable strengthPlus"></i>
+                                                <i ng-class="{softHide: reason.strength == 1}" ng-click="decreaseStrength(reason)" class="fas fa-minus clickable strengthMinus"></i>
+                                                <span>{{reason.strength}}</span>
+                                                <i ng-class="{softHide: reason.strength == 5}" ng-click="increaseStrength(reason)" class="fas fa-plus clickable strengthPlus"></i>
                                             </div>
                                         </h1>
                                     </div>
@@ -89,42 +89,42 @@
                             </div>
                             <!-- Reason content -->
                             <div class="reasonContent">
-                                <textarea class="reasonTextArea bodyType dmDarkGrey" placeholder="Insert Reason"></textarea>
+                                <textarea ng-model="reason.content" class="reasonTextArea bodyType dmDarkGrey" placeholder="Insert Reason"></textarea>
                             </div>
                             <!-- Evidence Control -->
                             <div class="noSelect">
                                 <h1 class="reasonBlockTitle header1Common dmWhite evidenceTitleOv">
                                     <div class="toggleCaret clickable">
-                                        <i ng-show="!blueToggle" ng-click="blueToggle = true" class="fas fa-caret-right"></i>
-                                        <i ng-show="blueToggle" ng-click="blueToggle = false" class="fas fa-caret-down"></i>
+                                        <i ng-show="!reason.expanded" ng-click="toggleEvidenceVisibility(reason)" class="fas fa-caret-right"></i>
+                                        <i ng-show="reason.expanded" ng-click="toggleEvidenceVisibility(reason)" class="fas fa-caret-down"></i>
                                     </div> Evidence
                                 </h1>
                             </div>
                             <!-- Evidence content -->
-                            <div ng-if="blueToggle" class="evidenceContent">
+                            <div ng-repeat="evidence in reason.evidences track by evidence.evidenceID" ng-if="reason.expanded" class="evidenceContent">
                                 <!-- TODO select box polish -->
-                                <div ng-class="blueSupports ? 'dmWhiteBackground' : 'dmYellowBackground'" class="supportsSwap noSelect clickable">
-                                    <h3 ng-click="toggleSupportBlue()" class="header3Common dmDarkGrey supportsHeader">
-                                        <i class="fas fa-exchange-alt swapIcon"></i>
-                                        <span ng-if="blueSupports">SUPPORTS</span>
-                                        <span ng-if="!blueSupports">OPPOSES</span>
+                                <div ng-class="evidence.supports ? 'dmWhiteBackground' : 'dmYellowBackground'" class="supportsSwap noSelect clickable">
+                                    <h3 ng-click="toggleSupport(evidence)" class="header3Common dmDarkGrey supportsHeader">
+                                        <i class="fas fa-sort swapIcon"></i>
+                                        <span ng-if="evidence.supports">SUPPORTS</span>
+                                        <span ng-if="!evidence.supports">OPPOSES</span>
                                     </h3>
-                                    <div class="minusBlock">
+                                    <div ng-click="removeEvidence(reason,evidence)" class="minusBlock">
                                         <i class="fas fa-minus-square minusIcon dmDarkGrey"></i>
                                     </div>
                                 </div>
-                                <textarea class="evidenceTextArea bodyType dmDarkGrey" placeholder="Insert Evidence"></textarea>
-                                <textarea class="evidenceTextArea bodyType dmDarkGrey" placeholder="Warrants"></textarea>
-                                <!-- evidence empty block -->
-                                <div class="addEvidenceBlock blueAddEvidenceBlock clickable">
-                                    <div class="bodyType dmWhite innerEvidenceBlock noSelect">
-                                            <span><i class="fas fa-plus"></i> Add Evidence</span>
-                                    </div>
+                                <textarea ng-model="evidence.evidenceContent" class="evidenceTextArea bodyType dmDarkGrey" placeholder="Insert Evidence"></textarea>
+                                <textarea ng-model="evidence.warrantContent" class="evidenceTextArea bodyType dmDarkGrey" placeholder="Warrants"></textarea>
+                            </div>
+                            <!-- evidence empty block -->
+                            <div ng-click="addEvidence(reason)" ng-if="reason.expanded" class="addEvidenceBlock blueAddEvidenceBlock clickable">
+                                <div class="bodyType dmWhite innerEvidenceBlock noSelect">
+                                        <span><i class="fas fa-plus"></i> Add Evidence</span>
                                 </div>
                             </div>
                         </div>
                         <!-- Blue add reason block -->
-                        <div class="addReasonBlock dmBlueBackground reasonBlockHeaderOv noSelect clickable">
+                        <div ng-click="addReason(true)" class="addReasonBlock dmBlueBackground reasonBlockHeaderOv noSelect clickable">
                             <h1 class="header1Common reasonBlockHeaderOv dmWhite">
                                 <i class="fas fa-plus"></i> Add Reason
                             </h1>
@@ -138,7 +138,7 @@
                     <!-- Yellow side -->
                     <div class="commonCol">
                             <!-- Yellow existing reason block -->
-                            <div class="reasonBlock dmYellowBackground">
+                            <div ng-repeat="reason in mapState.reasons | filter: yellowFilter track by reason.reasonID" class="reasonBlock dmYellowBackground">
                                 <!-- Reason control and strength -->
                                 <div>
                                     <h1 class="reasonBlockTitle header1Common dmDarkGrey noSelect">
@@ -146,7 +146,7 @@
                                         <div class="reasonButtonGroup">
                                             <i class="fas fa-caret-square-up clickable"></i>
                                             <i class="fas fa-caret-square-down clickable"></i>
-                                            <i class="fas fa-minus-square clickable"></i>
+                                            <i ng-click="removeReason(reason)" class="fas fa-minus-square clickable"></i>
                                         </div>
                                     </h1>
                                     <div class="strengthBlock noSelect">
@@ -156,9 +156,9 @@
                                         <div class="strengthControlsYellow">
                                             <h1 class="header1Common strengthNumOv dmDarkGrey">
                                                 <div class="strengthAdjustContainer">
-                                                    <i class="fas fa-minus clickable strengthMinus"></i>
-                                                    <span>1</span>
-                                                    <i class="fas fa-plus clickable strengthPlus"></i>
+                                                    <i ng-class="{softHide: reason.strength == 1}" ng-click="decreaseStrength(reason)" class="fas fa-minus clickable strengthMinus"></i>
+                                                    <span>{{reason.strength}}</span>
+                                                    <i ng-class="{softHide: reason.strength == 5}" ng-click="increaseStrength(reason)" class="fas fa-plus clickable strengthPlus"></i>
                                                 </div>
                                             </h1>
                                         </div>
@@ -166,41 +166,41 @@
                                 </div>
                                 <!-- Reason content -->
                                 <div class="reasonContent">
-                                    <textarea class="reasonTextArea bodyType dmDarkGrey" placeholder="Insert Reason"></textarea>
+                                    <textarea ng-model="reason.content" class="reasonTextArea bodyType dmDarkGrey" placeholder="Insert Reason"></textarea>
                                 </div>
                                 <!-- Evidence Control -->
                                 <div class="noSelect">
                                     <h1 class="reasonBlockTitle header1Common dmDarkGrey evidenceTitleOv">
                                         <div class="toggleCaret clickable">
-                                            <i ng-show="!yellowToggle" ng-click="yellowToggle = true" class="fas fa-caret-right"></i>
-                                            <i ng-show="yellowToggle" ng-click="yellowToggle = false" class="fas fa-caret-down"></i>
+                                            <i ng-show="!reason.expanded" ng-click="toggleEvidenceVisibility(reason)" class="fas fa-caret-right"></i>
+                                            <i ng-show="reason.expanded" ng-click="toggleEvidenceVisibility(reason)" class="fas fa-caret-down"></i>
                                         </div> Evidence
                                     </h1>
                                 </div>
                                 <!-- Evidence content -->
-                                <div ng-if="yellowToggle" class="evidenceContent">
-                                    <div ng-class="yellowSupports ? 'dmWhiteBackground' : 'dmBlueBackground'" class="supportsSwap noSelect clickable">
-                                        <h3 ng-click="toggleSupportYellow()" ng-class="yellowSupports? '' : 'dmWhite'" class="header3Common dmDarkGrey supportsHeader">
-                                            <i class="fas fa-exchange-alt swapIcon"></i>
-                                            <span ng-if="yellowSupports">SUPPORTS</span>
-                                            <span ng-if="!yellowSupports">OPPOSES</span>
+                                <div ng-repeat="evidence in reason.evidences track by evidence.evidenceID" ng-if="reason.expanded" class="evidenceContent">
+                                    <div ng-class="evidence.supports ? 'dmWhiteBackground' : 'dmBlueBackground'" class="supportsSwap noSelect clickable">
+                                        <h3 ng-click="toggleSupport(evidence)" ng-class="evidence.supports ? '' : 'dmWhite'" class="header3Common dmDarkGrey supportsHeader">
+                                            <i class="fas fa-sort swapIcon"></i>
+                                            <span ng-if="evidence.supports">SUPPORTS</span>
+                                            <span ng-if="!evidence.supports">OPPOSES</span>
                                         </h3>
-                                        <div ng-class="yellowSupports? '' : 'dmWhite'" class="minusBlock dmDarkGrey">
+                                        <div ng-click="removeEvidence(reason,evidence)" ng-class="evidence.supports? '' : 'dmWhite'" class="minusBlock dmDarkGrey">
                                             <i class="fas fa-minus-square minusIcon"></i>
                                         </div>
                                     </div>
-                                    <textarea class="evidenceTextArea bodyType dmDarkGrey" placeholder="Insert Evidence"></textarea>
-                                    <textarea class="evidenceTextArea bodyType dmDarkGrey" placeholder="Warrants"></textarea>
-                                    <!-- evidence empty block -->
-                                    <div class="addEvidenceBlock yellowAddEvidenceBlock clickable">
-                                        <div class="bodyType dmDarkGrey innerEvidenceBlock noSelect">
-                                                <span><i class="fas fa-plus"></i> Add Evidence</span>
-                                        </div>
+                                    <textarea ng-model="evidence.evidenceContent" class="evidenceTextArea bodyType dmDarkGrey" placeholder="Insert Evidence"></textarea>
+                                    <textarea ng-model="evidence.warrantContent" class="evidenceTextArea bodyType dmDarkGrey" placeholder="Warrants"></textarea>
+                                </div>
+                                <!-- evidence empty block -->
+                                <div ng-click="addEvidence(reason)" ng-if="reason.expanded" class="addEvidenceBlock yellowAddEvidenceBlock clickable">
+                                    <div class="bodyType dmDarkGrey innerEvidenceBlock noSelect">
+                                            <span><i class="fas fa-plus"></i> Add Evidence</span>
                                     </div>
                                 </div>
                             </div>
                             <!-- yellow add reason block -->
-                            <div class="addReasonBlock dmYellowBackground reasonBlockHeaderOv noSelect clickable">
+                            <div ng-click="addReason(false)" class="addReasonBlock dmYellowBackground reasonBlockHeaderOv noSelect clickable">
                                 <h1 class="header1Common reasonBlockHeaderOv dmDarkGrey">
                                     <i class="fas fa-plus"></i> Add Reason
                                 </h1>
@@ -219,10 +219,10 @@
         <!-- container for conclusion area -->
         <div class="conclusionContainer">
             <div class="conclusionContent">
-                <h1 id="conclusionTitle" class="header1Common dmDarkGrey">
+                <h1 id="conclusionTitle" class="header1Common dmDarkGrey noSelect">
                     Conclusion
                 </h1>
-                <div class="conclusionText dmDarkGrey bodyType dmDarkGrey">
+                <div contentEditable=true data-text="Enter a conclusion here." class="conclusionText dmDarkGrey bodyType dmDarkGrey">
                     {{mapState.conclusion}}
                 </div>
             </div>

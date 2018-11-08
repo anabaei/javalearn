@@ -3,8 +3,15 @@ html {
     overflow-x:hidden;
 }
 
+[contentEditable=true]:empty:not(:focus):before{
+    content:attr(data-text)
+}
+
 body {
-    margin: 0px 0px 0px 0px;
+    margin-top: 6vw;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
     background-color: #C9C9C9;
 }
 
@@ -47,6 +54,9 @@ body {
 .dmHeaderContainer {
     height: 6vw;
     border-bottom: 1px solid #4F4F51;
+    position: fixed;
+    top: 0;
+    width: 100vw;
 }
 
 .dmLogoBlock {
@@ -309,7 +319,7 @@ body {
 
 .swapIcon {
     margin-left: 0.5vw;
-    margin-right: 0.5vw;
+    margin-right: 0.25vw;
 }
 
 .bodyType {
@@ -358,14 +368,17 @@ body {
 
 .minusIcon {
     font-size: 2.56vw;
+    line-height: normal !important;
 }
 
 .minusBlock {
-    width: 2.2vw;
+    width: 2.56vw;
+    display: flex;
+    justify-content: center;
 }
 
 .supportsHeader {
-    width: 37.8vw;
+    width: 37.44vw;
 }
 
 .addEvidenceBlock {
@@ -408,4 +421,9 @@ body {
 .strengthAdjustContainer {
     display: flex;
     align-items: center;
+}
+
+.softHide {
+    opacity: 0.5;
+    cursor: not-allowed;
 }

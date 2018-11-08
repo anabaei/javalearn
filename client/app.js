@@ -1,71 +1,115 @@
 var app = angular.module("dmApp", []);
 
-app.controller('MainController', ['$scope', function($scope) {
-    
-    const evidenceTemplate = {
-        id: null,
-        supports: true,
-        evidenceText: "",
-        warrantText: ""
-    };
+app.controller('MainController', ['$scope', '$http', function($scope,$http) {
 
     const reasonTemplate = {
-        id: null,
-        linkID: null,
-        reasonText: "",
-        strength: 1,
-        evidences: []
+        reasonID: null,
+        mapID: null,
+        strength: null,
+        order: null,
+        isBlue: null,
+        content: null,
+        linked: null,
+        evidences: [],
+        expanded: false
     };
 
-    const mapTemplate = {
-        id: null,
-        ownerID: null,
-        assignment: "",
-        topic: "",
-        stanceBlue: "",
-        blueReasons: [],
-        stanceYellow: "",
-        yellowReasons: [],
-        conclusion: ""
+    const evidenceTemplate = {
+        evidenceID: null,
+        reasonID: null,
+        supports: true,
+        evidenceContent: null,
+        warrantContent: null
+    };
+
+    //Adds only a visibility field for evidences
+    function prepInitialVisibility(storedMap) {
+        $scope.mapState = storedMap;
+        _.forEach($scope.mapState.reasons, function(value) {
+            value.expanded = true;
+        });
+        console.log("Sample data prepared for display.");
     };
 
     $scope.mapState = {};
 
-    $scope.strengthValues = [
-        1,
-        2,
-        3,
-        4,
-        5
-    ];
+    $scope.initialize = function() {
 
-    $scope.prebuild = function() {
-
-        //Instantiate a new map
-        $scope.mapState = _.cloneDeep(mapTemplate);
-        $scope.mapState.assignment = "Assignment 1";
-        $scope.mapState.topic = "Are dialectical maps an effective teaching tool?";
-        $scope.mapState.stanceBlue = "Pro/Agree";
-        $scope.mapState.stanceYellow = "Con/Disagree";
-        $scope.mapState.conclusion = "Lorem ipsums lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems lorems";
-
-        var firstReason = _.cloneDeep(reasonTemplate);
-        firstReason.id = 0;
-
-        var secondReason = _.cloneDeep(reasonTemplate);
-        secondReason.id = 1;
-        
-        $scope.mapState.blueReasons.push(firstReason);
-        $scope.mapState.yellowReasons.push(secondReason);
-
-        $scope.logMapState();
+        //get the sample data via http get
+        $http.get('prototypeMap.json')
+        .then(function buildInitialState(response) {
+            console.log(response);
+            prepInitialVisibility(response.data);      
+        }, function notifyInitialStateFailure(response) {
+            console.log(response);
+        });
     };
 
-    $scope.blueToggle = true;
-    $scope.yellowToggle = false;
+    $scope.addReason = function(isBlue) {
+        var newReason = _.cloneDeep(reasonTemplate);
+        var newID;
 
-    $scope.blueSupports = true;
-    $scope.yellowSupports = true;
+        if ($scope.mapState.reasons.length == 0) {
+            newID = 0;
+        }
+        else {
+            var maxReason = _.maxBy($scope.mapState.reasons, 'reasonID');
+            newID = maxReason.reasonID + 1;
+        }
+
+        newReason.reasonID = newID;
+        newReason.mapID = $scope.mapState.mapID;
+        newReason.strength = 3;
+        //find new order var for the new reason TODO
+        newReason.order = null;
+        newReason.isBlue = isBlue;
+        newReason.content = "";
+
+        //finally, push the new reason into the map state
+        console.log(newReason);
+        $scope.mapState.reasons.push(newReason);
+    };
+
+    $scope.removeReason = function(reason) {
+        _.remove($scope.mapState.reasons, function(item) {
+            return item.reasonID == reason.reasonID;
+        });
+    };
+
+    $scope.addEvidence = function(reason) {
+        var newEvidence = _.cloneDeep(evidenceTemplate);
+        var newID;
+
+        if (reason.evidences.length == 0) {
+            newID = 0;
+        }
+        else {
+            var maxEvidence = _.maxBy(reason.evidences, 'evidenceID');
+            newID = maxEvidence.evidenceID + 1;
+        }
+
+        newEvidence.evidenceID = newID;
+        newEvidence.reasonID = reason.reasonID;
+        newEvidence.evidenceContent = "";
+        newEvidence.warrantContent = "";
+
+        console.log(newEvidence);
+        reason.evidences.push(newEvidence);
+    };
+
+    $scope.removeEvidence = function(reason,evidence) {
+        _.remove(reason.evidences, function(item) {
+            return item.evidenceID == evidence.evidenceID;
+        });
+    };
+
+    $scope.blueFilter = function(item) {
+        return item.isBlue === true;
+    };
+
+    $scope.yellowFilter = function(item) {
+        return item.isBlue === false;
+    };
 
     $scope.logMapState = function() {
         console.log($scope.mapState);
@@ -91,12 +135,24 @@ app.controller('MainController', ['$scope', function($scope) {
         console.log("link function for arguments");
     };
 
-    $scope.toggleSupportBlue = function() {
-        $scope.blueSupports = !$scope.blueSupports;
+    $scope.increaseStrength = function(reason) {
+        if (reason.strength < 5) {
+            reason.strength++;
+        };
     };
 
-    $scope.toggleSupportYellow = function() {
-        $scope.yellowSupports = !$scope.yellowSupports;
-    }
+    $scope.decreaseStrength = function(reason) {
+        if (reason.strength > 1) {
+            reason.strength--;
+        };
+    };
+
+    $scope.toggleSupport = function(evidence) {
+        evidence.supports = !evidence.supports;
+    };
+
+    $scope.toggleEvidenceVisibility = function(reason) {
+        reason.expanded = !reason.expanded;
+    };
     
 }]);

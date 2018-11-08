@@ -1,0 +1,48 @@
+{
+    "mapID": 0,
+    "assignment": "Assignment 1",
+    "title": "Are dialectical maps an effective teaching tool?",
+    "creationDate": 1541463733,
+    "lastEditedDate": 1541463734,
+    "thesisBlue": "Pro/Agree",
+    "thesisYellow": "Con/Disagree",
+    "conclusion": "Dialectical maps are a great tool to help students dissect two different stances on an argument.  There is a slight learning curve initially, but the structure of the maps helps students to organize their thoughts and improve their confidence in debate situations.",
+    "reasons": [
+        {
+            "reasonID": 99,
+            "mapID": 0,
+            "strength": 2,
+            "order": 0,
+            "isBlue": true,
+            "content": "They help students learn.",
+            "linked": null,
+            "evidences": [
+                {
+                    "evidenceID": 333,
+                    "reasonID": 99,
+                    "supports": false,
+                    "evidenceContent": "abc",
+                    "warrantContent": "def"
+                }
+            ]
+        },
+        {
+            "reasonID": 100,
+            "mapID": 0,
+            "strength": 4,
+            "order": 0,
+            "isBlue": false,
+            "content": "They are hard to use.",
+            "linked": null,
+            "evidences": [
+                {
+                    "evidenceID": 444,
+                    "reasonID": 100,
+                    "supports": true,
+                    "evidenceContent": "ghi",
+                    "warrantContent": "jkl"
+                }
+            ]
+        }
+    ]
+}
