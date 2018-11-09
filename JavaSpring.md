@@ -174,5 +174,10 @@ public interface RoomRepository extends CrudRepository<Room, Long>{
   * It means we have an object Room from the class we already created and also a long for id of room. This allows us to have basic crud opertions. 
   </details>
 <details>
+   <summary> Create a Spring Web Service </summary>
   
-  </details>
+ * After creating one from spring initializer, then you need to import it to Eclipse, as maven folder. 
+ * To start it write click on javaname in com.name and run as java application
+ * 
+ 
+</details>
