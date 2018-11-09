@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <title>Dialectical Map</title>
+        <title>Dialectical Maps</title>
 
         <link rel="icon" href="favicon.gif">
         <link rel="stylesheet" href="style.css">
@@ -16,7 +16,7 @@
         <script src="app.js"></script>
     </head>
 
-    <body ng-app="dmApp" ng-controller="MainController" ng-init="initialize()">
+    <body ng-app="dmApp" ng-controller="MainController" ng-init="initialize()" ng-cloak>
         <!-- DM Header -->
         <div class="dmHeaderContainer noSelect">
             <div ng-click="logMapState()" class="dmLogoBlock">

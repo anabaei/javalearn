@@ -22,6 +22,32 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
         warrantContent: null
     };
 
+    var stateTracker = {
+        position: 0,
+        stack: [
+            {},
+            {},
+            {},
+            {},
+            {}
+        ]
+    };
+
+    //TODO fix the state tracking
+    function storeMapState() {
+        if (stateTracker.position == 4) {
+            for (i = 0; i < 4; i++) {
+                stateTracker.stack[i] = stateTracker.stack[i+1];
+            }
+            stateTracker.stack[4] = $scope.mapState;
+        }
+        else {
+            stateTracker.stack[stateTracker.position] = $scope.mapState;
+            stateTracker.position++;
+        }
+        console.log(stateTracker);
+    };
+
     $scope.countBlueReasons = function() {
         var count = 0;
         _.forEach($scope.mapState.reasons, function(reason) {
@@ -56,6 +82,9 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
     };
 
     $scope.addReason = function(isBlue) {
+
+        storeMapState();
+
         var newReason = _.cloneDeep(reasonTemplate);
         var newID;
         var newOrder;
@@ -89,6 +118,9 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
     };
 
     $scope.removeReason = function(reason) {
+
+        storeMapState();
+
         _.remove($scope.mapState.reasons, function(item) {
             return item.reasonID == reason.reasonID;
         });
