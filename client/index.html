@@ -27,8 +27,8 @@
                     Dialectical Maps
                 </h1>
                 <div class="headerButtonGroup dmDarkGrey">
-                    <i title="Undo" ng-click="undo()" class="fas fa-undo headerIconIndividual noSelect"></i>
-                    <i title="Redo" ng-click="redo()" class="fas fa-redo headerIconIndividual noSelect"></i>
+                    <i ng-class="{softHide: undoStack.length == 0}" title="Undo" ng-click="undo()" class="fas fa-undo headerIconIndividual noSelect"></i>
+                    <i ng-class="{softHide: redoStack.length == 0}" title="Redo" ng-click="redo()" class="fas fa-redo headerIconIndividual noSelect"></i>
                     <i title="Download" ng-click="download()" class="fas fa-download headerIconIndividual noSelect"></i>
                     <button ng-click="submit()" class="headerButton">Submit</button>
                 </div>

@@ -22,32 +22,6 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
         warrantContent: null
     };
 
-    var stateTracker = {
-        position: 0,
-        stack: [
-            {},
-            {},
-            {},
-            {},
-            {}
-        ]
-    };
-
-    //TODO fix the state tracking
-    function storeMapState() {
-        if (stateTracker.position == 4) {
-            for (i = 0; i < 4; i++) {
-                stateTracker.stack[i] = stateTracker.stack[i+1];
-            }
-            stateTracker.stack[4] = $scope.mapState;
-        }
-        else {
-            stateTracker.stack[stateTracker.position] = $scope.mapState;
-            stateTracker.position++;
-        }
-        console.log(stateTracker);
-    };
-
     $scope.countBlueReasons = function() {
         var count = 0;
         _.forEach($scope.mapState.reasons, function(reason) {
@@ -66,6 +40,28 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
             }
         });
         return count;
+    };
+
+    $scope.undoStack = [];
+    $scope.redoStack = [];
+
+    function storeMapState() {
+        $scope.undoStack.push(_.cloneDeep($scope.mapState));
+        redoStack = [];
+    };
+
+    $scope.redo = function() {
+        if($scope.redoStack.length > 0) {
+            $scope.undoStack.push(_.cloneDeep($scope.mapState));
+            $scope.mapState = $scope.redoStack.pop();
+        }
+    };
+
+    $scope.undo = function() {
+        if($scope.undoStack.length > 0) {
+            $scope.redoStack.push(_.cloneDeep($scope.mapState));
+            $scope.mapState = $scope.undoStack.pop();
+        }
     };
 
     $scope.mapState = {};
@@ -113,7 +109,6 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
         newReason.isBlue = isBlue;
         newReason.content = "";
 
-        console.log(newReason);
         $scope.mapState.reasons.push(newReason);
     };
 
@@ -127,6 +122,9 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
     };
 
     $scope.addEvidence = function(reason) {
+
+        storeMapState();
+
         var newEvidence = _.cloneDeep(evidenceTemplate);
         var newID;
 
@@ -148,6 +146,9 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
     };
 
     $scope.removeEvidence = function(reason,evidence) {
+
+        storeMapState();
+
         _.remove(reason.evidences, function(item) {
             return item.evidenceID == evidence.evidenceID;
         });
@@ -155,6 +156,9 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
 
     $scope.moveUp = function(reason) {
         if (reason.order != 0 && reason.isBlue && $scope.countBlueReasons() > 1) {
+
+            storeMapState();
+
             //find the blue candidate to move down
             var swapTarget = _.find($scope.mapState.reasons, function(item) {
                 return (item.order == reason.order - 1 && item.isBlue);
@@ -164,6 +168,9 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
             swapTarget.order = swapHolder;
         }
         else if (reason.order != 0 && !reason.isBlue && $scope.countYellowReasons() > 0) {
+
+            storeMapState();
+
             //find the yellow candidate to move down
             var swapTarget = _.find($scope.mapState.reasons, function(item) {
                 return (item.order == reason.order - 1 && !item.isBlue);
@@ -179,6 +186,9 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
 
     $scope.moveDown = function(reason) {
         if (reason.order != $scope.countBlueReasons()-1 && reason.isBlue && $scope.countBlueReasons() > 1) {
+            
+            storeMapState();
+            
             //find the blue candidate to move up
             var swapTarget = _.find($scope.mapState.reasons, function(item) {
                 return (item.order == reason.order + 1 && item.isBlue);
@@ -188,6 +198,9 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
             swapTarget.order = swapHolder;
         }
         else if (reason.order != $scope.countYellowReasons()-1 && !reason.isBlue && $scope.countYellowReasons() > 1) {
+            
+            storeMapState();
+            
             //find the yellow candidate to move down
             var swapTarget = _.find($scope.mapState.reasons, function(item) {
                 return (item.order == reason.order + 1 && !item.isBlue);
@@ -213,16 +226,8 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
         console.log($scope.mapState);
     };
 
-    $scope.redo = function() {
-        console.log("Redo function");
-    };
-
     $scope.submit = function() {
         console.log("submit function");
-    };
-
-    $scope.undo = function() {
-        console.log("undo function");
     };
 
     $scope.download = function() {
@@ -230,26 +235,41 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
     };
 
     $scope.linkArguments = function() {
+
+        //TODO remember to store the map state here
+
         console.log("link function for arguments");
     };
 
     $scope.increaseStrength = function(reason) {
         if (reason.strength < 5) {
+
+            storeMapState();
+
             reason.strength++;
         };
     };
 
     $scope.decreaseStrength = function(reason) {
         if (reason.strength > 1) {
+
+            storeMapState();
+
             reason.strength--;
         };
     };
 
     $scope.toggleSupport = function(evidence) {
+
+        storeMapState();
+
         evidence.supports = !evidence.supports;
     };
 
     $scope.toggleEvidenceVisibility = function(reason) {
+
+        storeMapState();
+
         reason.expanded = !reason.expanded;
     };
     
