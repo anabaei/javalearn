@@ -68,6 +68,16 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
 
     $scope.initialize = function() {
 
+        //Disable standard undo
+        Mousetrap.bind(['command+z','ctrl+z'], function(e) {
+            return false;
+        });
+
+        //Disable standard redo
+        Mousetrap.bind(['command+y','ctrl+y'], function(e) {
+            return false;
+        });
+
         //get the sample data via http get
         $http.get('prototypeMap.json')
         .then(function buildInitialState(response) {
