@@ -22,47 +22,13 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
         warrantContent: null
     };
 
-    $scope.countBlueReasons = function() {
-        var count = 0;
-        _.forEach($scope.mapState.reasons, function(reason) {
-            if (reason.isBlue) {
-                count++;
-            }
-        });
-        return count;
-    };
-
-    $scope.countYellowReasons = function() {
-        var count = 0;
-        _.forEach($scope.mapState.reasons, function(reason) {
-            if (!reason.isBlue) {
-                count++;
-            }
-        });
-        return count;
-    };
+    //keep track of when the text in an item changes
+    var textStore = "";
+    //keep a deep copy of the mapstate when comparing changes in text
+    var stateStore = {};
 
     $scope.undoStack = [];
     $scope.redoStack = [];
-
-    function storeMapState() {
-        $scope.undoStack.push(_.cloneDeep($scope.mapState));
-        redoStack = [];
-    };
-
-    $scope.redo = function() {
-        if($scope.redoStack.length > 0) {
-            $scope.undoStack.push(_.cloneDeep($scope.mapState));
-            $scope.mapState = $scope.redoStack.pop();
-        }
-    };
-
-    $scope.undo = function() {
-        if($scope.undoStack.length > 0) {
-            $scope.redoStack.push(_.cloneDeep($scope.mapState));
-            $scope.mapState = $scope.undoStack.pop();
-        }
-    };
 
     $scope.mapState = {};
 
@@ -85,6 +51,66 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
         }, function notifyInitialStateFailure(response) {
             console.log(response);
         });
+    };
+
+    $scope.pullOriginalText = function(text) {
+        //Keep a copy of the map state before the element is focused so we can store it later if needed
+        stateStore = _.cloneDeep($scope.mapState);
+        //Keep a copy of the specific element text for comparison purposes
+        textStore = text;
+    };
+
+    $scope.compareNewText = function(text) {
+        console.log(text);
+        //if the text changed 
+        if(text != textStore) {
+            console.log("got here");
+            $scope.undoStack.push(_.cloneDeep(stateStore));
+            redoStack = [];
+        }
+
+        //clear holder variables
+        stateStore = {};
+        textStore = "";
+    };
+
+    $scope.countBlueReasons = function() {
+        var count = 0;
+        _.forEach($scope.mapState.reasons, function(reason) {
+            if (reason.isBlue) {
+                count++;
+            }
+        });
+        return count;
+    };
+
+    $scope.countYellowReasons = function() {
+        var count = 0;
+        _.forEach($scope.mapState.reasons, function(reason) {
+            if (!reason.isBlue) {
+                count++;
+            }
+        });
+        return count;
+    };
+
+    function storeMapState() {
+        $scope.undoStack.push(_.cloneDeep($scope.mapState));
+        redoStack = [];
+    };
+
+    $scope.redo = function() {
+        if($scope.redoStack.length > 0) {
+            $scope.undoStack.push(_.cloneDeep($scope.mapState));
+            $scope.mapState = $scope.redoStack.pop();
+        }
+    };
+
+    $scope.undo = function() {
+        if($scope.undoStack.length > 0) {
+            $scope.redoStack.push(_.cloneDeep($scope.mapState));
+            $scope.mapState = $scope.undoStack.pop();
+        }
     };
 
     $scope.addReason = function(isBlue) {

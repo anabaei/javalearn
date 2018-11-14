@@ -3,10 +3,6 @@ html {
     overflow-x:hidden;
 }
 
-[contentEditable=true]:empty:not(:focus):before{
-    content:attr(data-text)
-}
-
 body {
     margin-top: 6vw;
     margin-bottom: 0;
@@ -164,9 +160,14 @@ body {
 }
 
 .conclusionText {
+    min-width: 44vw;
+    max-width: 44vw;
+    box-sizing: border-box;
     padding-left: 2vw;
     padding-right: 2vw;
     padding-bottom: 2vw;
+    border: none;
+    resize: vertical;
 }
 
 .dialecticalContainer {

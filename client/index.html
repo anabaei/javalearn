@@ -223,9 +223,7 @@
                 <h1 id="conclusionTitle" class="header1Common dmDarkGrey noSelect">
                     Conclusion
                 </h1>
-                <div contentEditable=true data-text="Enter a conclusion here." class="conclusionText dmDarkGrey bodyType dmDarkGrey">
-                    {{mapState.conclusion}}
-                </div>
+                <textarea ng-model="mapState.conclusion" ng-blur="compareNewText(mapState.conclusion)" ng-focus="pullOriginalText(mapState.conclusion)" class="conclusionText dmDarkGrey bodyType dmDarkGrey"></div>
             </div>
         </div>
     </body>
