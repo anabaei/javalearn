@@ -7,6 +7,7 @@
 #### Install Maven
 * Make sure JDK is installed in your system. Make sure JAVA_HOME variable is set to the path that JDK folder exist(Windows)
 ```java
+brew install maven
 mvn --version  // check maven exist!
 ```
 * Download as binary zip file, then move it to the folder you want to run project
