@@ -249,11 +249,11 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
     };
 
     $scope.blueFilter = function(item) {
-        return item.isBlue === true;
+        return item.isBlue === true && item.linkedTo === null;
     };
 
     $scope.yellowFilter = function(item) {
-        return item.isBlue === false;
+        return item.isBlue === false && item.linkedTo === null;
     };
 
     $scope.logMapState = function() {
@@ -268,11 +268,55 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
         console.log("download function");
     };
 
+    $scope.linkedReasonsExist = function() {
+        var singleLinkedReason = _.find($scope.mapState.reasons, function(reason) {
+            return reason.linkedTo != null;
+        });
+
+        if (singleLinkedReason) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    };
+
+    $scope.unlinkArguments = function() {
+        console.log("Function for unlink arguments");
+    };
+
     $scope.linkArguments = function() {
 
-        //TODO remember to store the map state here
+        //identify the blue candidate to link
+        var blueCandidate = _.find($scope.mapState.reasons, function(reason) {
+            return reason.isBlue && reason.order == 0 && reason.linkedTo == null;
+        });
 
-        console.log("link function for arguments");
+        //identify the yellow candidate to link
+        var yellowCandidate = _.find($scope.mapState.reasons, function(reason) {
+            return !reason.isBlue && reason.order == 0 && reason.linkedTo == null;
+        })
+
+        //if both a valid blue and yellow reason found
+        if (blueCandidate && yellowCandidate) {
+
+            storeMapState();
+
+            //create the bijective link
+            blueCandidate.linkedTo = yellowCandidate.reasonID;
+            yellowCandidate.linkedTo = blueCandidate.reasonID;
+
+            //assign new order number to both candidates
+
+            //decrement the order numbers of the unlinked reasons
+
+            console.log(blueCandidate);
+            console.log(yellowCandidate);
+        }
+        else {
+            console.log("Unable to find valid arguments to link.");
+        }
+        
     };
 
     $scope.increaseStrength = function(reason) {

@@ -55,9 +55,11 @@
                         <h1 class="header1Common dmYellow stanceTitle">{{mapState.thesisYellow}}</h1>
                     </div>
                 </div>
-                <!-- TODO linked reason blocks, empty if no links -->
-                <div>
-                    <!-- TODO -->
+                <!-- linked reason blocks, empty or no render if no links -->
+                <div ng-if="linkedReasonsExist()">
+                    <div class="linkedReasonPair">
+                        content
+                    </div>
                 </div>
                 <div class="whiteSpaceRemove">
                     <div class="commonCol">
