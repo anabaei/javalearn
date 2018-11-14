@@ -32,7 +32,9 @@ mvn archetype:generate -DgroupId=com.jcg.maven -DartifactId=MavenHelloWorldProje
   
  * If you forgot mysql password when running 
  ```java
+ mysql.server start
  mysql -u root -p
+ 
  ```
  * Then you need to remove mysql and dowload it again as [here](https://coderwall.com/p/os6woq/uninstall-all-those-broken-versions-of-mysql-and-re-install-it-with-brew-on-mac-mavericks)
  
