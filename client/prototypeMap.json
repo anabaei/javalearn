@@ -16,6 +16,7 @@
             "isBlue": true,
             "content": "They help students learn.",
             "linked": null,
+            "expanded": true,
             "evidences": [
                 {
                     "evidenceID": 333,
@@ -34,6 +35,7 @@
             "isBlue": false,
             "content": "They are hard to use.",
             "linked": null,
+            "expanded": true,
             "evidences": [
                 {
                     "evidenceID": 444,
