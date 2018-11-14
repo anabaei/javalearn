@@ -168,6 +168,7 @@ body {
     padding-bottom: 2vw;
     border: none;
     resize: vertical;
+    min-height: 15vw;
 }
 
 .dialecticalContainer {

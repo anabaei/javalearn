@@ -90,7 +90,7 @@
                             </div>
                             <!-- Reason content -->
                             <div class="reasonContent">
-                                <textarea ng-model="reason.content" class="reasonTextArea bodyType dmDarkGrey" placeholder="Insert Reason"></textarea>
+                                <textarea ng-focus="pullOriginalText(reason.content)" ng-blur="compareNewText(reason.content)" ng-model="reason.content" class="reasonTextArea bodyType dmDarkGrey" placeholder="Insert Reason"></textarea>
                             </div>
                             <!-- Evidence Control -->
                             <div class="noSelect">
@@ -114,8 +114,8 @@
                                         <i class="fas fa-minus-square minusIcon dmDarkGrey"></i>
                                     </div>
                                 </div>
-                                <textarea ng-model="evidence.evidenceContent" class="evidenceTextArea bodyType dmDarkGrey" placeholder="Insert Evidence"></textarea>
-                                <textarea ng-model="evidence.warrantContent" class="evidenceTextArea bodyType dmDarkGrey" placeholder="Warrants"></textarea>
+                                <textarea ng-focus="pullOriginalText(evidence.evidenceContent)" ng-blur="compareNewText(evidence.evidenceContent)" ng-model="evidence.evidenceContent" class="evidenceTextArea bodyType dmDarkGrey" placeholder="Insert Evidence"></textarea>
+                                <textarea ng-focus="pullOriginalText(evidence.warrantContent)" ng-blur="compareNewText(evidence.warrantContent)" ng-model="evidence.warrantContent" class="evidenceTextArea bodyType dmDarkGrey" placeholder="Warrants"></textarea>
                             </div>
                             <!-- evidence empty block -->
                             <div ng-click="addEvidence(reason)" ng-if="reason.expanded" class="addEvidenceBlock blueAddEvidenceBlock clickable">
@@ -167,7 +167,7 @@
                                 </div>
                                 <!-- Reason content -->
                                 <div class="reasonContent">
-                                    <textarea ng-model="reason.content" class="reasonTextArea bodyType dmDarkGrey" placeholder="Insert Reason"></textarea>
+                                    <textarea ng-focus="pullOriginalText(reason.content)" ng-blur="compareNewText(reason.content)" ng-model="reason.content" class="reasonTextArea bodyType dmDarkGrey" placeholder="Insert Reason"></textarea>
                                 </div>
                                 <!-- Evidence Control -->
                                 <div class="noSelect">
@@ -190,8 +190,8 @@
                                             <i class="fas fa-minus-square minusIcon"></i>
                                         </div>
                                     </div>
-                                    <textarea ng-model="evidence.evidenceContent" class="evidenceTextArea bodyType dmDarkGrey" placeholder="Insert Evidence"></textarea>
-                                    <textarea ng-model="evidence.warrantContent" class="evidenceTextArea bodyType dmDarkGrey" placeholder="Warrants"></textarea>
+                                    <textarea ng-focus="pullOriginalText(evidence.evidenceContent)" ng-blur="compareNewText(evidence.evidenceContent)" ng-model="evidence.evidenceContent" class="evidenceTextArea bodyType dmDarkGrey" placeholder="Insert Evidence"></textarea>
+                                    <textarea ng-focus="pullOriginalText(evidence.warrantContent)" ng-blur="compareNewText(evidence.warrantContent)" ng-model="evidence.warrantContent" class="evidenceTextArea bodyType dmDarkGrey" placeholder="Warrants"></textarea>
                                 </div>
                                 <!-- evidence empty block -->
                                 <div ng-click="addEvidence(reason)" ng-if="reason.expanded" class="addEvidenceBlock yellowAddEvidenceBlock clickable">
@@ -213,9 +213,7 @@
         </div>
         <!-- Color v area -->
         <div class="halfVContainer">
-            <div class="triBorder">
-
-            </div>
+            <div class="triBorder"></div>
         </div>
         <!-- container for conclusion area -->
         <div class="conclusionContainer">

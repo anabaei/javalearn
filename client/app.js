@@ -61,15 +61,13 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
     };
 
     $scope.compareNewText = function(text) {
-        console.log(text);
         //if the text changed 
         if(text != textStore) {
-            console.log("got here");
             $scope.undoStack.push(_.cloneDeep(stateStore));
-            redoStack = [];
+            $scope.redoStack = [];
         }
 
-        //clear holder variables
+        //clear holder variables for the next use
         stateStore = {};
         textStore = "";
     };
@@ -96,7 +94,7 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
 
     function storeMapState() {
         $scope.undoStack.push(_.cloneDeep($scope.mapState));
-        redoStack = [];
+        $scope.redoStack = [];
     };
 
     $scope.redo = function() {
