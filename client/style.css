@@ -87,7 +87,7 @@ body {
     margin-left: 4vw;
     margin-top: 0vw;
     margin-bottom: 2vw;
-    margin-right: 4vw;
+    margin-right: 2vw;
 }
 
 .header2Common {
@@ -99,7 +99,7 @@ body {
     margin-left: 4vw;
     margin-top: 0vw;
     margin-bottom: 2vw;
-    margin-right: 4vw;
+    margin-right: 2vw;
 }
 
 .header3Common {
@@ -428,8 +428,4 @@ body {
 .softHide {
     opacity: 0.5;
     cursor: not-allowed;
-}
-
-.linkedReasonPair {
-    margin-bottom: 2vw;
 }

@@ -15,7 +15,7 @@
             "order": 0,
             "isBlue": true,
             "content": "They help students learn.",
-            "linkedTo": null,
+            "linked": null,
             "expanded": true,
             "evidences": [
                 {
@@ -34,7 +34,7 @@
             "order": 0,
             "isBlue": false,
             "content": "They are hard to use.",
-            "linkedTo": null,
+            "linked": null,
             "expanded": true,
             "evidences": [
                 {
