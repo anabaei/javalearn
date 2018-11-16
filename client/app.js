@@ -296,7 +296,32 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
         console.log("download function");
     };
 
-    //TODO make function to build list of link blocks
+    $scope.unlinkArguments = function(linkedBlueReason,linkedYellowReason) {
+        
+        storeMapState();
+
+        //arbitrary
+        var sharedLinkID = linkedBlueReason.linkID;
+
+        //adjust rest of the linkIDs downward if they are greater
+        _.forEach($scope.mapState.reasons, function(reason) {
+            if (reason.linkID != null && reason.linkID > sharedLinkID) {
+                reason.linkID--;
+            }
+        });
+
+        //acquire new order for the now unlinked reasons, place at bottom
+        var newBlueID = $scope.countBlueReasons();
+        var newYellowID = $scope.countYellowReasons();
+
+        //clear linkIDs
+        linkedBlueReason.linkID = null;
+        linkedYellowReason.linkID = null;
+
+        //assign the orders we found before
+        linkedBlueReason.order = newBlueID;
+        linkedYellowReason.order = newYellowID;
+    };
 
     $scope.linkArguments = function() {
 
@@ -320,7 +345,7 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
                 }
             });
 
-            //look for existing linkIDs and find the largest one, assingn 0 if none exist
+            //look for existing linkIDs and find the largest one, assign 0 if none exist
             var existingLinkedReason = _.maxBy($scope.mapState.reasons, 'linkID');
             var newLinkID;
             if (existingLinkedReason) {
