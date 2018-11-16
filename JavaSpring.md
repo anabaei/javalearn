@@ -413,7 +413,59 @@ Then you can send to `http://localhost:8080/api/greeting/1` address with this at
 ```java
 {"id": 1, "text": "Hello World!"}
 ```
+* So far you can find the code [here](https://github.com/anabaei/DialecticalMap.v1/tree/controller1)
 </details>
+
+<details>
+	<summary> Web Service Layer </summary>
+	
+* So far controllers has annotated by `@RequestMampping` to create each method a RESTfull endpoint. At top of controller class we had fre temporary methods like save to serve us a placeholder until we integrate with spring data repository. 
+* Create a package ending with `ws.service`. Within this package create new interface name `GreetingService`. In this interface we define public bussiness service which we want to expose to client of the service. 
+* So we define mehtods to update, find, create and delete Greeting entities would be like this 
+```java
+public interface GreetingService {
+	Collection<Greeting> findAll();
+	Greeting findOne(Long id);
+	Greeting create(Greeting greeting);
+	Greeting update(Greeting greeting);
+    void delete(Long id);
+}
+```
+* Now in the same package creaet a class to implement this interface call it(when you create a class in eclipse click on `add` to have interface in your class.
+* Then annotate class wiht `@Service` when application starts it automatically manages classes with `@service` annotation.
+* Then copy paste all helper methods from controller to service with attributes then wire service into controller. Change delete method name to remove because we define a publice delete on greeting service!
+```java
+// in controller add interface as 
+@Autowired
+	private GreetingService greetingService;
+```
+*Then all the services are available, like
+```java
+//old 
+greetingMap.values();
+greetingMap.get(id);
+save(greeting);
+// new
+greetingService.findAll();
+greetingService.findOne(id);
+greetingService.create(greeting);
+greetingService.delete(id);
+```
+
+</details> 	
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
