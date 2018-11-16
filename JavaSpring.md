@@ -185,7 +185,7 @@ public interface RoomRepository extends CrudRepository<Room, Long>{
  
 </details>
 <details>
-  <summary> Quick Start  JPA</summary>
+  <summary> Start & Connect to MySQL</summary>
   
   * JPA helps to Java developers to access database without writing queries. 
   * Object Relational Mapping helps to connect Java to relational database. This is known JPA and Hibernet is an instance provider for JPA. Annotations defines metadata to map Java Objects in database. JPA lives in JAVAX persitance package. 
@@ -222,7 +222,81 @@ Now it should work on
 ```
 http://localhost:8080/
 ```
-
-
-  
  </details>
+ <details>
+	<summary> CREAT REST </summary>	
+
+* Remember name controller and models based on applications 
+* Create Model package into `src/main/java` Then create a class `greeting` inside that. Create 
+```java
+private BigInteger id;
+private String text;
+public greeting {
+}
+```
+* Then go to source select create getter and setter. 
+* Then create another package name controller and a class name greetingController. Inside that add `@RestController` to let it know the resond is json or xml
+```java
+package com.sfutlc.sfutlc.controller;
+
+import java.math.BigInteger;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.http.HttpStatus;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import org.springframework.web.bind.annotation.RestController;
+
+
+
+import com.sfutlc.sfutlc.model.Greeting;
+
+@RestController
+@RequestMapping("/api")
+public class GreetingController {
+
+    private static BigInteger nextId;
+    private static Map<BigInteger, Greeting> greetingMap;
+
+    private static Greeting save(Greeting greeting) {
+        if (greetingMap == null) {
+            greetingMap = new HashMap<BigInteger, Greeting>();
+            nextId = BigInteger.ONE;
+        }
+        greeting.setId(nextId);
+        nextId = nextId.add(BigInteger.ONE);
+        greetingMap.put(greeting.getId(), greeting);
+        return greeting;
+    }
+
+    static {
+        Greeting g1 = new Greeting();
+        g1.setText("Hello World!");
+        ;
+        save(g1);
+
+        Greeting g2 = new Greeting();
+        g2.setText("Hola Mundo!");
+        save(g2);
+    }
+
+    @GetMapping("/greetings")
+    public ResponseEntity<Collection<Greeting>> getGreetings() {
+
+        Collection<Greeting> greetings = greetingMap.values();
+
+        return new ResponseEntity<Collection<Greeting>>(greetings,
+                HttpStatus.OK);
+    }
+
+}
+```
+
+
+</details>
+ 
