@@ -11,6 +11,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mousetrap/1.6.2/mousetrap.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.17/angular-filter.js"></script>
 
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/solid.css" integrity="sha384-osqezT+30O6N/vsMqwW8Ch6wKlMofqueuia2H7fePy42uC05rm1G+BUPSd2iBSJL" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/fontawesome.css" integrity="sha384-BzCy2fixOYd0HObpx3GMefNqdbA7Qjcc91RgYeDjrHTIEXqiF00jKvgQG0+zY/7I" crossorigin="anonymous">
@@ -55,9 +56,144 @@
                         <h1 class="header1Common dmYellow stanceTitle">{{mapState.thesisYellow}}</h1>
                     </div>
                 </div>
-                <!-- TODO linked reason blocks, empty if no links -->
+                <!-- linked reason blocks, ends up empty if no links -->
                 <div>
-                    <!-- TODO -->
+                    <div ng-repeat="linkedReason in mapState.reasons | filter: linkedFilter | orderBy: 'linkID' | groupBy: 'linkID' ">
+                        <!-- START LINKED REPEAT -->
+                        <div class="whiteSpaceRemove">
+                                <i class="fas fa-arrows-alt-h unlinkerArrow"></i>
+                                <div class="linkCol">
+                                    <!-- Blue existing reason block -->
+                                    <div class="linkedReasonBlockBlue dmBlueBackground">
+                                        <!-- Reason control and strength -->
+                                        <div>
+                                            <h1 class="reasonBlockTitle header1Common dmWhite noSelect">
+                                                Reason
+                                                <div class="reasonButtonGroup">
+                                                    <i ng-class="{softHide: linkedReason[0].linkID == 0}" ng-click="moveLinkedReasonsUp(linkedReasons[0])" class="fas fa-caret-square-up clickable"></i>
+                                                    <i ng-class="{softHide: linkedReason[0].linkID == countLinkedReasons()-1}" ng-click="moveLinkedReasonsDown(linkedReason[0])" class="fas fa-caret-square-down clickable"></i>
+                                                    <!-- <i ng-click="removeReason(reason)" class="fas fa-minus-square clickable"></i> -->
+                                                </div>
+                                            </h1>
+                                            <div class="strengthBlock noSelect">
+                                                <h3 class="header3Common dmWhite strengthHeader">
+                                                    STRENGTH
+                                                </h3>
+                                                <div class="strengthControlsBlue">
+                                                    <h1 class="header1Common strengthNumOv dmWhite">
+                                                        <div class="strengthAdjustContainer">
+                                                            <i ng-class="{softHide: linkedReason[0].strength == 1}" ng-click="decreaseStrength(linkedReason[0])" class="fas fa-minus clickable strengthMinus"></i>
+                                                            <span>{{linkedReason[0].strength}}</span>
+                                                            <i ng-class="{softHide: linkedReason[0].strength == 5}" ng-click="increaseStrength(linkedReason[0])" class="fas fa-plus clickable strengthPlus"></i>
+                                                        </div>
+                                                    </h1>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Reason content -->
+                                        <div class="reasonContent">
+                                            <textarea ng-focus="pullOriginalText(linkedReason[0].content)" ng-blur="compareNewText(linkedReason[0].content)" ng-model="linkedReason[0].content" class="reasonTextArea bodyType dmDarkGrey" placeholder="Insert Reason"></textarea>
+                                        </div>
+                                        <!-- Evidence Control -->
+                                        <div class="noSelect">
+                                            <h1 class="reasonBlockTitle header1Common dmWhite evidenceTitleOv">
+                                                <div class="toggleCaret clickable">
+                                                    <i ng-show="!linkedReason[0].expanded" ng-click="toggleEvidenceVisibility(linkedReason[0])" class="fas fa-caret-right"></i>
+                                                    <i ng-show="linkedReason[0].expanded" ng-click="toggleEvidenceVisibility(linkedReason[0])" class="fas fa-caret-down"></i>
+                                                </div> Evidence
+                                            </h1>
+                                        </div>
+                                        <!-- Evidence content -->
+                                        <div ng-repeat="evidence in linkedReason[0].evidences track by evidence.evidenceID" ng-if="linkedReason[0].expanded" class="evidenceContent">
+                                            <div ng-class="evidence.supports ? 'dmWhiteBackground' : 'dmYellowBackground'" class="supportsSwap noSelect clickable">
+                                                <h3 ng-click="toggleSupport(evidence)" class="header3Common dmDarkGrey supportsHeader">
+                                                    <i class="fas fa-sort swapIcon"></i>
+                                                    <span ng-if="evidence.supports">SUPPORTS</span>
+                                                    <span ng-if="!evidence.supports">OPPOSES</span>
+                                                </h3>
+                                                <div ng-click="removeEvidence(linkedReason[0],evidence)" class="minusBlock">
+                                                    <i class="fas fa-minus-square minusIcon dmDarkGrey"></i>
+                                                </div>
+                                            </div>
+                                            <textarea ng-focus="pullOriginalText(evidence.evidenceContent)" ng-blur="compareNewText(evidence.evidenceContent)" ng-model="evidence.evidenceContent" class="evidenceTextArea bodyType dmDarkGrey" placeholder="Insert Evidence"></textarea>
+                                            <textarea ng-focus="pullOriginalText(evidence.warrantContent)" ng-blur="compareNewText(evidence.warrantContent)" ng-model="evidence.warrantContent" class="evidenceTextArea bodyType dmDarkGrey" placeholder="Warrants"></textarea>
+                                        </div>
+                                        <!-- evidence empty block -->
+                                        <div ng-click="addEvidence(linkedReason[0])" ng-if="linkedReason[0].expanded" class="addEvidenceBlock blueAddEvidenceBlock clickable">
+                                            <div class="bodyType dmWhite innerEvidenceBlock noSelect">
+                                                    <span><i class="fas fa-plus"></i> Add Evidence</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Yellow side -->
+                                <div class="linkCol">
+                                        <!-- Yellow existing reason block -->
+                                        <div class="linkedReasonBlockYellow dmYellowBackground">
+                                            <!-- Reason control and strength -->
+                                            <div>
+                                                <h1 class="reasonBlockTitle header1Common dmDarkGrey noSelect">
+                                                    Reason
+                                                    <div class="reasonButtonGroup">
+                                                        <i ng-class="{softHide: linkedReason[1].linkID == 0}" ng-click="moveLinkedReasonsUp(linkedReason[1])" class="fas fa-caret-square-up clickable"></i>
+                                                        <i ng-class="{softHide: linkedReason[1].linkID == countLinkedReasons()-1}" ng-click="moveLinkedReasonsDown(linkedReason[1])" class="fas fa-caret-square-down clickable"></i>
+                                                        <!-- <i ng-click="removeReason(reason)" class="fas fa-minus-square clickable"></i> -->
+                                                    </div>
+                                                </h1>
+                                                <div class="strengthBlock noSelect">
+                                                    <h3 class="header3Common dmDarkGrey strengthHeader">
+                                                        STRENGTH
+                                                    </h3>
+                                                    <div class="strengthControlsYellow">
+                                                        <h1 class="header1Common strengthNumOv dmDarkGrey">
+                                                            <div class="strengthAdjustContainer">
+                                                                <i ng-class="{softHide: linkedReason[1].strength == 1}" ng-click="decreaseStrength(linkedReason[1])" class="fas fa-minus clickable strengthMinus"></i>
+                                                                <span>{{linkedReason[1].strength}}</span>
+                                                                <i ng-class="{softHide: linkedReason[1].strength == 5}" ng-click="increaseStrength(linkedReason[1])" class="fas fa-plus clickable strengthPlus"></i>
+                                                            </div>
+                                                        </h1>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Reason content -->
+                                            <div class="reasonContent">
+                                                <textarea ng-focus="pullOriginalText(linkedReason[1].content)" ng-blur="compareNewText(linkedReason[1].content)" ng-model="linkedReason[1].content" class="reasonTextArea bodyType dmDarkGrey" placeholder="Insert Reason"></textarea>
+                                            </div>
+                                            <!-- Evidence Control -->
+                                            <div class="noSelect">
+                                                <h1 class="reasonBlockTitle header1Common dmDarkGrey evidenceTitleOv">
+                                                    <div class="toggleCaret clickable">
+                                                        <i ng-show="!linkedReason[1].expanded" ng-click="toggleEvidenceVisibility(linkedReason[1])" class="fas fa-caret-right"></i>
+                                                        <i ng-show="linkedReason[1].expanded" ng-click="toggleEvidenceVisibility(linkedReason[1])" class="fas fa-caret-down"></i>
+                                                    </div> Evidence
+                                                </h1>
+                                            </div>
+                                            <!-- Evidence content -->
+                                            <div ng-repeat="evidence in linkedReason[1].evidences track by evidence.evidenceID" ng-if="linkedReason[1].expanded" class="evidenceContent">
+                                                <div ng-class="evidence.supports ? 'dmWhiteBackground' : 'dmBlueBackground'" class="supportsSwap noSelect clickable">
+                                                    <h3 ng-click="toggleSupport(evidence)" ng-class="evidence.supports ? '' : 'dmWhite'" class="header3Common dmDarkGrey supportsHeader">
+                                                        <i class="fas fa-sort swapIcon"></i>
+                                                        <span ng-if="evidence.supports">SUPPORTS</span>
+                                                        <span ng-if="!evidence.supports">OPPOSES</span>
+                                                    </h3>
+                                                    <div ng-click="removeEvidence(linkedReason[1],evidence)" ng-class="evidence.supports? '' : 'dmWhite'" class="minusBlock dmDarkGrey">
+                                                        <i class="fas fa-minus-square minusIcon"></i>
+                                                    </div>
+                                                </div>
+                                                <textarea ng-focus="pullOriginalText(evidence.evidenceContent)" ng-blur="compareNewText(evidence.evidenceContent)" ng-model="evidence.evidenceContent" class="evidenceTextArea bodyType dmDarkGrey" placeholder="Insert Evidence"></textarea>
+                                                <textarea ng-focus="pullOriginalText(evidence.warrantContent)" ng-blur="compareNewText(evidence.warrantContent)" ng-model="evidence.warrantContent" class="evidenceTextArea bodyType dmDarkGrey" placeholder="Warrants"></textarea>
+                                            </div>
+                                            <!-- evidence empty block -->
+                                            <div ng-click="addEvidence(linkedReason[1])" ng-if="linkedReason[1].expanded" class="addEvidenceBlock yellowAddEvidenceBlock clickable">
+                                                <div class="bodyType dmDarkGrey innerEvidenceBlock noSelect">
+                                                        <span><i class="fas fa-plus"></i> Add Evidence</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        <!-- END LINKED REPEAT -->
+                    </div>
                 </div>
                 <div class="whiteSpaceRemove">
                     <div class="commonCol">
@@ -103,7 +239,6 @@
                             </div>
                             <!-- Evidence content -->
                             <div ng-repeat="evidence in reason.evidences track by evidence.evidenceID" ng-if="reason.expanded" class="evidenceContent">
-                                <!-- TODO select box polish -->
                                 <div ng-class="evidence.supports ? 'dmWhiteBackground' : 'dmYellowBackground'" class="supportsSwap noSelect clickable">
                                     <h3 ng-click="toggleSupport(evidence)" class="header3Common dmDarkGrey supportsHeader">
                                         <i class="fas fa-sort swapIcon"></i>
@@ -131,7 +266,7 @@
                             </h1>
                         </div>
                     </div>
-                    <div ng-click="linkArguments()" class="linker dmLightGreyBackground clickable">
+                    <div ng-class="{softHide: countYellowReasons() == 0 || countBlueReasons() == 0}" ng-click="linkArguments()" class="linker dmLightGreyBackground clickable">
                         <div class="innerLinker">
                             <i id="linkerArrow" class="fas fa-arrows-alt-h"></i>
                         </div>
@@ -207,7 +342,6 @@
                                 </h1>
                             </div>
                         </div>
-                    <!-- end of replace later -->
                 </div>
             </div>
         </div>

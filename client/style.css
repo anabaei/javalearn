@@ -247,8 +247,20 @@ body {
     font-size: 3vw;
 }
 
+.unlinkerArrow {
+    color: white;
+    font-size: 3vw;
+    float: right;
+}
+
 .commonCol {
     width: 44vw;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.linkCol {
+    width: 46vw;
     display: inline-block;
     vertical-align: top;
 }
@@ -270,6 +282,22 @@ body {
     padding-top: 2vw;
     padding-bottom: 2vw;
     padding-left: 2vw;
+    padding-right: 2vw;
+    margin-bottom: 2vw;
+}
+
+.linkedReasonBlockBlue {
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+    padding-left: 2vw;
+    padding-right: 4vw;
+    margin-bottom: 2vw;
+}
+
+.linkedReasonBlockYellow {
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+    padding-left: 4vw;
     padding-right: 2vw;
     margin-bottom: 2vw;
 }
@@ -428,8 +456,4 @@ body {
 .softHide {
     opacity: 0.5;
     cursor: not-allowed;
-}
-
-.linkedReasonPair {
-    margin-bottom: 2vw;
 }
