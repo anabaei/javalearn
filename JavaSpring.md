@@ -225,7 +225,8 @@ http://localhost:8080/
  </details>
  <details>
 	<summary> CREAT REST </summary>	
-
+	
+* List of [videos](https://www.youtube.com/channel/UChCCDds_KM-w02yVn7cQI_Q)
 * Followed [this](https://www.youtube.com/watch?v=kbisNUfqVLM&t=16s)
 * Remember name controller and models based on applications 
 * Create Model package into `src/main/java` Then create a class `greeting` inside that. Create 
