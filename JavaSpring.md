@@ -190,7 +190,7 @@ public interface RoomRepository extends CrudRepository<Room, Long>{
   * JPA helps to Java developers to access database without writing queries. 
   * Object Relational Mapping helps to connect Java to relational database. This is known JPA and Hibernet is an instance provider for JPA. Annotations defines metadata to map Java Objects in database. JPA lives in JAVAX persitance package. 
   * Spring scan for entities. Entities have unique name, attributes, setters and getters. JPQL is java object relational language looks like SQL and returns collection of entities instead of rows like in sql. JPA doesnt support schemaless or NoSQL. It just support relational databases. 
-  
+  * Downlod it from spring initalizer io, with selecting web and mysql 
   ```java
   mysql -u root 
   create database greeting;
@@ -213,6 +213,14 @@ Add this to pom.xml
 	<artifactId>mysql-connector-java</artifactId>
 	<scope>runtime</scope>
 </dependency>
+```
+Then
+```java
+mvn spring-boot:run
+```
+Now it should work on 
+```
+http://localhost:8080/
 ```
 
 
