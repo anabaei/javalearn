@@ -369,6 +369,51 @@ Then inside the postman you need to hit with `put` action including with this ur
 ```
 </details>
 
+<details>
+	<summary> Delete </summary>
+
+* We create a helper method first then in future it would be replaced by repository. First has to find it if not find return false else 
+return true
+```java
+private static boolean delete(BigInteger id) {
+    	   Greeting deletedGreeting = greetingMap.remove(id);
+    	   if(deletedGreeting == null)
+    	   {
+    		   return false;
+    	   }
+    	return true;
+    }
+```
+* Now create a mthod name deleteGreeting and annotate it with @RequestMapping
+```java
+  @RequestMapping(
+    		value="/api/greeting/{id}",
+    		method = RequestMethod.DELETE,
+    		produces = MediaType.APPLICATION_JSON_VALUE,
+    		consumes = MediaType.APPLICATION_JSON_VALUE
+    		
+    		)
+    public ResponseEntity<Greeting> deleteGreeting(
+    		@PathVariable("id") BigInteger id, 
+    		@RequestBody Greeting greeting){
+    	 boolean deleted = delete(id);
+    	 if(!deleted)
+    	 {
+    		 return new ResponseEntity<Greeting>(
+    		 HttpStatus.INTERNAL_SERVER_ERROR		 
+    				 );
+    	 }	 
+    		 return new ResponseEntity<Greeting>(
+    				 HttpStatus.NO_CONTENT 
+    				 );			 
+    	 
+    }
+```
+Then you can send to `http://localhost:8080/api/greeting/1` address with this attributes and delete action
+```java
+{"id": 1, "text": "Hello World!"}
+```
+</details>
 
 
 
