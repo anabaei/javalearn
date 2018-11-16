@@ -240,31 +240,20 @@ public greeting {
 * This is a restful controller service 
 ```java
 package com.sfutlc.sfutlc.controller;
-
 import java.math.BigInteger;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-
 import org.springframework.http.HttpStatus;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import org.springframework.web.bind.annotation.RestController;
-
-
-
 import com.sfutlc.sfutlc.model.Greeting;
-
 @RestController
-@RequestMapping("/api")
 public class GreetingController {
-
     private static BigInteger nextId;
     private static Map<BigInteger, Greeting> greetingMap;
-
     private static Greeting save(Greeting greeting) {
         if (greetingMap == null) {
             greetingMap = new HashMap<BigInteger, Greeting>();
@@ -275,7 +264,6 @@ public class GreetingController {
         greetingMap.put(greeting.getId(), greeting);
         return greeting;
     }
-
     static {
         Greeting g1 = new Greeting();
         g1.setText("Hello World!");
@@ -286,19 +274,35 @@ public class GreetingController {
         g2.setText("Hola Mundo!");
         save(g2);
     }
-
-    @GetMapping("/greetings")
+    @RequestMapping(value = "/api/greetings")
     public ResponseEntity<Collection<Greeting>> getGreetings() {
-
         Collection<Greeting> greetings = greetingMap.values();
-
         return new ResponseEntity<Collection<Greeting>>(greetings,
                 HttpStatus.OK);
     }
-
 }
 ```
 * Then check `/api/greetings`
-
 </details>
- 
+ <details>
+	<summary> Get Show  </summary>
+
+* In order to define a show for an item we can define it as
+```java
+@RequestMapping(
+    		value = "/api/greetings/{id}",
+    		method = RequestMethod.GET,
+    		produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Greeting> getGreeting(@PathVariable("id") BigInteger id)
+    {
+    	Greeting greeting = greetingMap.get(id);
+    	if (greeting == null)
+    	  {
+    	   return new ResponseEntity<Greeting>(HttpStatus.NOT_FOUND);	
+    	  }
+    return new ResponseEntity<Greeting>(greeting, HttpStatus.OK);	
+    }
+```
+ </details>
+
+
