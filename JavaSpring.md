@@ -304,5 +304,26 @@ public class GreetingController {
     }
 ```
  </details>
+<details>
+	<summary> POST </summary>
+	
+* To add a post 	
+```java
+    @RequestMapping(
+    		value = "/api/greetings",
+    		method = RequestMethod.POST,
+    		produces = MediaType.APPLICATION_JSON_VALUE,
+    		consumes = MediaType.APPLICATION_JSON_VALUE
+    		)
+     public ResponseEntity<Greeting> createGreeting(@RequestBody Greeting greeting) {
+    	  Greeting savedGreeting = save(greeting);
+    			  return new ResponseEntity<Greeting>(savedGreeting, HttpStatus.CREATED);
+    }
+```
+* And in post map use post with this json raw
+```java
+{"text": "this is test"}
+```
+</details>
 
 
