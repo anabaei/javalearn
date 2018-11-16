@@ -237,6 +237,7 @@ public greeting {
 ```
 * Then go to source select create getter and setter. 
 * Then create another package name controller and a class name greetingController. Inside that add `@RestController` to let it know the resond is json or xml
+* This is a restful controller service 
 ```java
 package com.sfutlc.sfutlc.controller;
 
