@@ -214,7 +214,7 @@ Add this to pom.xml
 	<scope>runtime</scope>
 </dependency>
 ```
-Then
+Then start the embeded apache tomcat server on port 8080
 ```java
 mvn spring-boot:run
 ```
@@ -308,7 +308,7 @@ public class GreetingController {
 <details>
 	<summary> POST </summary>
 	
-* To add a post 	
+* To add a post we have below. We add `@RequestBody Greeting greeting` to tell spring convert json into Greeting object. Then we save it which it returns a primary key identifier from web service and httpstatus code use create status code 201.  	
 ```java
     @RequestMapping(
     		value = "/api/greetings",
@@ -326,5 +326,49 @@ public class GreetingController {
 {"text": "this is test"}
 ```
 </details>
+<details>
+	<summary> Update </summary>
+	
+* To update we need to modify save helper method. Check if primary key is going to be saved has already primary key assigned. If it does we try to update it rather than create new one. 
+* So if exist we update it like below
+```java
+//// inside save function
+    if(greeting.getId() != null)
+        {
+        	Greeting oldGreeting = greetingMap.get(greeting.getId());
+           if(oldGreeting == null)
+           {
+        	   return null;
+           }
+           greetingMap.remove(greeting.getId());
+           greetingMap.put(greeting.getId(), greeting);
+           return greeting;
+        }
+////	
+```
+* Then you need to define an update function 
+```java
+    @RequestMapping( 
+    		value = "/api/greetings/{id}",
+    		method = RequestMethod.PUT,
+    		produces = MediaType.APPLICATION_JSON_VALUE,
+    		consumes = MediaType.APPLICATION_JSON_VALUE
+    		)
+    public ResponseEntity<Greeting> upfateGreeting(@RequestBody Greeting greeting){
+    	Greeting updateGreeting = save(greeting);
+    	if(updateGreeting == null) {
+    	   return new ResponseEntity<Greeting>(HttpStatus.INTERNAL_SERVER_ERROR);
+    	   }
+    	 
+    	  return new ResponseEntity<Greeting>(updateGreeting, HttpStatus.OK);
+    }
+```
+Then inside the postman you need to hit with `put` action including with this url `/api/greetings/1`
+```java
+{"id": 1, "text": "not vsssssg "}
+```
+</details>
+
+
 
 
