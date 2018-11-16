@@ -250,7 +250,16 @@ body {
 .unlinkerArrow {
     color: white;
     font-size: 3vw;
-    float: right;
+    margin-top: 4vw;
+}
+
+.unlinkerArrowContainer {
+    position: absolute;
+    display: flex;
+    height: 0vw;
+    width: 92vw;
+    justify-content: center;
+    align-items: center;
 }
 
 .commonCol {

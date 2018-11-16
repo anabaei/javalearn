@@ -61,7 +61,9 @@
                     <div ng-repeat="linkedReason in mapState.reasons | filter: linkedFilter | orderBy: 'linkID' | groupBy: 'linkID' ">
                         <!-- START LINKED REPEAT -->
                         <div class="whiteSpaceRemove">
-                                <i class="fas fa-arrows-alt-h unlinkerArrow"></i>
+                                <div class="unlinkerArrowContainer">
+                                    <i class="fas fa-arrows-alt-h unlinkerArrow"></i>
+                                </div>
                                 <div class="linkCol">
                                     <!-- Blue existing reason block -->
                                     <div class="linkedReasonBlockBlue dmBlueBackground">
