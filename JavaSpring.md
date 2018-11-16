@@ -209,11 +209,12 @@ spring.datasource.name=greeting
 Add this to pom.xml
 ```java
 <dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<scope>runtime</scope>
+	<groupId>mysql</groupId>
+	<artifactId>mysql-connector-java</artifactId>
+	<scope>runtime</scope>
 </dependency>
-``
+```
+
 
   
-  </details>
+ </details>
