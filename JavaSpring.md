@@ -296,7 +296,7 @@ public class GreetingController {
 
 }
 ```
-
+* Then check `/api/greetings`
 
 </details>
  
