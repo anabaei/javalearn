@@ -1,6 +1,6 @@
-/Users/daviddeng/Desktop/project2/spring-boot-mysql-rest-api-tutorial/src/main/java/com/example/easynotes/model/Note.java
-/Users/daviddeng/Desktop/project2/spring-boot-mysql-rest-api-tutorial/src/main/java/com/example/easynotes/controller/IndexController.java
-/Users/daviddeng/Desktop/project2/spring-boot-mysql-rest-api-tutorial/src/main/java/com/example/easynotes/controller/NoteController.java
-/Users/daviddeng/Desktop/project2/spring-boot-mysql-rest-api-tutorial/src/main/java/com/example/easynotes/EasyNotesApplication.java
-/Users/daviddeng/Desktop/project2/spring-boot-mysql-rest-api-tutorial/src/main/java/com/example/easynotes/exception/ResourceNotFoundException.java
-/Users/daviddeng/Desktop/project2/spring-boot-mysql-rest-api-tutorial/src/main/java/com/example/easynotes/repository/NoteRepository.java
+/Users/amirnabaei/Desktop/sites/dialectical-maps/back-end/src/main/java/com/example/easynotes/repository/NoteRepository.java
+/Users/amirnabaei/Desktop/sites/dialectical-maps/back-end/src/main/java/com/example/easynotes/exception/ResourceNotFoundException.java
+/Users/amirnabaei/Desktop/sites/dialectical-maps/back-end/src/main/java/com/example/easynotes/EasyNotesApplication.java
+/Users/amirnabaei/Desktop/sites/dialectical-maps/back-end/src/main/java/com/example/easynotes/controller/NoteController.java
+/Users/amirnabaei/Desktop/sites/dialectical-maps/back-end/src/main/java/com/example/easynotes/controller/IndexController.java
+/Users/amirnabaei/Desktop/sites/dialectical-maps/back-end/src/main/java/com/example/easynotes/model/Note.java
