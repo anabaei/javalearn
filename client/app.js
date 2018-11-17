@@ -102,12 +102,64 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
         return count/2;
     };
 
-    $scope.moveLinkedReasonDown = function(linkedReason) {
-        //TODO stub
+    $scope.moveLinkedReasonsDown = function(linkedReasonBlue, linkedReasonYellow) {
+        
+        if (linkedReasonBlue.linkID != $scope.countLinkedReasons()-1 && $scope.countLinkedReasons() > 1) {
+            
+            storeMapState();
+
+            var linkedReasonID = linkedReasonBlue.linkID;
+
+            //find the blue and yellow linked reasons with the linkID one less
+            var blueSwapTarget = _.find($scope.mapState.reasons, function(item) {
+                return (item.linkID == linkedReasonID + 1 && item.isBlue);
+            });
+            var yellowSwapTarget = _.find($scope.mapState.reasons, function(item) {
+                return (item.linkID == linkedReasonID + 1 && !item.isBlue);
+            });
+
+            var swapLinkedReasonID = blueSwapTarget.linkID;
+
+            //swap the linkIDs
+            linkedReasonBlue.linkID = swapLinkedReasonID;
+            linkedReasonYellow.linkID = swapLinkedReasonID;
+            blueSwapTarget.linkID = linkedReasonID;
+            yellowSwapTarget.linkID = linkedReasonID;
+
+        }
+        else {
+            console.log("Cannot move down, already at bottom.");
+        }
     };
 
-    $scope.moveLinkedReasonsUp = function(linkedReason) {
-        //TODO stub
+    $scope.moveLinkedReasonsUp = function(linkedReasonBlue, linkedReasonYellow) {
+
+        if (linkedReasonBlue.linkID != 0 && $scope.countLinkedReasons() > 1) {
+            
+            storeMapState();
+
+            var linkedReasonID = linkedReasonBlue.linkID;
+
+            //find the blue and yellow linked reasons with the linkID one more
+            var blueSwapTarget = _.find($scope.mapState.reasons, function(item) {
+                return (item.linkID == linkedReasonID - 1 && item.isBlue);
+            });
+            var yellowSwapTarget = _.find($scope.mapState.reasons, function(item) {
+                return (item.linkID == linkedReasonID - 1 && !item.isBlue);
+            });
+
+            var swapLinkedReasonID = blueSwapTarget.linkID;
+
+            //swap the linkIDs
+            linkedReasonBlue.linkID = swapLinkedReasonID;
+            linkedReasonYellow.linkID = swapLinkedReasonID;
+            blueSwapTarget.linkID = linkedReasonID;
+            yellowSwapTarget.linkID = linkedReasonID;
+
+        }
+        else {
+            console.log("Cannot move up, already at top.");
+        }
     };
 
     function storeMapState() {
@@ -259,7 +311,7 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
             
             storeMapState();
             
-            //find the yellow candidate to move down
+            //find the yellow candidate to move up
             var swapTarget = _.find($scope.mapState.reasons, function(item) {
                 return (item.order == reason.order + 1 && !item.isBlue);
             });

@@ -336,6 +336,7 @@ body {
     padding: 1vw;
     min-height: 4vw;
     height: 4vw;
+    resize: vertical;
 }
 
 .evidenceTextArea {
@@ -345,6 +346,7 @@ body {
     padding: 1vw;
     min-height: 4vw;
     height: 4vw;
+    resize: vertical;
 }
 
 .supportsSwap {
