@@ -1,4 +1,4 @@
-var app = angular.module("dmApp", []);
+var app = angular.module("dmApp", ['angular.filter']);
 
 app.controller('MainController', ['$scope', '$http', function($scope,$http) {
 
@@ -9,7 +9,7 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
         order: null,
         isBlue: null,
         content: null,
-        linked: null,
+        linkID: null,
         evidences: [],
         expanded: false
     };
@@ -75,7 +75,7 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
     $scope.countBlueReasons = function() {
         var count = 0;
         _.forEach($scope.mapState.reasons, function(reason) {
-            if (reason.isBlue) {
+            if (reason.isBlue && reason.order != null) {
                 count++;
             }
         });
@@ -85,11 +85,81 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
     $scope.countYellowReasons = function() {
         var count = 0;
         _.forEach($scope.mapState.reasons, function(reason) {
-            if (!reason.isBlue) {
+            if (!reason.isBlue && reason.order != null) {
                 count++;
             }
         });
         return count;
+    };
+
+    $scope.countLinkedReasons = function() {
+        var count = 0;
+        _.forEach($scope.mapState.reasons, function(reason) {
+            if (reason.linkID != null) {
+                count++;
+            }
+        });
+        return count/2;
+    };
+
+    $scope.moveLinkedReasonsDown = function(linkedReasonBlue, linkedReasonYellow) {
+        
+        if (linkedReasonBlue.linkID != $scope.countLinkedReasons()-1 && $scope.countLinkedReasons() > 1) {
+            
+            storeMapState();
+
+            var linkedReasonID = linkedReasonBlue.linkID;
+
+            //find the blue and yellow linked reasons with the linkID one less
+            var blueSwapTarget = _.find($scope.mapState.reasons, function(item) {
+                return (item.linkID == linkedReasonID + 1 && item.isBlue);
+            });
+            var yellowSwapTarget = _.find($scope.mapState.reasons, function(item) {
+                return (item.linkID == linkedReasonID + 1 && !item.isBlue);
+            });
+
+            var swapLinkedReasonID = blueSwapTarget.linkID;
+
+            //swap the linkIDs
+            linkedReasonBlue.linkID = swapLinkedReasonID;
+            linkedReasonYellow.linkID = swapLinkedReasonID;
+            blueSwapTarget.linkID = linkedReasonID;
+            yellowSwapTarget.linkID = linkedReasonID;
+
+        }
+        else {
+            console.log("Cannot move down, already at bottom.");
+        }
+    };
+
+    $scope.moveLinkedReasonsUp = function(linkedReasonBlue, linkedReasonYellow) {
+
+        if (linkedReasonBlue.linkID != 0 && $scope.countLinkedReasons() > 1) {
+            
+            storeMapState();
+
+            var linkedReasonID = linkedReasonBlue.linkID;
+
+            //find the blue and yellow linked reasons with the linkID one more
+            var blueSwapTarget = _.find($scope.mapState.reasons, function(item) {
+                return (item.linkID == linkedReasonID - 1 && item.isBlue);
+            });
+            var yellowSwapTarget = _.find($scope.mapState.reasons, function(item) {
+                return (item.linkID == linkedReasonID - 1 && !item.isBlue);
+            });
+
+            var swapLinkedReasonID = blueSwapTarget.linkID;
+
+            //swap the linkIDs
+            linkedReasonBlue.linkID = swapLinkedReasonID;
+            linkedReasonYellow.linkID = swapLinkedReasonID;
+            blueSwapTarget.linkID = linkedReasonID;
+            yellowSwapTarget.linkID = linkedReasonID;
+
+        }
+        else {
+            console.log("Cannot move up, already at top.");
+        }
     };
 
     function storeMapState() {
@@ -153,6 +223,13 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
         _.remove($scope.mapState.reasons, function(item) {
             return item.reasonID == reason.reasonID;
         });
+
+        //decrement every other reason where order is not null and order was above the removed reason
+        _.forEach($scope.mapState.reasons, function(item) {
+            if(item.order && item.order > reason.order) {
+                item.order--;   
+            }
+        });
     };
 
     $scope.addEvidence = function(reason) {
@@ -175,7 +252,6 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
         newEvidence.evidenceContent = "";
         newEvidence.warrantContent = "";
 
-        console.log(newEvidence);
         reason.evidences.push(newEvidence);
     };
 
@@ -235,7 +311,7 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
             
             storeMapState();
             
-            //find the yellow candidate to move down
+            //find the yellow candidate to move up
             var swapTarget = _.find($scope.mapState.reasons, function(item) {
                 return (item.order == reason.order + 1 && !item.isBlue);
             });
@@ -249,11 +325,15 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
     };
 
     $scope.blueFilter = function(item) {
-        return item.isBlue === true;
+        return item.isBlue == true && item.order != null;
     };
 
     $scope.yellowFilter = function(item) {
-        return item.isBlue === false;
+        return item.isBlue == false && item.order != null;
+    };
+
+    $scope.linkedFilter = function(item) {
+        return item.linkID != null;
     };
 
     $scope.logMapState = function() {
@@ -268,11 +348,74 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
         console.log("download function");
     };
 
+    $scope.unlinkArguments = function(linkedBlueReason,linkedYellowReason) {
+        
+        storeMapState();
+
+        //arbitrary
+        var sharedLinkID = linkedBlueReason.linkID;
+
+        //adjust rest of the linkIDs downward if they are greater
+        _.forEach($scope.mapState.reasons, function(reason) {
+            if (reason.linkID != null && reason.linkID > sharedLinkID) {
+                reason.linkID--;
+            }
+        });
+
+        //acquire new order for the now unlinked reasons, place at bottom
+        var newBlueID = $scope.countBlueReasons();
+        var newYellowID = $scope.countYellowReasons();
+
+        //clear linkIDs
+        linkedBlueReason.linkID = null;
+        linkedYellowReason.linkID = null;
+
+        //assign the orders we found before
+        linkedBlueReason.order = newBlueID;
+        linkedYellowReason.order = newYellowID;
+    };
+
     $scope.linkArguments = function() {
 
-        //TODO remember to store the map state here
+        //find order 0 for linking, blue
+        var blueReason = _.find($scope.mapState.reasons, {'order': 0, 'isBlue': true});
+        //find order 0 for linking, yellow
+        var yellowReason = _.find($scope.mapState.reasons, {'order': 0, 'isBlue': false});
 
-        console.log("link function for arguments");
+        if (blueReason && yellowReason) {
+
+            storeMapState();
+
+            //remove order of reasons that were found
+            blueReason.order = null;
+            yellowReason.order = null;
+
+            //decrement every other reason where order is not null
+            _.forEach($scope.mapState.reasons, function(reason) {
+                if(reason.order) {
+                    reason.order--;
+                }
+            });
+
+            //look for existing linkIDs and find the largest one, assign 0 if none exist
+            var existingLinkedReason = _.maxBy($scope.mapState.reasons, 'linkID');
+            var newLinkID;
+            if (existingLinkedReason) {
+                newLinkID = existingLinkedReason.linkID + 1;
+            }
+            else {
+                newLinkID = 0;
+            }
+
+            //give the new reasons a linkID
+            blueReason.linkID = newLinkID;
+            yellowReason.linkID = newLinkID;
+
+        }
+
+        else {
+            console.log("Unable to find candidates to link.");
+        }
     };
 
     $scope.increaseStrength = function(reason) {
