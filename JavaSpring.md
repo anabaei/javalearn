@@ -287,6 +287,7 @@ public class GreetingController {
 ```
 * Then check `/api/greetings`
 </details>
+
 * In oreder to have REST webservice action, we create a helper methods  then in future it would be replaced by repositories, the complete version is at [this](https://github.com/anabaei/DialecticalMap.v1/tree/RESfull1) link and REST branch
 
  <details>
