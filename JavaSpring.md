@@ -431,6 +431,7 @@ Then you can send to `http://localhost:8080/api/greeting/1` address with this at
 
 <details>
 	<summary> Web Service Layer </summary>
+	
 * In oreder to have REST webservice action, we created a helper methods  then in future it would be replaced by repositories, the complete version is at [this](https://github.com/anabaei/DialecticalMap.v1/tree/RESfull1) link and REST branch
 
 * So far controllers has annotated by `@RequestMampping` to create each method a RESTfull endpoint. At top of controller class we had fre temporary methods like save to serve us a placeholder until we integrate with spring data repository. 
@@ -468,12 +469,12 @@ greetingService.create(greeting);
 greetingService.update(greeting);
 greetingService.delete(id); // notice to change id in getGreeting to Long 
 ```
-* So the service is [here](https://github.com/anabaei/DialecticalMap.v1/tree/WebServiceLayer)
 
 </details> 	
 <details> 
 	<summary> Construct Data JPA Repository </summary>
-	
+
+* So the webservice completed version is [here](https://github.com/anabaei/DialecticalMap.v1/tree/WebServiceLayer)
 * First add JPA dependency to dependencies and mysql as well(if you wanted sql go with `hsql`
 ```java
 <dependency>
