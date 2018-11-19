@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/solid.css" integrity="sha384-osqezT+30O6N/vsMqwW8Ch6wKlMofqueuia2H7fePy42uC05rm1G+BUPSd2iBSJL" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/fontawesome.css" integrity="sha384-BzCy2fixOYd0HObpx3GMefNqdbA7Qjcc91RgYeDjrHTIEXqiF00jKvgQG0+zY/7I" crossorigin="anonymous">
         <script src="app.js"></script>
+        <script src="autogrow.js"></script>
     </head>
 
     <body ng-app="dmApp" ng-controller="MainController" ng-init="initialize()" ng-cloak>
@@ -94,7 +95,7 @@
                                         </div>
                                         <!-- Reason content -->
                                         <div class="reasonContent">
-                                            <textarea ng-focus="pullOriginalText(linkedReason[0].content)" ng-blur="compareNewText(linkedReason[0].content)" ng-model="linkedReason[0].content" class="reasonTextArea bodyType dmDarkGrey" placeholder="Insert Reason"></textarea>
+                                            <textarea ng-focus="pullOriginalText(linkedReason[0].content)" ng-blur="compareNewText(linkedReason[0].content)" ng-model="linkedReason[0].content" class="autogrow reasonTextArea bodyType dmDarkGrey" placeholder="Insert Reason"></textarea>
                                         </div>
                                         <!-- Evidence Control -->
                                         <div class="noSelect">
@@ -117,8 +118,8 @@
                                                     <i class="fas fa-minus-square minusIcon dmDarkGrey"></i>
                                                 </div>
                                             </div>
-                                            <textarea ng-focus="pullOriginalText(evidence.evidenceContent)" ng-blur="compareNewText(evidence.evidenceContent)" ng-model="evidence.evidenceContent" class="evidenceTextArea bodyType dmDarkGrey" placeholder="Insert Evidence"></textarea>
-                                            <textarea ng-focus="pullOriginalText(evidence.warrantContent)" ng-blur="compareNewText(evidence.warrantContent)" ng-model="evidence.warrantContent" class="evidenceTextArea bodyType dmDarkGrey" placeholder="Warrants"></textarea>
+                                            <textarea ng-focus="pullOriginalText(evidence.evidenceContent)" ng-blur="compareNewText(evidence.evidenceContent)" ng-model="evidence.evidenceContent" class="autogrow reasonTextArea bodyType dmDarkGrey" placeholder="Insert Evidence"></textarea>
+                                            <textarea ng-focus="pullOriginalText(evidence.warrantContent)" ng-blur="compareNewText(evidence.warrantContent)" ng-model="evidence.warrantContent" class="autogrow reasonTextArea bodyType dmDarkGrey" placeholder="Warrants"></textarea>
                                         </div>
                                         <!-- evidence empty block -->
                                         <div ng-click="addEvidence(linkedReason[0])" ng-if="linkedReason[0].expanded" class="addEvidenceBlock blueAddEvidenceBlock clickable">
@@ -159,7 +160,7 @@
                                             </div>
                                             <!-- Reason content -->
                                             <div class="reasonContent">
-                                                <textarea ng-focus="pullOriginalText(linkedReason[1].content)" ng-blur="compareNewText(linkedReason[1].content)" ng-model="linkedReason[1].content" class="reasonTextArea bodyType dmDarkGrey" placeholder="Insert Reason"></textarea>
+                                                <textarea ng-focus="pullOriginalText(linkedReason[1].content)" ng-blur="compareNewText(linkedReason[1].content)" ng-model="linkedReason[1].content" class="autogrow reasonTextArea bodyType dmDarkGrey" placeholder="Insert Reason"></textarea>
                                             </div>
                                             <!-- Evidence Control -->
                                             <div class="noSelect">
@@ -182,8 +183,8 @@
                                                         <i class="fas fa-minus-square minusIcon"></i>
                                                     </div>
                                                 </div>
-                                                <textarea ng-focus="pullOriginalText(evidence.evidenceContent)" ng-blur="compareNewText(evidence.evidenceContent)" ng-model="evidence.evidenceContent" class="evidenceTextArea bodyType dmDarkGrey" placeholder="Insert Evidence"></textarea>
-                                                <textarea ng-focus="pullOriginalText(evidence.warrantContent)" ng-blur="compareNewText(evidence.warrantContent)" ng-model="evidence.warrantContent" class="evidenceTextArea bodyType dmDarkGrey" placeholder="Warrants"></textarea>
+                                                <textarea ng-focus="pullOriginalText(evidence.evidenceContent)" ng-blur="compareNewText(evidence.evidenceContent)" ng-model="evidence.evidenceContent" class="autogrow reasonTextArea bodyType dmDarkGrey" placeholder="Insert Evidence"></textarea>
+                                                <textarea ng-focus="pullOriginalText(evidence.warrantContent)" ng-blur="compareNewText(evidence.warrantContent)" ng-model="evidence.warrantContent" class="autogrow reasonTextArea bodyType dmDarkGrey" placeholder="Warrants"></textarea>
                                             </div>
                                             <!-- evidence empty block -->
                                             <div ng-click="addEvidence(linkedReason[1])" ng-if="linkedReason[1].expanded" class="addEvidenceBlock yellowAddEvidenceBlock clickable">
@@ -228,7 +229,7 @@
                             </div>
                             <!-- Reason content -->
                             <div class="reasonContent">
-                                <textarea ng-focus="pullOriginalText(reason.content)" ng-blur="compareNewText(reason.content)" ng-model="reason.content" class="reasonTextArea bodyType dmDarkGrey" placeholder="Insert Reason"></textarea>
+                                <textarea ng-focus="pullOriginalText(reason.content)" ng-blur="compareNewText(reason.content)" ng-model="reason.content" class="autogrow reasonTextArea bodyType dmDarkGrey" placeholder="Insert Reason"></textarea>
                             </div>
                             <!-- Evidence Control -->
                             <div class="noSelect">
@@ -251,8 +252,8 @@
                                         <i class="fas fa-minus-square minusIcon dmDarkGrey"></i>
                                     </div>
                                 </div>
-                                <textarea ng-focus="pullOriginalText(evidence.evidenceContent)" ng-blur="compareNewText(evidence.evidenceContent)" ng-model="evidence.evidenceContent" class="evidenceTextArea bodyType dmDarkGrey" placeholder="Insert Evidence"></textarea>
-                                <textarea ng-focus="pullOriginalText(evidence.warrantContent)" ng-blur="compareNewText(evidence.warrantContent)" ng-model="evidence.warrantContent" class="evidenceTextArea bodyType dmDarkGrey" placeholder="Warrants"></textarea>
+                                <textarea ng-focus="pullOriginalText(evidence.evidenceContent)" ng-blur="compareNewText(evidence.evidenceContent)" ng-model="evidence.evidenceContent" class="autogrow reasonTextArea bodyType dmDarkGrey" placeholder="Insert Evidence"></textarea>
+                                <textarea ng-focus="pullOriginalText(evidence.warrantContent)" ng-blur="compareNewText(evidence.warrantContent)" ng-model="evidence.warrantContent" class="autogrow reasonTextArea bodyType dmDarkGrey" placeholder="Warrants"></textarea>
                             </div>
                             <!-- evidence empty block -->
                             <div ng-click="addEvidence(reason)" ng-if="reason.expanded" class="addEvidenceBlock blueAddEvidenceBlock clickable">
@@ -304,7 +305,7 @@
                                 </div>
                                 <!-- Reason content -->
                                 <div class="reasonContent">
-                                    <textarea ng-focus="pullOriginalText(reason.content)" ng-blur="compareNewText(reason.content)" ng-model="reason.content" class="reasonTextArea bodyType dmDarkGrey" placeholder="Insert Reason"></textarea>
+                                    <textarea ng-focus="pullOriginalText(reason.content)" ng-blur="compareNewText(reason.content)" ng-model="reason.content" class="autogrow reasonTextArea bodyType dmDarkGrey" placeholder="Insert Reason"></textarea>
                                 </div>
                                 <!-- Evidence Control -->
                                 <div class="noSelect">
@@ -327,8 +328,8 @@
                                             <i class="fas fa-minus-square minusIcon"></i>
                                         </div>
                                     </div>
-                                    <textarea ng-focus="pullOriginalText(evidence.evidenceContent)" ng-blur="compareNewText(evidence.evidenceContent)" ng-model="evidence.evidenceContent" class="evidenceTextArea bodyType dmDarkGrey" placeholder="Insert Evidence"></textarea>
-                                    <textarea ng-focus="pullOriginalText(evidence.warrantContent)" ng-blur="compareNewText(evidence.warrantContent)" ng-model="evidence.warrantContent" class="evidenceTextArea bodyType dmDarkGrey" placeholder="Warrants"></textarea>
+                                    <textarea ng-focus="pullOriginalText(evidence.evidenceContent)" ng-blur="compareNewText(evidence.evidenceContent)" ng-model="evidence.evidenceContent" class="autogrow reasonTextArea bodyType dmDarkGrey" placeholder="Insert Evidence"></textarea>
+                                    <textarea ng-focus="pullOriginalText(evidence.warrantContent)" ng-blur="compareNewText(evidence.warrantContent)" ng-model="evidence.warrantContent" class="autogrow reasonTextArea bodyType dmDarkGrey" placeholder="Warrants"></textarea>
                                 </div>
                                 <!-- evidence empty block -->
                                 <div ng-click="addEvidence(reason)" ng-if="reason.expanded" class="addEvidenceBlock yellowAddEvidenceBlock clickable">
@@ -357,7 +358,7 @@
                 <h1 id="conclusionTitle" class="header1Common dmDarkGrey noSelect">
                     Conclusion
                 </h1>
-                <textarea ng-model="mapState.conclusion" ng-blur="compareNewText(mapState.conclusion)" ng-focus="pullOriginalText(mapState.conclusion)" class="conclusionText dmDarkGrey bodyType dmDarkGrey"></div>
+                <textarea ng-model="mapState.conclusion" ng-blur="compareNewText(mapState.conclusion)" ng-focus="pullOriginalText(mapState.conclusion)" class="autogrow conclusionText dmDarkGrey bodyType dmDarkGrey" placeholder="Insert a Conclusion"></div>
             </div>
         </div>
     </body>
