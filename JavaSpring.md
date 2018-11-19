@@ -474,21 +474,23 @@ greetingService.delete(id); // notice to change id in getGreeting to Long
 <details> 
 	<summary> Construct Data JPA Repository </summary>
 
+* The webservice completed version is [here](https://github.com/anabaei/DialecticalMap.v1/tree/WebServiceLayer)
 * To use JPA Entities make sure first you have it in pom.xml
-* So the webservice completed version is [here](https://github.com/anabaei/DialecticalMap.v1/tree/WebServiceLayer)
-* First add JPA dependency to dependencies and mysql as well(if you wanted sql go with `hsql`
 ```java
 <dependency>
 	<groupId>org.springframework.boot</groupId>
 	<artifactId>spring-boot-starter-data-jpa</artifactId>
 </dependency>
+```
+* First add JPA dependency to dependencies and mysql as well(if you wanted sql go with `hsql`
+```java
 <dependency>
 	<groupId>mysql</groupId>
 	<artifactId>mysql-connector-java</artifactId>
 	<scope>runtime</scope>
 </dependency>
 ```
-and hesql is like 
+hesql is like 
 ```java
 <dependency>
 	<groupId>org.hsqldb</groupId>
@@ -497,18 +499,21 @@ and hesql is like
 </dependency>
 ```
 * Next open a Model class and add annotation `@Entity` to tell JPA this class is persistance JPA entity class.
-* Add these two to id as `@Id` shows the id is a primary key and `@GeneratedValue` shows the value is created by database
-* Then create `spring-data-repository`. So create a package ending with `repository`. Then create an interface which is extended of `jpaRepository-org.springframework...`. This is a generic interface and it requires the types of entity class and primary key identifier of that class in this case it would be like
+* Add these two to id as `@Id` shows the id is a primary key
+* `@GeneratedValue` tells JPA the value of Id is created by database
+make sure it it `Long` 
+* Then create spring data `repository`. So create a package ending with `repository`. Then create an interface which is extended of `jpaRepository-org.springframework...`.
+* jpaRepository is a generic interface and it requires the types of `entity` class and  a `primary key` identifier of that entiry class
 ```java
 @Repository
 public interface GreetingRepository extends JpaRepository<Greeting, Long> {
 }
 ```
-* Next go to service bean class and remove temporary classes we used for before.
+* The interface is annotated by `@Repository`  
+* Next go to `service` bean class and remove temporary static classes and attributes to produce data. Instead autowire to repository to get data from database. 
 * Then instead wire the `GreetingRepository` into greetingservicebean. 
 ```java
- @Autowired
-    private GreetingRepository greetingRepository;
+  
 ```
 Now manage each of the greetingMap to greetingRepository
 ```java
