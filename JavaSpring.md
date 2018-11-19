@@ -224,8 +224,9 @@ http://localhost:8080/
 ```
  </details>
  <details>
-	<summary> CREAT REST </summary>	
-	
+	<summary> CREAT JSON STATIC </summary>	
+
+* We add some static helper methods to manage the objects.
 * List of [videos](https://www.youtube.com/channel/UChCCDds_KM-w02yVn7cQI_Q)
 * Followed [this](https://www.youtube.com/watch?v=kbisNUfqVLM&t=16s)
 * Remember name controller and models based on applications 
@@ -275,6 +276,7 @@ public class GreetingController {
         g2.setText("Hola Mundo!");
         save(g2);
     }
+    //  webSerivce
     @RequestMapping(value = "/api/greetings")
     public ResponseEntity<Collection<Greeting>> getGreetings() {
         Collection<Greeting> greetings = greetingMap.values();
@@ -285,11 +287,16 @@ public class GreetingController {
 ```
 * Then check `/api/greetings`
 </details>
+* In oreder to have REST webservice action, we create a helper methods  then in future it would be replaced by repositories, the complete version is at [this](https://github.com/anabaei/DialecticalMap.v1/tree/RESfull1) link and REST branch
+
  <details>
 	<summary> Get Show  </summary>
-
+	
+* Now you create an endpoint that returns the only object that mathes with supply key identifier 
 * In order to define a show for an item we can define it as
+* Below is the webserivce
 ```java
+
 @RequestMapping(
     		value = "/api/greetings/{id}",
     		method = RequestMethod.GET,
@@ -301,14 +308,15 @@ public class GreetingController {
     	  {
     	   return new ResponseEntity<Greeting>(HttpStatus.NOT_FOUND);	
     	  }
-    return new ResponseEntity<Greeting>(greeting, HttpStatus.OK);	
+    return new ResponseEntity<Greeting>(greeting, HttpStatus.OK); // this command returns greeting object and spring returns it as json and insert it into http response body	
     }
 ```
- </details>
+</details>
 <details>
 	<summary> POST </summary>
 	
-* To add a post we have below. We add `@RequestBody Greeting greeting` to tell spring convert json into Greeting object. Then we save it which it returns a primary key identifier from web service and httpstatus code use create status code 201.  	
+* To add a post we have below. We add `@RequestBody Greeting greeting` to tell spring convert json into Greeting object. Then we save it which it returns a primary key identifier from web service and httpstatus code use create status code 201( HttpStatus.CREATED)  	
+* Below is the webserivce
 ```java
     @RequestMapping(
     		value = "/api/greetings",
@@ -321,15 +329,16 @@ public class GreetingController {
     			  return new ResponseEntity<Greeting>(savedGreeting, HttpStatus.CREATED);
     }
 ```
-* And in post map use post with this json raw
+* And in post map use post with this json raw in address `http://localhost:8080/api/greetings`
 ```java
 {"text": "this is test"}
 ```
+And if it was correct, it returns a JSON representaion. 
 </details>
 <details>
 	<summary> Update </summary>
 	
-* To update we need to modify save helper method. Check if primary key is going to be saved has already primary key assigned. If it does we try to update it rather than create new one. 
+* To update we need to modify save helper method. Check if the primary key is going to be saved has already existed! If it does we try to update it rather than create new one. 
 * So if exist we update it like below
 ```java
 //// inside save function
@@ -347,6 +356,7 @@ public class GreetingController {
 ////	
 ```
 * Then you need to define an update function 
+* Below is the webserivce
 ```java
     @RequestMapping( 
     		value = "/api/greetings/{id}",
@@ -384,8 +394,10 @@ private static boolean delete(BigInteger id) {
     	return true;
     }
 ```
-* Now create a mthod name deleteGreeting and annotate it with @RequestMapping
+* Now create a mthod name deleteGreeting and annotate it with @RequestMapping.
+* Below is the webserivce
 ```java
+
   @RequestMapping(
     		value="/api/greeting/{id}",
     		method = RequestMethod.DELETE,
@@ -414,7 +426,9 @@ Then you can send to `http://localhost:8080/api/greeting/1` address with this at
 {"id": 1, "text": "Hello World!"}
 ```
 * So far you can find the code [here](https://github.com/anabaei/DialecticalMap.v1/tree/controller1)
+
 </details>
+
 
 <details>
 	<summary> Web Service Layer </summary>
@@ -529,10 +543,10 @@ Spring looking for configuaration file as `application.properties` we can have i
 ```java
 
 ```
-
 </details> 
-
-
+<details> 
+	<summary> </summary>
+</details> 
 
 
 
