@@ -2,6 +2,7 @@ package com.sfutlc.sfutlc.model;
 
 import java.math.BigInteger;
 
+
 public class Greeting {
 
 	private BigInteger id;
