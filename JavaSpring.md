@@ -288,8 +288,6 @@ public class GreetingController {
 * Then check `/api/greetings`
 </details>
 
-* In oreder to have REST webservice action, we create a helper methods  then in future it would be replaced by repositories, the complete version is at [this](https://github.com/anabaei/DialecticalMap.v1/tree/RESfull1) link and REST branch
-
  <details>
 	<summary> Get Show  </summary>
 	
@@ -426,17 +424,18 @@ Then you can send to `http://localhost:8080/api/greeting/1` address with this at
 ```java
 {"id": 1, "text": "Hello World!"}
 ```
-* So far you can find the code [here](https://github.com/anabaei/DialecticalMap.v1/tree/controller1)
+
 
 </details>
 
 
 <details>
 	<summary> Web Service Layer </summary>
-	
+* In oreder to have REST webservice action, we created a helper methods  then in future it would be replaced by repositories, the complete version is at [this](https://github.com/anabaei/DialecticalMap.v1/tree/RESfull1) link and REST branch
+
 * So far controllers has annotated by `@RequestMampping` to create each method a RESTfull endpoint. At top of controller class we had fre temporary methods like save to serve us a placeholder until we integrate with spring data repository. 
-* Create a package ending with `ws.service`. Within this package create new interface name `GreetingService`. In this interface we define public bussiness service which we want to expose to client of the service. 
-* So we define mehtods to update, find, create and delete Greeting entities would be like this 
+* Create a package ending with service. It encapsulate all Greeting logic on the `Entity` therefore we define mehtods like update, find, create and delete `Greeting entities`.
+
 ```java
 public interface GreetingService {
 	Collection<Greeting> findAll();
@@ -446,14 +445,16 @@ public interface GreetingService {
     void delete(Long id);
 }
 ```
-* Now in the same package creaet a class to implement this interface call it(when you create a class in eclipse click on `add` to have interface in your class.
-* Then annotate class wiht `@Service` when application starts it automatically manages classes with `@service` annotation.
-* Then copy paste all helper methods from controller to service with attributes then wire service into controller. Change delete method name to remove because we define a publice delete on greeting service!
+* Now in the same package creaet a class to implement this interface. (when you create a class in eclipse click on `add` to have interface in your class to implement Greeting Interface. 
+* Then add annotate class wiht `@Service` when application starts it automatically manages classes with `@service` annotation.
+* Then copy paste all helper methods from controller to service with attributes then wire service into controller. Change delete method name to remove because we define a publice delete on greeting service
 ```java
 // in controller add interface as 
 @Autowired
 	private GreetingService greetingService;
 ```
+* In fact we migrate temporary data access login from web service controller layer of application to bussiness service layer of application so just copy pate logic from controller into bussiness service and after that refactor controller to use bussiness service 
+
 *Then all the services are available, like
 ```java
 //old 
@@ -462,10 +463,13 @@ greetingMap.get(id);
 save(greeting);
 // new
 greetingService.findAll();
-greetingService.findOne(id);
+greetingService.findOne(id); // notice to change id in getGreeting to Long 
 greetingService.create(greeting);
-greetingService.delete(id);
+greetingService.update(greeting);
+greetingService.delete(id); // notice to change id in getGreeting to Long 
 ```
+* So the service is [here](https://github.com/anabaei/DialecticalMap.v1/tree/WebServiceLayer)
+
 </details> 	
 <details> 
 	<summary> Construct Data JPA Repository </summary>
