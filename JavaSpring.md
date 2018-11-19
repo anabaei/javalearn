@@ -474,13 +474,6 @@ greetingService.delete(id); // notice to change id in getGreeting to Long
 <details> 
 	<summary> Construct Data JPA Repository </summary>
 
-* Notice: `findOne` is depricated so in interface `GreetingService`
-```java
-//old
-Greeting findOne(Long id);
-// new
-Optional<Greeting> findOne(Long id);
-```
 * The webservice completed version is [here](https://github.com/anabaei/DialecticalMap.v1/tree/WebServiceLayer)
 * To use JPA Entities make sure first you have it in pom.xml
 ```java
@@ -519,9 +512,6 @@ public interface GreetingRepository extends JpaRepository<Greeting, Long> {
 * The interface is annotated by `@Repository`  
 * Next go to `service` bean class and remove temporary static classes and attributes to produce data. Instead autowire to repository to get data from database. 
 * Then instead wire the `GreetingRepository` into greetingservicebean. 
-```java
-  
-```
 Now manage each of the greetingMap to greetingRepository
 ```java
 ///old 
@@ -533,6 +523,22 @@ remove(id);
 greetingRepository.findAll();
 greetingRepository.findOne(id);
 
+```
+* Notice: `findOne` is depricated so in interface `GreetingService`
+```java
+//old
+Greeting findOne(Long id);
+// new
+Optional<Greeting> findOne(Long id);
+greetingRepository.deleteById(id);
+```
+Therefore inside GreetingService class we have 
+```
+@Override
+	public Optional<Greeting> findOne(Long id) {
+		Optional<Greeting> greeting = greetingRepository.findById(id);
+		return greeting;
+	}
 ```
 For saving first check if the greeting exist so return null 
 ```java
