@@ -474,6 +474,13 @@ greetingService.delete(id); // notice to change id in getGreeting to Long
 <details> 
 	<summary> Construct Data JPA Repository </summary>
 
+* Notice: `findOne` is depricated so in interface `GreetingService`
+```java
+//old
+Greeting findOne(Long id);
+// new
+Optional<Greeting> findOne(Long id);
+```
 * The webservice completed version is [here](https://github.com/anabaei/DialecticalMap.v1/tree/WebServiceLayer)
 * To use JPA Entities make sure first you have it in pom.xml
 ```java
