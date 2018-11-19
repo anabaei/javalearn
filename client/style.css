@@ -157,18 +157,7 @@ body {
     padding-left: 2vw;
     padding-bottom: 1.5vw;
     border-bottom: 1px solid #4F4F51;
-}
-
-.conclusionText {
-    min-width: 44vw;
-    max-width: 44vw;
-    box-sizing: border-box;
-    padding-left: 2vw;
-    padding-right: 2vw;
-    padding-bottom: 2vw;
-    border: none;
-    resize: vertical;
-    min-height: 15vw;
+    margin-bottom: 0.5vw;
 }
 
 .dialecticalContainer {
@@ -336,17 +325,18 @@ body {
     padding: 1vw;
     min-height: 4vw;
     height: 4vw;
-    resize: vertical;
+    resize: none;
 }
 
-.evidenceTextArea {
-    min-width: 40vw;
-    max-width: 40vw;
+.conclusionText {
+    min-width: 44vw;
+    max-width: 44vw;
     box-sizing: border-box;
-    padding: 1vw;
-    min-height: 4vw;
-    height: 4vw;
-    resize: vertical;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-bottom: 2vw;
+    border: none;
+    resize: none;
 }
 
 .supportsSwap {
