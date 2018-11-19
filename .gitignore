@@ -14,6 +14,7 @@ log/*
 test/
  /back-end/**/application.properties
 back-end/**/*.properties
+/backend-david/**/application.properties
 #back-end/src/main/resources/application.properties
 #/back-end/src/main/resources/application.properties
 
