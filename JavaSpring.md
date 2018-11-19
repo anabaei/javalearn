@@ -474,6 +474,7 @@ greetingService.delete(id); // notice to change id in getGreeting to Long
 <details> 
 	<summary> Construct Data JPA Repository </summary>
 
+* To use JPA Entities make sure first you have it in pom.xml
 * So the webservice completed version is [here](https://github.com/anabaei/DialecticalMap.v1/tree/WebServiceLayer)
 * First add JPA dependency to dependencies and mysql as well(if you wanted sql go with `hsql`
 ```java
