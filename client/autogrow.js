@@ -20,7 +20,6 @@
     // get possible minimum height style
     var minHeight = parseInt(window.getComputedStyle(element[0]).getPropertyValue("min-height")) || 0;
 
-    /* Fine with having new lines in the textareas, so disable this.
     // prevent newlines in textbox
     element.on("keydown", function(evt) {
       if (evt.which === 13)
@@ -29,7 +28,7 @@
       }
     }
     );
-    */
+  
     
     element.on("input" , function(evt) {
       element.css({
