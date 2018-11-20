@@ -30,12 +30,17 @@ public class EvidenceController {
         return evidenceRepository.save(evidence);
     }
 
+    @GetMapping("/evidences/{reasonID}")
+    public List<Evidence> getEvidencesByReasonID(@PathVariable(value = "reasonID") String reasonID) {
+        return evidenceRepository.findByReasonID(reasonID);
+    }
+    /*
     @GetMapping("/evidences/{id}")
     public Evidence getEvidenceById(@PathVariable(value = "id") Long evidenceId) {
        return evidenceRepository.findById(evidenceId)
                 .orElseThrow(() -> new ResourceNotFoundException("Evidence", "id", evidenceId));
     }
-
+     */
     @PutMapping("/evidences/{id}")
     public Evidence updateEvidence(@PathVariable(value = "id") Long evidenceId,
                                            @Valid @RequestBody Evidence evidenceDetails) {

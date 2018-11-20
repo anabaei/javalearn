@@ -43,6 +43,7 @@ public class ReasonController {
         Reason reason = reasonRepository.findById(reasonId)
                 .orElseThrow(() -> new ResourceNotFoundException("Reason", "id", reasonId));
 
+        reason.setReasonID(reasonDetails.getReasonID());
         reason.setStrength(reasonDetails.getStrength());
         reason.setMapID(reasonDetails.getMapID());
         reason.setContent(reasonDetails.getContent());

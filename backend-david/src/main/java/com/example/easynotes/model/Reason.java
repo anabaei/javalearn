@@ -23,6 +23,8 @@ public class Reason {
     private Long id;
 
     @NotBlank
+    private String reasonID;
+    @NotBlank
     private String strength;
     
     @NotBlank
@@ -55,6 +57,14 @@ public class Reason {
         this.id = id;
     }
 
+    public String getReasonID() {
+        return reasonID;
+    }
+
+    public void setReasonID(String reasonID) {
+        this.reasonID = reasonID;
+    }
+    
     public String getStrength() {
         return strength;
     }
