@@ -1,13 +1,20 @@
 package com.sfutlc.sfutlc.controller;
 
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.math.BigInteger;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 
 import org.springframework.http.ResponseEntity;
@@ -19,11 +26,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import com.sfutlc.sfutlc.model.Mapping;
+import com.sfutlc.sfutlc.services.GreetingService;
 
 @RestController
 
 
 public class MappingController {
+	
+	
 
     private static BigInteger nextId;
     private static Map<BigInteger, Mapping> mappingMap;
@@ -103,8 +113,35 @@ public class MappingController {
     }
 
     @RequestMapping(value = "/api/v1/map")
-    public ResponseEntity<Collection<Mapping>> getGreetings() {
-
+    public ResponseEntity<Collection<Mapping>> getGreetings() throws IOException {
+    	
+    	 URL url = new URL("https://api.github.com/users");
+		   
+	        HttpURLConnection conn = (HttpURLConnection)url.openConnection();  
+	        conn.setRequestMethod("GET");
+	        conn.setRequestProperty("Accept", "application/json");
+	      //  conn.setRequestProperty("apikey",apiKey);
+	        
+	        if (conn.getResponseCode() != 200 && conn.getResponseCode() != 201) {
+	            
+				throw new RuntimeException("HTTP GET Request Failed with Error code : "
+	                          + conn.getResponseCode());
+	        }
+	        else {
+	        	
+	        	BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                StringBuilder sb = new StringBuilder();
+                String line;
+                while ((line = br.readLine()) != null) {
+                    sb.append(line+"\n");
+                }
+                br.close();
+                System.out.print(sb.toString());
+                
+                
+	        }
+    	
+       
         Collection<Mapping> mappings = mappingMap.values();
 
         return new ResponseEntity<Collection<Mapping>>(mappings,
