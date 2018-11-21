@@ -593,6 +593,53 @@ Spring looking for configuaration file as `application.properties` we can have i
 ```
 </details> 
 <details> 
+	<summary> Hit Web Service </summary>
+	
+* In order to hit another endpoints from controller add below snippest inside controller, it requiers you add `throws IOException` when defining the class
+```java
+ URL url = new URL("https://api.github.com/users");
+		   
+	        HttpURLConnection conn = (HttpURLConnection)url.openConnection();  
+	        conn.setRequestMethod("GET");
+	        conn.setRequestProperty("Accept", "application/json");
+	      //  conn.setRequestProperty("apikey",apiKey);
+	        
+	        if (conn.getResponseCode() != 200 && conn.getResponseCode() != 201) {
+	            
+				throw new RuntimeException("HTTP GET Request Failed with Error code : "
+	                          + conn.getResponseCode());
+	        }
+	        else {
+	        	
+	        	BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                StringBuilder sb = new StringBuilder();
+                String line;
+                while ((line = br.readLine()) != null) {
+                    sb.append(line+"\n");
+                }
+                br.close();
+                System.out.print(sb.toString());
+                
+                
+	        }
+```
+* To read json objects and convert them into java objects 
+
+```
+<dependency>
+		<groupId>com.fasterxml.jackson.core</groupId>
+		<artifactId>jackson-databind</artifactId>
+		
+</dependency>
+```
+Then
+```
+
+```
+
+</details> 
+
+<details> 
 	<summary> </summary>
 </details> 
 
