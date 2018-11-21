@@ -640,7 +640,13 @@ Then
 </details> 
 
 <details> 
-	<summary> </summary>
+	<summary> The driver has not received any packets from the server </summary>
+	
+```java
+brew install mysql
+brew services start mysql
+mysql.server  start
+```
 </details> 
 
 
