@@ -410,7 +410,53 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
 
     $scope.download = function() {
         //build the content TODO
-        var mapString = "sample text content\n\n\nsample\n\nsample";
+        var mapString = "";
+
+        //Question
+        mapString += "Question: " + $scope.mapState.title + "\n\n";
+
+        //Blue Argument heading
+        mapString += $scope.mapState.thesisBlue + " Arguments:\n";
+        
+        //Repeat over the blue reasons and evidences
+        _.forEach($scope.mapState.reasons, function(reason) {
+            if (reason.isBlue) {
+                mapString += "(" + reason.strength + ") " + reason.content + "\n";
+
+                _.forEach(reason.evidences, function(evidence) {
+                    var supString = evidence.supports ? "(Supports)" : "(Opposes)";
+
+                    mapString += "\t" + supString + " " + evidence.evidenceContent + "\n";
+                    if(evidence.warrantContent != "") {
+                        mapString += "\t\t" + evidence.warrantContent + "\n";
+                    }
+                });
+
+                mapString += "\n";
+            }
+        });
+
+        mapString += $scope.mapState.thesisYellow + " Arguments:\n";
+
+        //Repeat over the yellow reasons and evidences
+        _.forEach($scope.mapState.reasons, function(reason) {
+            if (!reason.isBlue) {
+                mapString += "(" + reason.strength + ") " + reason.content + "\n";
+
+                _.forEach(reason.evidences, function(evidence) {
+                    var supString = evidence.supports ? "(Supports)" : "(Opposes)";
+
+                    mapString += "\t" + supString + " " + evidence.evidenceContent + "\n";
+                    if(evidence.warrantContent != "") {
+                        mapString += "\t\t" + evidence.warrantContent + "\n";
+                    }
+                });
+
+                mapString += "\n";
+            }
+        });
+
+        mapString += "Conclusion: " + $scope.mapState.conclusion + "\n";
 
         var link = document.createElement('a');
         link.download = "DM-" + $scope.mapState.mapID + ".txt";
@@ -418,9 +464,7 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
         link.href = window.URL.createObjectURL(blob);
 
         //trigger the download
-        //link.click();
-        console.log(mapString);
-
+        link.click();
     };
 
     $scope.unlinkArguments = function(linkedBlueReason,linkedYellowReason) {
