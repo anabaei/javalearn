@@ -4,6 +4,7 @@ package com.sfutlc.sfutlc.controller;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.Type;
 import java.math.BigInteger;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -13,6 +14,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,7 +25,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
 
-
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
 import com.sfutlc.sfutlc.model.Mapping;
 import com.sfutlc.sfutlc.services.GreetingService;
@@ -115,6 +119,9 @@ public class MappingController {
     @RequestMapping(value = "/api/v1/map")
     public ResponseEntity<Collection<Mapping>> getGreetings() throws IOException {
     	
+          ////////////////////////////////////////////
+         ///////// TESTING ENDPOINT CANVAS //////////
+         ////////////////////////////////////////////
     	 URL url = new URL("https://api.github.com/users");
 		   
 	        HttpURLConnection conn = (HttpURLConnection)url.openConnection();  
@@ -136,7 +143,40 @@ public class MappingController {
                     sb.append(line+"\n");
                 }
                 br.close();
+                String ss = sb.toString();
                 System.out.print(sb.toString());
+                
+                Gson gson = new Gson();
+                
+                
+                Map<String, Object>[] ints2 =  gson.fromJson(ss, Map[].class); 
+                System.out.println(ss.length());
+                
+                System.out.println(ints2[0]);
+//                
+//                GsonBuilder builder = new GsonBuilder();
+//
+//                builder.serializeNulls();
+//
+//                //Gson gson = builder.create();
+//
+//                
+//                String json = "{\"brand\":\"Jeep\", \"doors\": 3}";
+//
+//                Gson gson = new Gson();
+//
+//                Car car = gson.fromJson(json, Car.class);
+//                
+//                Properties data = gson.fromJson(ss, Properties.class);
+//                String imgurl = data.getProperty("login");
+//                
+                
+                //Collection<Car> enums = gson.toJson(car, collectionType);
+                
+               // String json = "{\"brand\":\"Jeep\", \"doors\": 3}";
+
+              // System.out.print(imgurl);
+                
                 
                 
 	        }
@@ -147,9 +187,6 @@ public class MappingController {
         return new ResponseEntity<Collection<Mapping>>(mappings,
                 HttpStatus.OK);
     }
-    
-    
-    
     
 
 }
