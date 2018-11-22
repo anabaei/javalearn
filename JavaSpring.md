@@ -625,28 +625,30 @@ Spring looking for configuaration file as `application.properties` we can have i
 ```
 * To read json objects and convert them into java objects 
 
-```
+```java
 <dependency>
-		<groupId>com.fasterxml.jackson.core</groupId>
-		<artifactId>jackson-databind</artifactId>
-		
+           <groupId>com.google.code.gson</groupId>
+           <artifactId>gson</artifactId>
 </dependency>
 ```
-Then
+In order to convert to 
+```java
+Gson gson = new Gson();
+Map<String, Object> ints2 =  gson.fromJson(ss, Map.class);
 ```
-
-```
-
 </details> 
 
 <details> 
-	<summary> The driver has not received any packets from the server </summary>
-	
+	<summary> Errors </summary>
+
+* The driver has not received any packets from the server
 ```java
 brew install mysql
 brew services start mysql
 mysql.server  start
 ```
+* When it complains about other ports are in use
+
 </details> 
 
 
