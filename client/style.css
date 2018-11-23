@@ -147,6 +147,7 @@
 
     .scrollWrap {
         overflow-x: scroll;
+        scroll-behavior: smooth;
     }
 
     .stanceContainer {
@@ -183,6 +184,7 @@
         min-height: 4vw;
         height: 4vw;
         resize: none;
+        touch-action: none;
     }
 
     .supportsSwap {
@@ -232,6 +234,7 @@
         border-style: solid;
         border-width: 6vw 94vw 0 94vw;
         border-color: #ffffff transparent transparent transparent;
+        touch-action: none;
     }
 
     .halfVContainer {
@@ -240,6 +243,7 @@
         overflow-x: hidden;
         margin-top: 2vw;
         width: 188vw;
+        touch-action: none;
     }
 
 }

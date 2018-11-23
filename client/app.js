@@ -98,6 +98,26 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
 
     $scope.initialize = function() {
 
+        
+        //touch events via hammerjs
+        var swipeArea = document.getElementById('scrollZone');
+        var hammertime = new Hammer(swipeArea);
+        hammertime.on('swipe', function(ev) {
+            if (ev.direction == 2) {
+                console.log("Sliding Right");
+                slideRight();
+            }
+            else if (ev.direction == 4) {
+                console.log("Sliding Left");
+                slideLeft();
+            }
+            else {
+                console.log("Detected up or down swipe");
+            }
+        });
+
+        
+
         //Disable standard undo
         Mousetrap.bind(['command+z','ctrl+z'], function(e) {
             return false;
@@ -567,6 +587,14 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
         storeMapState();
 
         reason.expanded = !reason.expanded;
+    };
+
+    slideLeft = function() {
+        document.querySelector('div.scrollWrap').scrollLeft = 0;
+    };
+
+    slideRight = function() {
+        document.querySelector('div.scrollWrap').scrollLeft = 5000;
     };
     
 }]);
