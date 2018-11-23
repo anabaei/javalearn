@@ -648,8 +648,37 @@ brew services start mysql
 mysql.server  start
 ```
 * When it complains about other ports are in use
+```java
+lsof -n -iTCP:"8080"
+lsof -nP -i4TCP:$PORT | grep LISTEN
+// and then kill the process 
+```
 
 </details> 
+<details>
+	<summary> Disable CORS </summary>
+
+* Inorder to disable CORS from backend you need to Create package configuratoin then a class with name `SecurityConfig` then it would diabled all incoming calls got from [here](https://stackoverflow.com/questions/35091524/spring-cors-no-access-control-allow-origin-header-is-present) 
+```java
+package com.sfutlc.sfutlc.configuration;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+
+
+@Configuration
+@EnableWebMvc
+public class SecurityConfig extends WebMvcConfigurerAdapter{   
+	  @Override
+	  public void addCorsMappings(CorsRegistry registry) {
+	    registry.addMapping("/**").allowedOrigins("*");
+	  }
+}
+```
+* To customize we can look at [refa](http://findnerd.com/list/view/How-to-disable-csrf-spring-security-4/8440/) and [refb](http://blog.netgloo.com/2014/09/28/spring-boot-enable-the-csrf-check-selectively-only-for-some-requests/)
+
+</detials>
 
 
 
