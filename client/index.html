@@ -202,7 +202,7 @@
                     <div class="whiteSpaceRemove">
                         <div class="commonCol">
                             <!-- Blue existing reason block -->
-                            <div ng-repeat="reason in mapState.reasons | filter: blueFilter | orderBy: 'order' track by reason.reasonID" class="reasonBlock dmBlueBackground">
+                            <div ng-click="slideLeft()" ng-repeat="reason in mapState.reasons | filter: blueFilter | orderBy: 'order' track by reason.reasonID" class="reasonBlock dmBlueBackground">
                                 <!-- Reason control and strength -->
                                 <div>
                                     <h1 class="reasonBlockTitle header1Common dmWhite noSelect">
@@ -264,7 +264,7 @@
                                 </div>
                             </div>
                             <!-- Blue add reason block -->
-                            <div ng-click="addReason(true)" class="addReasonBlock dmBlueBackground reasonBlockHeaderOv noSelect clickable">
+                            <div ng-click="slideLeft(); addReason(true)" class="addReasonBlock dmBlueBackground reasonBlockHeaderOv noSelect clickable">
                                 <h1 class="header1Common reasonBlockHeaderOv dmWhite">
                                     <i class="fas fa-plus"></i> Add Reason
                                 </h1>
@@ -278,7 +278,7 @@
                         <!-- Yellow side -->
                         <div class="commonCol">
                                 <!-- Yellow existing reason block -->
-                                <div ng-repeat="reason in mapState.reasons | filter: yellowFilter | orderBy: 'order' track by reason.reasonID" class="reasonBlock dmYellowBackground">
+                                <div ng-click="slideRight()" ng-repeat="reason in mapState.reasons | filter: yellowFilter | orderBy: 'order' track by reason.reasonID" class="reasonBlock dmYellowBackground">
                                     <!-- Reason control and strength -->
                                     <div>
                                         <h1 class="reasonBlockTitle header1Common dmDarkGrey noSelect">
@@ -340,7 +340,7 @@
                                     </div>
                                 </div>
                                 <!-- yellow add reason block -->
-                                <div ng-click="addReason(false)" class="addReasonBlock dmYellowBackground reasonBlockHeaderOv noSelect clickable">
+                                <div ng-click="slideRight(); addReason(false)" class="addReasonBlock dmYellowBackground reasonBlockHeaderOv noSelect clickable">
                                     <h1 class="header1Common reasonBlockHeaderOv dmDarkGrey">
                                         <i class="fas fa-plus"></i> Add Reason
                                     </h1>

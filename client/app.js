@@ -105,11 +105,11 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
         hammertime.on('swipe', function(ev) {
             if (ev.direction == 2) {
                 console.log("Sliding Right");
-                slideRight();
+                $scope.slideRight();
             }
             else if (ev.direction == 4) {
                 console.log("Sliding Left");
-                slideLeft();
+                $scope.slideLeft();
             }
             else {
                 console.log("Detected up or down swipe");
@@ -589,11 +589,11 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
         reason.expanded = !reason.expanded;
     };
 
-    slideLeft = function() {
+    $scope.slideLeft = function() {
         document.querySelector('div.scrollWrap').scrollLeft = 0;
     };
 
-    slideRight = function() {
+    $scope.slideRight = function() {
         document.querySelector('div.scrollWrap').scrollLeft = 5000;
     };
     
