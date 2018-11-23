@@ -1,0 +1,20 @@
+    <servlet>
+        <servlet-name>redteam</servlet-name>
+        <servlet-class>mysite.server.TeamServlet</servlet-class>
+        <init-param>
+            <param-name>teamColor</param-name>
+            <param-value>red</param-value>
+        </init-param>
+        <init-param>
+            <param-name>bgColor</param-name>
+            <param-value>#CC0000</param-value>
+        </init-param>
+        <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+    
+    </servlet>
+
+
+     

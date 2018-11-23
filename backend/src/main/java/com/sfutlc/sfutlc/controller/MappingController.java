@@ -23,7 +23,7 @@ import org.springframework.http.ResponseEntity;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
@@ -118,19 +118,19 @@ public class MappingController {
         save(g2);
     }
     
+    @RequestMapping(value = "/hello")
+   
+    public String home(Map<String, Object> model) {
+    	model.put("message", "You are in new page !!");
+    	return "hello";
+    }
 
-
+  
+     
     
     @RequestMapping(value = "/api/v1/map")
     public ResponseEntity<Collection<Mapping>> getGreetings() throws IOException {
-    	
-    	
-    	
-    	   
-    	
-          ////////////////////////////////////////////
-         ///////// TESTING ENDPOINT CANVAS //////////
-         ////////////////////////////////////////////
+
     	 URL url = new URL("https://api.github.com/users");
 		   
 	        HttpURLConnection conn = (HttpURLConnection)url.openConnection();  
@@ -157,47 +157,48 @@ public class MappingController {
                 
                 Gson gson = new Gson();
                 
-                
                 Map<String, Object>[] ints2 =  gson.fromJson(ss, Map[].class); 
                 System.out.println(ss.length());
-                
                 System.out.println(ints2[0]);
-//                
-//                GsonBuilder builder = new GsonBuilder();
-//
-//                builder.serializeNulls();
-//
-//                //Gson gson = builder.create();
-//
-//                
-//                String json = "{\"brand\":\"Jeep\", \"doors\": 3}";
-//
-//                Gson gson = new Gson();
-//
-//                Car car = gson.fromJson(json, Car.class);
-//                
-//                Properties data = gson.fromJson(ss, Properties.class);
-//                String imgurl = data.getProperty("login");
-//                
-                
-                //Collection<Car> enums = gson.toJson(car, collectionType);
-                
-               // String json = "{\"brand\":\"Jeep\", \"doors\": 3}";
-
-              // System.out.print(imgurl);
-                
-                
                 
 	        }
-    	
-       
         Collection<Mapping> mappings = mappingMap.values();
-
         return new ResponseEntity<Collection<Mapping>>(mappings,
                 HttpStatus.OK);
     }
-    
 
+    
+    
+    @RequestMapping(value = "/api/v1/courses")
+    public String getCourses() throws IOException {
+    	
+         String courses;
+    	 // URL url = new URL("https://canvas.sfu.ca/api/v1/courses?per_page=500");
+         URL url = new URL("https://canvas.instructure.com/api/v1/courses?per_page=500");
+		   
+	        HttpURLConnection conn = (HttpURLConnection)url.openConnection();  
+	        conn.setRequestMethod("GET");
+	        conn.setRequestProperty("Accept", "application/json");
+	        conn.setRequestProperty("Authorization", "Bearer 7~KQjDDpuTILTasCeW1nScQZKh9OL4FnfvhVcivdIEckRw92OuoHI0bxr9ZgqR2JFE");
+	        if (conn.getResponseCode() != 200 && conn.getResponseCode() != 201) {
+	            
+				throw new RuntimeException("HTTP GET Request Failed with Error code : "
+	                          + conn.getResponseCode());
+	        }
+	        else {
+	        	
+	        	BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                StringBuilder sb = new StringBuilder();
+                String line;
+                while ((line = br.readLine()) != null) {
+                    sb.append(line+"\n");
+                }
+                br.close();
+                courses = sb.toString();
+     
+	        }
+         return courses;             
+    }
 }
 
 
