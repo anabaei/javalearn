@@ -8,6 +8,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.List;
 
 /**
@@ -58,5 +64,36 @@ public class MapController {
         mapRepository.delete(map);
 
         return ResponseEntity.ok().build();
+    }
+    
+    @RequestMapping(value = "/api/v1/courses")
+    public String getCourses() throws IOException {
+    	
+         String courses;
+    	 // URL url = new URL("https://canvas.sfu.ca/api/v1/courses?per_page=500");
+         URL url = new URL("https://canvas.instructure.com/api/v1/courses?per_page=500");
+		   
+	        HttpURLConnection conn = (HttpURLConnection)url.openConnection();  
+	        conn.setRequestMethod("GET");
+	        conn.setRequestProperty("Accept", "application/json");
+	        conn.setRequestProperty("Authorization", "Bearer 7~KQjDDpuTILTasCeW1nScQZKh9OL4FnfvhVcivdIEckRw92OuoHI0bxr9ZgqR2JFE");
+	        if (conn.getResponseCode() != 200 && conn.getResponseCode() != 201) {
+	            
+				throw new RuntimeException("HTTP GET Request Failed with Error code : "
+	                          + conn.getResponseCode());
+	        }
+	        else {
+	        	
+	        	BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                StringBuilder sb = new StringBuilder();
+                String line;
+                while ((line = br.readLine()) != null) {
+                    sb.append(line+"\n");
+                }
+                br.close();
+                courses = sb.toString();
+     
+	        }
+         return courses;             
     }
 }
