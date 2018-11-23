@@ -33,7 +33,7 @@
                     <i ng-class="{softHide: undoStack.length == 0}" title="Undo" ng-click="undo()" class="fas fa-undo headerIconIndividual noSelect"></i>
                     <i ng-class="{softHide: redoStack.length == 0}" title="Redo" ng-click="redo()" class="fas fa-redo headerIconIndividual noSelect"></i>
                     <i title="Download" ng-click="download()" class="fas fa-download headerIconIndividual noSelect"></i>
-                    <button ng-click="submit()" class="headerButton">Submit</button>
+                    <button ng-if="!isNarrowView()" ng-click="submit()" class="headerButton">Submit</button>
                 </div>
             </div>
         </div>
@@ -62,7 +62,7 @@
                     <div>
                         <div ng-repeat="linkedReason in mapState.reasons | filter: linkedFilter | orderBy: 'linkID' | groupBy: 'linkID' ">
                             <!-- START LINKED REPEAT -->
-                            <div class="whiteSpaceRemove">
+                            <div class="linkedWhiteSpaceRemove">
                                     <div class="unlinkerArrowContainer">
                                         <i ng-click="unlinkArguments(linkedReason[0],linkedReason[1])" class="fas fa-arrows-alt-h unlinkerArrow clickable"></i>
                                     </div>
@@ -359,6 +359,7 @@
             <div class="conclusionContent">
                 <h1 id="conclusionTitle" class="header1Common dmDarkGrey noSelect">
                     Conclusion
+                    <button ng-if="isNarrowView()" ng-click="submit()" class="concSubmitButton">Submit</button>
                 </h1>
                 <textarea ng-model="mapState.conclusion" ng-blur="compareNewText(mapState.conclusion)" ng-focus="pullOriginalText(mapState.conclusion)" class="autogrow conclusionText dmDarkGrey bodyType dmDarkGrey" placeholder="Insert a Conclusion"></div>
             </div>

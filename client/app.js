@@ -596,5 +596,9 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
     $scope.slideRight = function() {
         document.querySelector('div.scrollWrap').scrollLeft = 5000;
     };
+
+    $scope.isNarrowView = function() {
+        return window.screen.width <= 600;
+    };
     
 }]);
