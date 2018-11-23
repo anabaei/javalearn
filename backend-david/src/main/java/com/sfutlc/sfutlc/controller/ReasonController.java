@@ -20,22 +20,22 @@ public class ReasonController {
     @Autowired
     ReasonRepository reasonRepository;
 
-    @GetMapping("/reasons")
+    @GetMapping("/getAllReasons")
     public List<Reason> getAllReasons() {
         return reasonRepository.findAll();
     }
 
-    @PostMapping("/reasons")
+    @PostMapping("/createReason")
     public Reason createReason(@Valid @RequestBody Reason reason) {
         return reasonRepository.save(reason);
     }
     
-    @GetMapping("/reasons/map/{mapID}")
+    @GetMapping("/getReasons/{mapID}")
     public List<Reason> getReasonByMapID(@PathVariable(value = "mapID") String mapID) {
        return reasonRepository.findByMapID(mapID);
     }
     
-    @GetMapping("/reasons/{id}")
+    @GetMapping("/getSingleReason/{id}")
     public Reason getReasonById(@PathVariable(value = "id") Long reasonId) {
     	
     	Reason reason = reasonRepository.findById(reasonId)
@@ -43,7 +43,7 @@ public class ReasonController {
     	return reason;
     }
 
-    @PutMapping("/reasons/{id}")
+    @PutMapping("/updateReason/{id}")
     public Reason updateReason(@PathVariable(value = "id") Long reasonId,
                                            @Valid @RequestBody Reason reasonDetails) {
 
@@ -63,7 +63,7 @@ public class ReasonController {
         return updatedReason;
     }
 
-    @DeleteMapping("/reasons/{id}")
+    @DeleteMapping("/deleteReason/{id}")
     public ResponseEntity<?> deleteReason(@PathVariable(value = "id") Long reasonId) {
         Reason reason = reasonRepository.findById(reasonId)
                 .orElseThrow(() -> new ResourceNotFoundException("Reason", "id", reasonId));

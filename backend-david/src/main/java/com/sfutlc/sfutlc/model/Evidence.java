@@ -22,7 +22,6 @@ public class Evidence {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
     private String evidenceID;
 
     @NotBlank

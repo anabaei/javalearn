@@ -20,27 +20,27 @@ public class EvidenceController {
     @Autowired
     EvidenceRepository evidenceRepository;
 
-    @GetMapping("/evidences")
+    @GetMapping("/getAllEvidences")
     public List<Evidence> getAllEvidences() {
         return evidenceRepository.findAll();
     }
 
-    @PostMapping("/evidences")
+    @PostMapping("/createEvidence")
     public Evidence createEvidence(@Valid @RequestBody Evidence evidence) {
         return evidenceRepository.save(evidence);
     }
 
-    @GetMapping("/evidences/reason/{reasonID}")
+    @GetMapping("/getEvidences/{reasonID}")
     public List<Evidence> getEvidencesByReasonID(@PathVariable(value = "reasonID") String reasonID) {
         return evidenceRepository.findByReasonID(reasonID);
     }
     
-    @GetMapping("/evidences/{id}")
+    @GetMapping("/getSingleEvidence/{id}")
     public Evidence getEvidencesById(@PathVariable(value = "id") Long id) {
     	return  evidenceRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Reason", "id", id));
     }
-    @PutMapping("/evidences/{id}")
+    @PutMapping("/updateEvidence/{id}")
     public Evidence updateEvidence(@PathVariable(value = "id") Long evidenceId,
                                            @Valid @RequestBody Evidence evidenceDetails) {
 
@@ -59,7 +59,7 @@ public class EvidenceController {
         return updatedEvidence;
     }
 
-    @DeleteMapping("/evidences/{id}")
+    @DeleteMapping("/deleteEvidence/{id}")
     public ResponseEntity<?> deleteEvidence(@PathVariable(value = "id") Long evidenceId) {
         Evidence evidence = evidenceRepository.findById(evidenceId)
                 .orElseThrow(() -> new ResourceNotFoundException("Evidence", "id", evidenceId));

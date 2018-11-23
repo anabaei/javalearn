@@ -20,34 +20,29 @@ public class MapController {
     @Autowired
     MapRepository mapRepository;
 
-    @GetMapping("/maps")
+    @GetMapping("/getAllMaps")
     public List<Map> getAllMaps() {
         return mapRepository.findAll();
     }
 
-    @PostMapping("/maps")
+    @PostMapping("/createMap")
     public Map createMap(@Valid @RequestBody Map map) {
         return mapRepository.save(map);
     }
 
-    @GetMapping("/maps/{id}")
+    @GetMapping("/getMap/{id}")
     public Map getMapById(@PathVariable(value = "id") Long mapId) {
        return mapRepository.findById(mapId)
                 .orElseThrow(() -> new ResourceNotFoundException("Map", "id", mapId));
     }
 
-    @PutMapping("/maps/{id}")
+    @PutMapping("/updateMap/{id}")
     public Map updateMap(@PathVariable(value = "id") Long mapId,
                                            @Valid @RequestBody Map mapDetails) {
 
         Map map = mapRepository.findById(mapId)
                 .orElseThrow(() -> new ResourceNotFoundException("Map", "id", mapId));
 
-        map.setMapID(mapDetails.getMapID());
-        map.setAssignment(mapDetails.getAssignment());
-        map.setTitle(mapDetails.getTitle());
-        map.setThesisBlue(mapDetails.getThesisBlue());
-        map.setThesisYellow(mapDetails.getThesisYellow());
         map.setConclusion(mapDetails.getConclusion());
         map.setReasons(mapDetails.getReasons());
         
@@ -55,7 +50,7 @@ public class MapController {
         return updatedMap;
     }
 
-    @DeleteMapping("/maps/{id}")
+    @DeleteMapping("/deleteMap/{id}")
     public ResponseEntity<?> deleteMap(@PathVariable(value = "id") Long mapId) {
         Map map = mapRepository.findById(mapId)
                 .orElseThrow(() -> new ResourceNotFoundException("Map", "id", mapId));

@@ -22,9 +22,7 @@ public class Reason {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
     private String reasonID;
-    @NotBlank
     private String strength;
     
     @NotBlank
