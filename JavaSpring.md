@@ -678,13 +678,13 @@ public class SecurityConfig extends WebMvcConfigurerAdapter{
 ```
 * To customize we can look at [refa](http://findnerd.com/list/view/How-to-disable-csrf-spring-security-4/8440/) and [refb](http://blog.netgloo.com/2014/09/28/spring-boot-enable-the-csrf-check-selectively-only-for-some-requests/)
 
-</detials>
+</details>
 
-<detials>
+<details>
   <summary> Static pages </summary>
 
-* A reference is (this)[https://github.com/spring-projects/spring-boot/tree/v1.1.3.RELEASE/spring-boot-samples/spring-boot-sample-web-ui/src/main/resources]
-</detials>
+* A reference is [this](https://github.com/spring-projects/spring-boot/tree/v1.1.3.RELEASE/spring-boot-samples/spring-boot-sample-web-ui/src/main/resources)
+</details>
 
 
 
