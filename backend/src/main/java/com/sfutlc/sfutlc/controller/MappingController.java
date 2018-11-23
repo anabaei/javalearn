@@ -20,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 
 import org.springframework.http.ResponseEntity;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -28,13 +29,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-
+import com.sfutlc.sfutlc.configuration.SecurityConfig;
 import com.sfutlc.sfutlc.model.Mapping;
 import com.sfutlc.sfutlc.services.GreetingService;
 
+
+
+
 @RestController
-
-
 public class MappingController {
 	
 	
@@ -115,9 +117,16 @@ public class MappingController {
         g2.setTitle("Hola Mundo!");
         save(g2);
     }
+    
 
+
+    
     @RequestMapping(value = "/api/v1/map")
     public ResponseEntity<Collection<Mapping>> getGreetings() throws IOException {
+    	
+    	
+    	
+    	   
     	
           ////////////////////////////////////////////
          ///////// TESTING ENDPOINT CANVAS //////////

@@ -109,7 +109,7 @@ app.controller('MainController', ['$scope', '$http', function($scope,$http) {
         });
 
         //get the sample data via http get
-        $http.get('prototypeMap.json')
+        $http.get('http://localhost:8080/api/v1/map')
         .then(function buildInitialState(response) {
             $scope.mapState = response.data;     
         }, function notifyInitialStateFailure(response) {
