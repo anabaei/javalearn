@@ -1,42 +1,9 @@
 *~
-.vagrant
-
-Gemfile.lock
-log/*
-.bundle
-
 .vscode
 .vscode/*
 
 *.DS_Store
 
 *.log
-test/
- /back-end/**/application.properties
-back-end/**/*.properties
-/backend-david/**/application.properties
-#back-end/src/main/resources/application.properties
-#/back-end/src/main/resources/application.properties
 
-# Compiled class file
-#*.class
-
-# Log file
-#*.log
-
-# BlueJ files
-#*.ctxt
-
-# Mobile Tools for Java (J2ME)
-#.mtj.tmp/
-test/
-back-end/
-target/
-# Package Files #
-#*.jar
-#*.war
-#*.nar
-#*.ear
-#*.zip
-#*.tar.gz
-#*.rar
+Back_End/target/
