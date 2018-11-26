@@ -1,18 +1,19 @@
-<<<<<<< HEAD
-/Users/amirnabaei/Desktop/dialectical-maps/backend/src/main/java/com/sfutlc/sfutlc/services/GreetingServiceBean.java
-/Users/amirnabaei/Desktop/dialectical-maps/backend/src/main/java/com/sfutlc/sfutlc/SfuTlcApplication.java
-/Users/amirnabaei/Desktop/dialectical-maps/backend/src/main/java/com/sfutlc/sfutlc/model/Mapping.java
-/Users/amirnabaei/Desktop/dialectical-maps/backend/src/main/java/com/sfutlc/sfutlc/controller/GreetingController.java
-/Users/amirnabaei/Desktop/dialectical-maps/backend/src/main/java/com/sfutlc/sfutlc/controller/MappingController.java
-/Users/amirnabaei/Desktop/dialectical-maps/backend/src/main/java/com/sfutlc/sfutlc/services/GreetingService.java
-/Users/amirnabaei/Desktop/dialectical-maps/backend/src/main/java/com/sfutlc/sfutlc/model/Greeting.java
-=======
-/Users/amirnabaei/Desktop/DialecticalMap.v1/backend/src/main/java/com/sfutlc/sfutlc/controller/GreetingController.java
-/Users/amirnabaei/Desktop/DialecticalMap.v1/backend/src/main/java/com/sfutlc/sfutlc/controller/MappingController.java
-/Users/amirnabaei/Desktop/DialecticalMap.v1/backend/src/main/java/com/sfutlc/sfutlc/controller/BaiduWeatherService.java
-/Users/amirnabaei/Desktop/DialecticalMap.v1/backend/src/main/java/com/sfutlc/sfutlc/model/Mapping.java
-/Users/amirnabaei/Desktop/DialecticalMap.v1/backend/src/main/java/com/sfutlc/sfutlc/SfuTlcApplication.java
-/Users/amirnabaei/Desktop/DialecticalMap.v1/backend/src/main/java/com/sfutlc/sfutlc/services/GreetingService.java
-/Users/amirnabaei/Desktop/DialecticalMap.v1/backend/src/main/java/com/sfutlc/sfutlc/services/GreetingServiceBean.java
-/Users/amirnabaei/Desktop/DialecticalMap.v1/backend/src/main/java/com/sfutlc/sfutlc/model/Greeting.java
->>>>>>> amir
+/Users/daviddeng/Desktop/project2/spring-boot-mysql-rest-api-tutorial/src/main/java/com/sfutlc/sfutlc/model/Map.java
+/Users/daviddeng/Desktop/project2/spring-boot-mysql-rest-api-tutorial/src/main/java/com/sfutlc/sfutlc/controller/MainController.java
+/Users/daviddeng/Desktop/project2/spring-boot-mysql-rest-api-tutorial/src/main/java/com/sfutlc/sfutlc/model/Reason.java
+/Users/daviddeng/Desktop/project2/spring-boot-mysql-rest-api-tutorial/src/main/java/com/sfutlc/sfutlc/controller/ReasonController.java
+/Users/daviddeng/Desktop/project2/spring-boot-mysql-rest-api-tutorial/src/main/java/com/sfutlc/sfutlc/repository/NoteRepository.java
+/Users/daviddeng/Desktop/project2/spring-boot-mysql-rest-api-tutorial/src/main/java/com/sfutlc/sfutlc/controller/MapController.java
+/Users/daviddeng/Desktop/project2/spring-boot-mysql-rest-api-tutorial/src/main/java/com/sfutlc/sfutlc/exception/ResourceNotFoundException.java
+/Users/daviddeng/Desktop/project2/spring-boot-mysql-rest-api-tutorial/src/main/java/com/sfutlc/sfutlc/model/Note.java
+/Users/daviddeng/Desktop/project2/spring-boot-mysql-rest-api-tutorial/src/main/java/com/sfutlc/sfutlc/repository/UserRepository.java
+/Users/daviddeng/Desktop/project2/spring-boot-mysql-rest-api-tutorial/src/main/java/com/sfutlc/sfutlc/controller/NoteController.java
+/Users/daviddeng/Desktop/project2/spring-boot-mysql-rest-api-tutorial/src/main/java/com/sfutlc/sfutlc/model/User.java
+/Users/daviddeng/Desktop/project2/spring-boot-mysql-rest-api-tutorial/src/main/java/com/sfutlc/sfutlc/repository/MapRepository.java
+/Users/daviddeng/Desktop/project2/spring-boot-mysql-rest-api-tutorial/src/main/java/com/sfutlc/sfutlc/EasyNotesApplication.java
+/Users/daviddeng/Desktop/project2/spring-boot-mysql-rest-api-tutorial/src/main/java/com/sfutlc/sfutlc/repository/ReasonRepository.java
+/Users/daviddeng/Desktop/project2/spring-boot-mysql-rest-api-tutorial/src/main/java/com/sfutlc/sfutlc/controller/EvidenceController.java
+/Users/daviddeng/Desktop/project2/spring-boot-mysql-rest-api-tutorial/src/main/java/com/sfutlc/sfutlc/controller/UserController.java
+/Users/daviddeng/Desktop/project2/spring-boot-mysql-rest-api-tutorial/src/main/java/com/sfutlc/sfutlc/repository/EvidenceRepository.java
+/Users/daviddeng/Desktop/project2/spring-boot-mysql-rest-api-tutorial/src/main/java/com/sfutlc/sfutlc/controller/IndexController.java
+/Users/daviddeng/Desktop/project2/spring-boot-mysql-rest-api-tutorial/src/main/java/com/sfutlc/sfutlc/model/Evidence.java
