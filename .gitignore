@@ -31,6 +31,7 @@ back-end/**/*.properties
 #.mtj.tmp/
 test/
 back-end/
+target/
 # Package Files #
 #*.jar
 #*.war
