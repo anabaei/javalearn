@@ -66,9 +66,10 @@ public class MapController {
         return ResponseEntity.ok().build();
     }
     
-    @RequestMapping(value = "/api/v1/courses")
+    @RequestMapping(value = "/courses")
     public String getCourses() throws IOException {
     	
+    	 System.out.print("came here!");
          String courses;
     	 // URL url = new URL("https://canvas.sfu.ca/api/v1/courses?per_page=500");
          URL url = new URL("https://canvas.instructure.com/api/v1/courses?per_page=500");
