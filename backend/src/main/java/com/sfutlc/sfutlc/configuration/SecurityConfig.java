@@ -19,12 +19,3 @@ public class SecurityConfig extends WebMvcConfigurerAdapter{
 	    }
 
 
-
-
-
-
-
-
-
-
-
