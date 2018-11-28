@@ -97,4 +97,11 @@ public class MapController {
 	        }
          return courses;             
     }
+    
+    
+	@RequestMapping("/index")
+	public String welcome() {
+		
+		return "index";
+	}
 }

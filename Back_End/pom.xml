@@ -7,7 +7,7 @@
 	<artifactId>easy-notes</artifactId>
 	<version>1.0.0</version>
 	<packaging>jar</packaging>
-
+   
 	<name>easy-notes</name>
 	<description>Rest API for a Simple Note Taking Application</description>
 
@@ -25,6 +25,13 @@
 	</properties>
 
 	<dependencies>
+	<!-- Need this to compile JSP -->
+	     <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -38,7 +45,17 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
+		</dependency>	
+		<dependency>
+			   <groupId>org.eclipse.jetty</groupId>
+			  <artifactId>jetty-webapp</artifactId>
+		
 		</dependency>
+		<dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-devtools</artifactId>
+        <optional>true</optional>
+    </dependency>
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -49,6 +66,16 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+		  <groupId>org.hibernate</groupId>
+		   <artifactId>hibernate-core</artifactId>
+		</dependency>
+		
+		<dependency>
+		<groupId>org.hibernate</groupId> 
+		<artifactId>hibernate-entitymanager</artifactId>
+		</dependency>
+		
 	</dependencies>
 
 	<build>
@@ -56,8 +83,10 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			
 			</plugin>
 		</plugins>
+		
 	</build>
 
 
