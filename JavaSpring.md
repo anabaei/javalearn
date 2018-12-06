@@ -355,7 +355,11 @@ And if it was correct, it returns a JSON representaion
 #### Receive as String
 * Inorder to receive as string what is bein send from body we can have it like
 ```java
-
+    @PostMapping("/")
+    public String Canvas(@RequestBody String json) {		   
+    System.out.println(json);
+        return "Something!";
+    }
 ```
 
 </details>
