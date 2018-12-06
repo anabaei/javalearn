@@ -39,7 +39,25 @@ mvn archetype:generate -DgroupId=com.jcg.maven -DartifactId=MavenHelloWorldProje
  * Then you need to remove mysql and dowload it again as [here](https://coderwall.com/p/os6woq/uninstall-all-those-broken-versions-of-mysql-and-re-install-it-with-brew-on-mac-mavericks)
  
   </details>
-  
+  <details>
+    <summary> Http Session  </summary>
+
+* First Add `HttpServletRequest` and `HttpServletResponse` as params from each `request` then Java Spring knows in each request there are some sessions which we define here as `uname`. And in another call or same we can get it with `session.getAttribute("uname")`
+* An example would be like below in 
+```java
+ @GetMapping("/")
+    public String Canvas(HttpServletRequest request, HttpServletResponse response) {
+   
+    	HttpSession session=request.getSession(); 
+    	session.setAttribute("uname","sssssss"); 
+    	
+        String n=(String)session.getAttribute("uname");  
+        System.out.println("Hello "+n);  
+ 
+	return "U";
+    }
+```
+  </details>	
   <details>
   <summary> REST API </summary>
   
