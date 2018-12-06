@@ -327,7 +327,8 @@ public class GreetingController {
     	  }
     return new ResponseEntity<Greeting>(greeting, HttpStatus.OK); // this command returns greeting object and spring returns it as json and insert it into http response body	
     }
-```
+``` 
+
 </details>
 <details>
 	<summary> POST </summary>
@@ -394,6 +395,13 @@ Then inside the postman you need to hit with `put` action including with this ur
 ```java
 {"id": 1, "text": "not vsssssg "}
 ```
+
+#### Receive as String
+* Inorder to receive as string what is bein send from body we can have it like
+```java
+
+```
+
 </details>
 
 <details>
