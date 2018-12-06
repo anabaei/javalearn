@@ -351,7 +351,13 @@ public class GreetingController {
 ```java
 {"text": "this is test"}
 ```
-And if it was correct, it returns a JSON representaion. 
+And if it was correct, it returns a JSON representaion
+#### Receive as String
+* Inorder to receive as string what is bein send from body we can have it like
+```java
+
+```
+
 </details>
 <details>
 	<summary> Update </summary>
@@ -396,11 +402,6 @@ Then inside the postman you need to hit with `put` action including with this ur
 {"id": 1, "text": "not vsssssg "}
 ```
 
-#### Receive as String
-* Inorder to receive as string what is bein send from body we can have it like
-```java
-
-```
 
 </details>
 
