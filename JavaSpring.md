@@ -366,7 +366,8 @@ And if it was correct, it returns a JSON representaion
  <details>
 	<summary> POST LTI </summary>
 	
-*  At first landing page LTI, we can not use 
+* First of all, define a model object as `CanvasLTI` to cover all results. Then create getter and setter for all	
+*  At first landing page LTI, we can not use.  
 ```java
   @PostMapping("/")
    public String Canvas(@Valid @RequestBody CanvasLTI json) {
@@ -383,7 +384,42 @@ And if it was correct, it returns a JSON representaion
     	System.out.println(amir);
         return amir;
     }
-```    
+``` 
+</details>
+<details> 
+	<summary>Send as JSON from End point </summary
+
+* In order to send as JSON we can create one as 
+```java
+@GetMapping("...")
+@ResponseBody
+public HashMap<String, Object> endPointExample(...) {
+
+    HashMap<String, Object> rtn = new LinkedHashMap<String, Object>();
+    rtn.put("pic", image);
+    rtn.put("potato", "King Potato");
+
+    return rtn;
+
+}
+```
+Which returns 
+```java
+{"pic":"a17fefab83517fb...beb8ac5a2ae8f0449","potato":"King Potato"}
+```
+* Which here is my working example of CanvasLTI to send to frontEnds
+```java
+  @RequestMapping(value = "/", method = RequestMethod.POST, consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    public HashMap<String, Object>  createMessage(CanvasLTI json, HttpServletRequest request, HttpServletResponse response){
+        //TODO DO your stuff here
+    	String canvas_user_id = json.getCustom_canvas_user_id();
+    	HashMap<String, Object> rtn = new LinkedHashMap<String, Object>();
+        rtn.put("results", "result one");
+        rtn.put("canvas_user_id", canvas_user_id);
+    	System.out.println(rtn);
+        return rtn;
+    }
+```
 </details>
 <details>
 	<summary> Update </summary>
