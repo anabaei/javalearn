@@ -241,6 +241,15 @@ Now it should work on
 http://localhost:8080/
 ```
  </details>
+  <details>
+	<summary> Create An Object </summary>	
+  
+  * Objects are creating in the model package. Then for each case we define a class and assign private attribtues to it
+  * Then create setter and getter from eclipse 
+  * At the controller or other part of package you can access this object and setter and getter as well
+  
+  </details>	
+ 
  <details>
 	<summary> CREAT JSON STATIC </summary>	
 
