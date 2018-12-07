@@ -364,6 +364,28 @@ And if it was correct, it returns a JSON representaion
 
 </details>
 <details>
+	<summary> POST LTI</summmary>
+	
+*  At first landing page LTI, we can not use 
+```java
+  @PostMapping("/")
+   public String Canvas(@Valid @RequestBody CanvasLTI json) {
+   String amir = json.getCustom_canvas_user_id();
+   return amir;
+   }
+```
+* We have to use below code. Because when we use `application/x-www-form-urlencoded`, Spring doesn't understand it as a RequestBody. So, if we want to use this we must remove the `@RequestBody` 
+```java
+@RequestMapping(value = "/", method = RequestMethod.POST, consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    public String createMessage(CanvasLTI json){
+        //TODO DO your stuff here
+    	String amir = json.getCustom_canvas_user_id();
+    	System.out.println(amir);
+        return amir;
+    }
+```    
+</details>
+<details>
 	<summary> Update </summary>
 	
 * To update we need to modify save helper method. Check if the primary key is going to be saved has already existed! If it does we try to update it rather than create new one. 
