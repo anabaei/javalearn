@@ -1,3 +1,8 @@
+```
+Experience in optimization mathematics such as linear programming and nonlinear optimization
+Ability to effectively articulate technical challenges and solutions Adept at handling ambiguous or undefined problems as well as ability to think abstractly
+```
+
 ### Java Learn
 
 * Static methods can not access to instance variables outside, unless the instance was created inside static mehthods like calling non static classes inside main static [here](https://www.quora.com/What-is-the-difference-between-static-and-non-static-methods-memory-allocation-in-java)
