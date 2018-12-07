@@ -363,8 +363,8 @@ And if it was correct, it returns a JSON representaion
 ```
 
 </details>
-<details>
-	<summary> POST LTI</summmary>
+ <details>
+	<summary> POST LTI </summary>
 	
 *  At first landing page LTI, we can not use 
 ```java
