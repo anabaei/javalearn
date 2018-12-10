@@ -317,7 +317,20 @@ public class GreetingController {
 
  <details>
 	<summary> Get Show  </summary>
-	
+
+#### Simple Get	
+* To design simpel get request we can have a controller like:
+```java
+@RestController
+public class IndexController {
+    @GetMapping("/dm/auth/lti2")
+    public  String getEmployees()
+    {
+        return "testing";
+    }
+}
+```
+### Details
 * Now you create an endpoint that returns the only object that mathes with supply key identifier 
 * In order to define a show for an item we can define it as
 * Below is the webserivce
