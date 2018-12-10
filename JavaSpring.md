@@ -372,6 +372,15 @@ And if it was correct, it returns a JSON representaion
 ```
 
 </details>
+<details>
+	<summary> Redirect to External  </summary>
+
+* In controller we can redirect to anywhere ( in this case I had to redirect to index.html)
+```java
+    	final String uri = "http://localhost:8080/index.html";
+    	return new ModelAndView("redirect:" + uri);
+```
+</details>	
  <details>
 	<summary> POST LTI </summary>
 	
