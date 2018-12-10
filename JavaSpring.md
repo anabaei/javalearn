@@ -330,7 +330,8 @@ public class IndexController {
     }
 }
 ```
-### Details
+### use Request Map
+* you can put requestMap on top of the class to have a generic url at first
 * Now you create an endpoint that returns the only object that mathes with supply key identifier 
 * In order to define a show for an item we can define it as
 * Below is the webserivce
