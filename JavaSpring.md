@@ -419,6 +419,39 @@ And if it was correct, it returns a JSON representaion
     }
 ``` 
 </details>
+<details>
+	<summary> Convert to JSON </summary>
+
+* When someend points returns a list of objects(student here) we first create an object model name studnet with setter and getter and then use this formula to convert resutls into an array of students and then go through and put them togather and save as below
+* The key command is this 
+```java
+String users = "something from endpoints"
+List<Student> studentList = gson.fromJson(users,new TypeToken<List<Student>>(){}.getType());
+```
+* `map` is our object from request 
+```java
+    	List<Map> maps = new ArrayList<>();
+    	maps.add(map);
+    	//get all Student  list  and create a map for every student
+    	String users = getCanvasData("https://canvas.instructure.com/api/v1/courses/1478623/users","GET");
+    	Gson gson = new Gson();
+    	// create a list for all students
+    	List<Student> studentList = gson.fromJson(users,new TypeToken<List<Student>>(){}.getType());
+    	studentList.forEach(
+    			s -> {
+    				Map mapS = new Map();
+    				mapS.setOwnerID(s.getId());
+    				mapS.setAssignmentID(creator.getId());
+    		    	mapS.setCourseID(creator.getCourse_id());
+    				mapS.setTitle(title);
+    				mapS.setDueDate(map.getDueDate());
+    				mapS.setUnlock_at(map.getUnlock_at());
+    				maps.add(mapS);
+    			}
+    			);
+    	return mapRepository.saveAll(maps);
+```
+</details>
 <details> 
 	<summary>Send as JSON from End point </summary
 
