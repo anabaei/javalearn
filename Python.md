@@ -3,7 +3,7 @@
 <details>
       <summary> Install </summary>
 
-* Use this link
+* Use this [link](https://www.slothparadise.com/how-to-install-django-on-mac/)
 ```java
 brew install python3
 ```
