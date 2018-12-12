@@ -25,9 +25,15 @@ sudo pip install Django
 ```
 * If error happen
 ```java
-
 curl https://bootstrap.pypa.io/get-pip.py | python
 pip install --upgrade setuptools
 ```
+* Create Project Blog
+```java
+django-admin.py startproject blog
+cd blog 
+python manage.py runserver
+```
+Then check the port 8000 as `http://127.0.0.1:8000`
 
 </details>
