@@ -840,7 +840,12 @@ public class SecurityConfig extends WebMvcConfigurerAdapter{
 
 * A reference is [this](https://github.com/spring-projects/spring-boot/tree/v1.1.3.RELEASE/spring-boot-samples/spring-boot-sample-web-ui/src/main/resources)
 </details>
+<details>
+	<summary> Angular </summary>
+	
+* You can define `ng-class` in parent tag, then as child tag define `ng-model`. Then `ng-model` goes to `ng-class` and check whthere it is active or not, if yes add the pair of the class to the item as [link](https://docs.angularjs.org/api/ng/directive/ngClass) 
 
+</details>
 
 
 
