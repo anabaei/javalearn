@@ -10,6 +10,7 @@ brew install python3
 * If error happen
 ```java
 sudo chown -R $(whoami) $(brew --prefix)/*
+sudo install -d -o $(whoami) -g admin /usr/local/Frameworks
 ```
 
 ```java
