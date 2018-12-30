@@ -54,9 +54,9 @@ create_project_dir('thenewboston2')
 </details>
 
 <details>
-      <summary> HTML Parser </summary>
+      <summary> HTML Parser tags </summary>
      
-* Html parser allows to read pages as here 
+* Html parser allows to read pages as here. It is go through the feed and everytime saw a tag it prints it out!
 * Remember it is python 3
 ```python
 from html.parser import HTMLParser
@@ -79,7 +79,17 @@ finder.feed(
     '<html><head> aaaaa </head><body>bbbb <h1>hhh 111</h1></body></html>'
 )
 ```
-</details>      
+</details> 
+
+<details>
+      <summary> HTML Parser a tags </summary>
+      
+*
+```python
+
+```
+</details> 
+
 <details>
       <summary> Address which page to Crawl </summary>
       
