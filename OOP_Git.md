@@ -210,6 +210,15 @@ git pull --rebase origin version4
 * git pull address --allow-unrelated-histories
 * git push origin master 
 
+<details>
+  <summary> Git pull Branch </summary>
+  
+ * In order to git pull from branch `backend-restructure` we can have
+ ```java
+ git branch -f backend-restructure  origin/backend-restructure
+ ```
+ * Then it creates same branch as from origin in
+  </details>
 
 ### UML Diagrams 
 UML Unified Modeling Language has two main types : 
