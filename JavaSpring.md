@@ -2,7 +2,7 @@
 <details>
   <summary> TomCat + Java Spring </summary>
 
-* 
+* First install apache tomcat then run mvn package in your java spring 
 ```java
 mvn package // it produces dm.war then cp it to webapps in apache-tomcat 
 cp /Back_End/target/dm.war /Users/amirnabaei/apache-tomcat-9.0.14/webapps
