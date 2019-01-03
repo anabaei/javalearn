@@ -1,5 +1,21 @@
 
 <details>
+  <summary> TomCat + Java Spring </summary>
+
+* 
+```java
+mvn package // it produces dm.war then cp it to webapps in apache-tomcat 
+cp /Back_End/target/dm.war /Users/amirnabaei/apache-tomcat-9.0.14/webapps
+```
+*
+```java
+cd apache-tomcat-9.0.14/bin
+./startup.sh
+./shutdown.sh
+```
+</details>	
+
+<details>
   <summary> Maven </summary>
   
 * Maven is a tool to build and manage any java project. It is a software management and comprehension tool based on Project Object Model. It allows to to publish project information and share JARs accroos several projects. The result is a tool that can be used for building any java-based-project
