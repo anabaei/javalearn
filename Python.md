@@ -146,10 +146,10 @@ create_data_files(
 #DATASTORE_FILE = os.path.join(BASE_PATH, 'datastore.sqlite3')
 
 # DATASTORE_URI = env('DATASTORE_URI', 'sqlite:///%s' % DATASTORE_FILE)
-DATASTORE_URI = env('DATASTORE_URI', 'mysql://root:password@localhost:3006/aml')
+DATASTORE_URI = env('DATASTORE_URI', 'mysql://root:password@localhost/aml')
 OR 
 #DATASTORE_FILE = os.path.join(BASE_PATH, 'datastore.mysql')
-DATASTORE_URI = env('DATASTORE_URI', 'mysql+mysqldb://root:password@localhost:3006/aml')
+DATASTORE_URI = env('DATASTORE_URI', 'mysql+mysqldb://root:password@localhost/aml')
 
 ```
 * Run memorious as 
