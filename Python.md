@@ -146,8 +146,7 @@ create_data_files(
 #DATASTORE_FILE = os.path.join(BASE_PATH, 'datastore.sqlite3')
 
 # DATASTORE_URI = env('DATASTORE_URI', 'sqlite:///%s' % DATASTORE_FILE)
-DATASTORE_URI = env('DATASTORE_URI', 'mysql://root:password@localhost/aml')
-OR 
+# DATASTORE_URI = env('DATASTORE_URI', 'mysql://root:password@localhost/aml')
 #DATASTORE_FILE = os.path.join(BASE_PATH, 'datastore.mysql')
 DATASTORE_URI = env('DATASTORE_URI', 'mysql+mysqldb://root:password@localhost/aml')
 
@@ -156,6 +155,11 @@ DATASTORE_URI = env('DATASTORE_URI', 'mysql+mysqldb://root:password@localhost/am
 ```java
 memorious run eu_mepspwd
 ```
+If error happen use 
+```java
+pip3 install ..the_one_it_is_complaining
+```
+* remember to install into python 3 if you are using python3 
 </details>
 
 <details>
