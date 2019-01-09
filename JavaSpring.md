@@ -3,6 +3,7 @@
   <summary> Start </summary>
 
   * Start from [here](https://start.spring.io/) and use `web`, `JPA` and `Security`
+  * Use [this](https://code.visualstudio.com/docs/java/java-spring-boot) for VS
 </details>	
 
 
