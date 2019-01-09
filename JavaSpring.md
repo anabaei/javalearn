@@ -2,11 +2,9 @@
 <details>
   <summary> Start </summary>
 
-* Start from [here](https://start.spring.io/) and use `web`, `JPA` and `Security`
-
+  * Start from [here](https://start.spring.io/) and use `web`, `JPA` and `Security`
 </details>	
 
-https://start.spring.io/
 
 <details>
   <summary> TomCat + Java Spring </summary>
