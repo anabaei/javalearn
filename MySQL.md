@@ -9,3 +9,7 @@ create user amir@localhost;
 create database aml;   // create database
 GRANT ALL PRIVILEGES ON * . * TO 'amir'@'localhost';
 ```
+* 
+```java
+create table allusers (allnames varchar(255));
+```
