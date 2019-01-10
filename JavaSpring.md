@@ -4,7 +4,22 @@
 
   * Start from [here](https://start.spring.io/) and use `web`, `JPA` and `Security`
   * Use [this](https://code.visualstudio.com/docs/java/java-spring-boot) for VS
-</details>	
+  * Remove jpa dependency from `pom.xml` 
+  ```java
+  <dependency>
+	 <groupId>org.springframework.boot</groupId>
+	 <artifactId>spring-boot-starter-data-jpa</artifactId>
+  </dependency>
+  ```
+  * Install `boot spring dashboard` 
+  * Write now you should be able to run it
+  ### Packages
+  * at `src/main/java` we have packages. To run an app we run one package. 
+  * inside `java` create a folder like `hello` then inside that define classes like 
+  ```java
+  
+  ```
+  </details>	
 
 
 <details>
