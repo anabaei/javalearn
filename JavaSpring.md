@@ -3,7 +3,7 @@
   <summary> Start </summary>
 
   * Start from [here](https://start.spring.io/) and add only `web`
-  * Use [this](https://code.visualstudio.com/docs/java/java-spring-boot) for VS not complete yet!
+  * Use [this](https://code.visualstudio.com/docs/java/java-spring-boot) for VS not complete yet! But STS is more suggested!
   * To define landing page create a package like 
   ```java
   src/main/java/com.example.demo1 // your main by default is at this package then
@@ -25,7 +25,7 @@ public class Hello {
     }
 }
   ```
-  * Write now you should be able to run it
+  * Write now you should be able to run it as `mvn spring-boot:run`
   
   </details>	
 
