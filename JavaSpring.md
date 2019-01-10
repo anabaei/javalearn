@@ -2,23 +2,31 @@
 <details>
   <summary> Start </summary>
 
-  * Start from [here](https://start.spring.io/) and use `web`, `JPA` and `Security`
-  * Use [this](https://code.visualstudio.com/docs/java/java-spring-boot) for VS
-  * Remove jpa dependency from `pom.xml` 
+  * Start from [here](https://start.spring.io/) and add only `web`
+  * Use [this](https://code.visualstudio.com/docs/java/java-spring-boot) for VS not complete yet!
+  * To define landing page create a package like 
   ```java
-  <dependency>
-	 <groupId>org.springframework.boot</groupId>
-	 <artifactId>spring-boot-starter-data-jpa</artifactId>
-  </dependency>
+  src/main/java/com.example.demo1 // your main by default is at this package then
+  // create a package controller
+   src/main/java/com.example.demo1.controller 
   ```
-  * Install `boot spring dashboard` 
+  * Inside controller define root as 
+  ```java
+package com.example.demo1.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class Hello {
+    @GetMapping("/")
+    public String getEmployees() {
+        return "testing!";
+    }
+}
+  ```
   * Write now you should be able to run it
-  ### Packages
-  * at `src/main/java` we have packages. To run an app we run one package. 
-  * inside `java` create a folder like `hello` then inside that define classes like 
-  ```java
   
-  ```
   </details>	
 
 
