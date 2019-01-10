@@ -25,10 +25,11 @@ public class Hello {
     }
 }
   ```
-  * Write now you should be able to run it as `mvn spring-boot:run`
-  
+  * Write now you should be able to run it as 
+  ```java
+  mvn spring-boot:run
+  ```
   </details>	
-
 
 <details>
   <summary> TomCat + Java Spring </summary>
