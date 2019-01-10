@@ -45,6 +45,7 @@ cd apache-tomcat-9.0.14/bin
 ./startup.sh
 ./shutdown.sh
 ```
+* You can find sh command from [here](https://github.com/anabaei/DialecticalMap.v1/blob/master/r.sh)
 </details>	
 
 <details>
