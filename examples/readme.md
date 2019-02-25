@@ -117,9 +117,10 @@ java HelloWorld         // this command feeding JRE which use JVM to run it
 
 
 <details>
-  <summary> [Heap](https://github.com/trekhleb/javascript-algorithms/tree/master/src/data-structures/heap) </summary>
+  <summary> Heap </summary>
   
- * Heap is a specialized tree-based data structure that parent value is bigger than children(heap max) and in heap min parents value is less than children 
+  
+ * [Heap](https://github.com/trekhleb/javascript-algorithms/tree/master/src/data-structures/heap) is a specialized tree-based data structure that parent value is bigger than children(heap max) and in heap min parents value is less than children 
 </details>
 <details>
   <summary> Graph </summary>
