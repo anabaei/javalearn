@@ -1,4 +1,5 @@
 
+* [Algorithm and data structure](https://github.com/trekhleb/javascript-algorithms)
 ### OOP vs Procedural 
 * A class is defined as a template/blueprint that describes the behavior/state that the object of its type support.
 * An object is an instance of a class
