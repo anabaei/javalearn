@@ -114,6 +114,8 @@ java HelloWorld         // this command feeding JRE which use JVM to run it
 ## Trees
 * Unlike Arrays, Linked Lists, Stack and queues, which are linear data structures, trees are hierarchical data structures.
 
+* [Heap](https://github.com/trekhleb/javascript-algorithms/tree/master/src/data-structures/heap) is a specialized tree-based data structure that parent value is bigger than children(heap max) and in heap min parents value is less than children
+
 <details>
   <summary> Graph </summary>
   
