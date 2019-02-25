@@ -83,7 +83,7 @@ java HelloWorld         // this command feeding JRE which use JVM to run it
  <details>
   <summary> Node </summary>
      
-     
+* Remember, Head ( a pointer to a node) is always part of LinkList class and Node is inside LinkList class.  
   ```java
      public class Node{
        int data;
@@ -101,6 +101,7 @@ java HelloWorld         // this command feeding JRE which use JVM to run it
   A good practice [here](https://www.geeksforgeeks.org/linked-list-set-1-introduction/)
   There is a linklist class which inside keeps node classes
   Each Linklist class has a head to tell from where to start nodes
+  * In order to insert new node to linklist you can use this [resource](https://www.geeksforgeeks.org/linked-list-set-2-inserting-a-node/)
   </details>
   <details>
   <summary> Stacks & Queues </summary>
