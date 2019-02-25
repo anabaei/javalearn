@@ -79,7 +79,7 @@ java HelloWorld         // this command feeding JRE which use JVM to run it
  </details>
  
  
- ## LinkList 
+ ## [LinkList](https://github.com/trekhleb/javascript-algorithms/tree/master/src/data-structures/linked-list) 
  <details>
   <summary> Node </summary>
      
