@@ -107,6 +107,7 @@ java HelloWorld         // this command feeding JRE which use JVM to run it
   <summary> Stacks & Queues </summary>
      
  </details>
+ 
 ## [Hash Table](https://github.com/trekhleb/javascript-algorithms/tree/master/src/data-structures/hash-table)
 * Hash tables by their hash function map keys to an index of an array with buckets.  
 
