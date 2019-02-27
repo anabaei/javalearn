@@ -13,7 +13,7 @@ Ability to effectively articulate technical challenges and solutions Adept at ha
            <summary> Hack </summary>
            
  * Using sessions as [this](https://en.wikipedia.org/wiki/Session_fixation) scenario. For more info why passing session id as url is not good [idea](https://security.stackexchange.com/questions/14093/why-is-passing-the-session-id-as-url-parameter-insecure/14094)          
-</detials>
+</details>
 
 <details>
            <summary>JRE & JDK </summary>
