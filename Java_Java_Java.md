@@ -10,6 +10,12 @@ Ability to effectively articulate technical challenges and solutions Adept at ha
 * Static methods are not-thread safe so only one thread running but non-static methods are thread-safe and more than one thread can run. 
 
 <details>
+           <summary> Hack </summary>
+           
+ * Using sessions as [this](https://en.wikipedia.org/wiki/Session_fixation) scenario. For more info why passing session id as url is not good [idea](https://security.stackexchange.com/questions/14093/why-is-passing-the-session-id-as-url-parameter-insecure/14094)          
+</detials>
+
+<details>
            <summary>JRE & JDK </summary>
              <p>JRE includes a Java Virtual Machine (JVM) which allow to java run on all platforms. JRE required to run an application so end users only required to install it but JDK provide tools for us to build an app so normally developers install JDK and JDK includes JRE </p>
            <P> When create a source code in order to running we need JDK. We feed up source code into JDK and produce Java application. Java is not like C which when you compile then you can run it. JDK produces `ByteCode` which is an abstraction platform independent and only JRE provides what Bytecode needs to execute on any host environment 
