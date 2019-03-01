@@ -41,8 +41,10 @@ public class Hello {
 ```
 In order to read ticket we should define a request param 
 ```java
-@PostMapping("/dm3/auth/lti/CAS")
-    public String postApp(@RequestParam(required=false) String ticket) {
+@GetMapping("/CAS")
+ public String casauth(@RequestParam(required=false) String ticket) throws IOException {
+		return ticket;
+	}
 ```
 ### Read body
 * we should defien `HttpServletRequest request` and responses
