@@ -1,4 +1,5 @@
 
+
 <details>
   <summary> Start </summary>
 
@@ -30,6 +31,21 @@ public class Hello {
   mvn spring-boot:run
   ```
   </details>	
+<details>
+	<summary> Get URLs at Backend </summary>
+	
+#### Read ticket	
+* After CAS redirect with a url as `http://localhost:8080/dm3/auth/lti/CAS/?ticket=ST-35109-QXOgTDULJp1` when we define 
+```java
+@GetMapping("/dm3/auth/lti/CAS")
+```
+In order to read ticket we should define a request param 
+```java
+@PostMapping("/dm3/auth/lti/CAS")
+    public String postApp(@RequestParam(required=false) String ticket) {
+```
+### Read body
+* we should defien `HttpServletRequest request` and responses
 
 <details>
   <summary> TomCat + Java Spring </summary>
