@@ -915,6 +915,79 @@ public class SecurityConfig extends WebMvcConfigurerAdapter{
 
 </details>
 
+<details>
+	<summary> CAS </summary>
+
+
+* First at front End we chack a flag and then redirect page to cas as [here](https://github.com/anabaei/DialecticalMap.v1/blob/master/Back_End/src/main/webapp/controllers/menuController.js) 
+```javascript
+if (flag)
+{ window.location.href = 'https://cas.sfu.ca/cas/login?service=http://localhost:8080/dm3/auth/lti/CAS'; }
+```
+* Then it goes to CAS after validations CAS returns ticket to the url that we provide as service append to login as above. Then cas send ticket as params to that end point so we design it as [here](https://github.com/anabaei/DialecticalMap.v1/blob/master/Back_End/src/main/java/com/sfutlc/sfutlc/controller/MapController.java)
+```java
+@GetMapping("/dm3/auth/lti/CAS")
+public RedirectView casauth(@RequestParam(required=false) String ticket,  HttpServletRequest request, HttpServletResponse response ) throws IOException {
+		System.out.print("ticket= "+ ticket);
+		HttpSession session = request.getSession();
+		String canvas_user_id = "anabaei";
+		String[] arrOfStr;
+		boolean gotuserid = false;
+		String userid = "no value";
+		//////////////////////////////////////////////////////////////////////////////////
+		/////////////////// CECHK VALIDATION TOKEN ///////////////////////////////////////	
+		/////////////////////////////////////////////////////////////////////////////////	
+	//	URL urlForGetRequest = new URL("https://cas.sfu.ca/cas/serviceValidate?service=http://localhost:8080/dm3/auth/lti/CAS&ticket="+ticket+"");
+       URL urlForGetRequest = new URL("https://cas.sfu.ca/cas/serviceValidate?service=https://canvas2.tlc.sfu.ca:8443/dm3/auth/lti/CAS&ticket="+ticket+"");   
+	String readLine = null;
+	HttpURLConnection conection = (HttpURLConnection) urlForGetRequest.openConnection();
+	conection.setRequestMethod("GET");
+   //   conection.setRequestProperty("service", "http://localhost:80800/dm3/auth/lti/CAS/"); // set userId its a sample here
+   //   conection.setRequestProperty("ticket", ticket);
+        int responseCode = conection.getResponseCode();
+	if (responseCode == HttpURLConnection.HTTP_OK) {
+		BufferedReader in = new BufferedReader(new InputStreamReader(conection.getInputStream()));
+		StringBuffer res = new StringBuffer();
+		while ((readLine = in .readLine()) != null) {
+		          res.append(readLine);
+	        } in .close();
+  // print result
+	System.out.println("JSON String Result " + res.toString());
+	arrOfStr = res.toString().split("cas:user", 3); // split result to an array of max three members
+	arrOfStr[1] =arrOfStr[1].replaceAll(">","");
+	arrOfStr[1] = arrOfStr[1].replaceAll("</","");
+	System.out.println("arrOfStr[1]== " + arrOfStr[1]);
+	gotuserid = true;
+	userid = arrOfStr[1];
+	//GetAndPost.POSTRequest(response.toString());
+	} else {System.out.println("GET NOT WORKED"); }
+								
+       //////////////////////////////////////////////////////////////////////////
+       //////////// if got userid find email, token, roles etc.... /////////////
+       /////////////////////////////////////////////////////////////////////////						    
+	if(gotuserid)
+		{
+	    List<User> userList2 = userRepository.findBystudentId(userid);
+            System.out.println("user list 2= "+userList2);
+	    String email = userList2.get(0).getEmail();
+	    String roles = userList2.get(0).getInstructorID();
+	    System.out.println("email ? " + email + roles + canvas_user_id);
+ 
+             ////////// got props then setup attributes //////////////// 
+	    session.setAttribute("email", email);
+	    session.setAttribute("roles", roles);
+	    session.setAttribute("canvas_user_id", userid);
+		}
+		else 
+		{ // to test only 
+	     //todo1 something
+		}
+		RedirectView rdView = new RedirectView("/", true);
+		return rdView;
+	}
+```
+</details>	
+
 
 
 
