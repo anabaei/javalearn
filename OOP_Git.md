@@ -139,6 +139,10 @@ git stash
 git status 
 
 ```
+#### Git pull branch
+```javascript
+git pull origin branch_name
+```
 
 #### Add long comment
 * To have comment message 
