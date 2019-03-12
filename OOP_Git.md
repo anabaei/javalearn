@@ -92,7 +92,7 @@ git rebase master
 Then you would have this image ![alt text](https://user-images.githubusercontent.com/7471619/40859394-7db1fd88-6596-11e8-8112-bfa7b98be88c.png)
 ### Rebase
 * Inorder to sync your local branch with repository you need to use `git rebase`
-* To sync any branch with others we can use `git rebase otherbaranch` . Merge and Rebase differences is rebase makes for a cleaner history
+* To sync any branch with others we can use `git rebase otherbaranch` . Merge and Rebase have no real differences the only one is that rebase makes for a cleaner history
 ### Revert
 * If you already commited your changes you can revert them by using 
 ```java
