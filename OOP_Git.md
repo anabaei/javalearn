@@ -90,6 +90,29 @@ git checkout newbranch
 git rebase master
 ```
 Then you would have this image ![alt text](https://user-images.githubusercontent.com/7471619/40859394-7db1fd88-6596-11e8-8112-bfa7b98be88c.png)
+### Rebase
+* Inorder to sync your local branch with repository you need to use `git rebase`
+* To sync any branch with others we can use `git rebase otherbaranch` . The differene with merge is log has changed
+### Revert
+* If you already commited your changes you can revert them by using 
+```java
+git revert commit_hash_id
+```
+To get which commit need to run
+```java
+git log
+```
+* If you dont want to commid your changes but save them, use 
+```java
+git stash 
+```
+Then if you come back to your branch you still can work on them 
+### Status
+```java
+git status
+```
+return the status of uncommited changes to repo
+
 
 #### Branches
 * Generally you have your branch and use it to push to origin yourbranch name. you can delete your branch and then create a new one with the same name and push and it works. 
