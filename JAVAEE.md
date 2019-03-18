@@ -9,16 +9,15 @@
 
 
 #### Set up Tomcat in Eclpise IDE
-*
+* from window -> console server -> click on the link to `select tomcat version` -> `select its path` 
 
-#### Set build path
- * This is a java enterprise edition project. We have to integrate `Servelt` and `jsp` specification apis into our project. So we need to download them. Fortunatelly tomcat has all the jar files inside `lib` folder in tomcat folder. So we take all these `jars` through the server. 
- * Right click on your project and select Build Path -> Configure Build Path Go to Libraries tab click Add Library. Select JRE System Library click Next Then select JRE from options as per your requirement. Click Finish
- 
-#### JDBC driver MySQL
+#### Set build path and Mysql
+
 * download mysql jar from [here](https://dev.mysql.com/downloads/connector/j/5.1.html)
-* copy and paste `mysql-connection-java-bin.jar` file into `lib` folder. Also need to add it to project path. `project` -> `properties` -> `java Build Path` ->`libraries` -> `Add JARs..` -> travers to lib folder and pick .jar file 
-* Now it is ready to call JDBC because dirver jar is connected 
+* copy and paste `mysql-connection-java-bin.jar` file into `lib` folder
+* Right click on your `project` and `java Build Path` -> `module path` -> `Add Library` Select JRE System Library click Next Then select JRE from options as per your requirement. Click Finish
+ *  Also need to add it to project path. `project` -> `properties` -> `java Build Path` -> `module path` ->`libraries` -> `Add JARs..` -> travers to lib folder and pick .jar file 
+ 
 * To run click right project -> `Run as` -> `Run on Server` -> then you see it in configured now it should run
 
 
