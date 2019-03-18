@@ -28,8 +28,16 @@
 * Export project as `war` file from Eclipse or run `mvn package` then put this `war` file inside `tomcat-9.2./webapps` in Tomcat, now when server starts this tomcat automatically runs.
 * To run tomcat go to `tomcat->bin-> startup.bat`
 
+* Alternatively you can use `Maven` or `Gradle` to set up project. 
 </details>
 
+<details>
+ <summary> MVC  </summary>
+ 
+ * Views can be JSP or HTML files
+ * Controllers and servlet classes intercept requests and prepare response
+ * Model are classes that talk to database
+</details>
 ## TOMCAT
  
 * Inside `apache-tomcat-9.1...` you can find `webapps` folder where 
