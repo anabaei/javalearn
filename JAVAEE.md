@@ -59,6 +59,16 @@ public class GetTest {
  ```
  * `cnt`+ `space` `extends HttpServlet`. Why? It starts with `servlet` interface, downthere we have an abstract class with `GenericServlet`. This interface has all the class to implement our application. `GenericServlet` helps to design protocol(protocl-independent-application class). Also it helps to design `HTTPServlet` by htto-based-application class. 
  * [`Abstract class`](https://www.tutorialspoint.com/java/java_abstraction.htm) it cannot be instantiated, to use an abstract class we need to inherit it from another class. 
+ * Now write `doget` and `ctr+space` to produce first get. So everytime it is going to written back into page as
+ ```java
+ @Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String htmlResponse = "<html><h3> hi </h3></html>";
+		PrintWriter writer = resp.getWriter();
+		writer.write(htmlResponse);
+	}
+ ```
+ 
  </details>
  
 ## TOMCAT
