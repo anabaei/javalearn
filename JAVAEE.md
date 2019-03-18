@@ -9,8 +9,10 @@
 
 
 #### Set up Tomcat in Eclpise IDE
-* To host the application inside a server. After downloading tomcat.
-* Eclipse -> window -> show view -> servers. Click on the link to create a server, choose tomcat version and brows it to where tomcat installed and then finish. 
+Right click on your `project` and select `Build Path` -> `Configure Build Path`
+Go to `Libraries tab` click `Add Library`.
+Select `JRE System Library` click Next
+Then select `JRE` from options as per your requirement. Click Finish
 
 #### Set build path
  * This is a java enterprise edition project. We have to integrate `Servelt` and `jsp` specification apis into our project. So we need to download them. Fortunatelly tomcat has all the jar files inside `lib` folder in tomcat folder. So we take all these `jars` through the server. 
