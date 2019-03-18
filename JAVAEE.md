@@ -34,10 +34,32 @@
 <details>
  <summary> MVC  </summary>
  
- * Views can be JSP or HTML files
- * Controllers and servlet classes intercept requests and prepare response
- * Model are classes that talk to database
+ * Views- can be JSP or HTML files
+ * Controllers- servlet classes get requests and prepare response
+ * Model- classes that talk to database
 </details>
+
+<details>
+     <summary> GET  </summary>
+ 
+ * Http is communication protocol between client and server and has different types 
+ ```
+ Get gets info from server
+ Post processes/post info on server
+ Put upload/update a resource 
+ HEAD same as get but checks only headers
+ OPTIONS helps to know what are possible options to run on target server
+ ```
+ * In `src` -> create a package `anyname` -> create a java class as
+ ```java
+ package servicetest;
+public class GetTest {
+
+}
+ ```
+ * `cnt`+ `space` `extends HttpServlet`. Why? It starts with `servlet` interface, downthere we have an abstract class with `GenericServlet`. This interface has all the class to implement our application. `GenericServlet` helps to design protocol(protocl-independent-application class). Also it helps to design `HTTPServlet` by htto-based-application class. 
+ * [`Abstract class`](https://www.tutorialspoint.com/java/java_abstraction.htm) it cannot be instantiated, to use an abstract class we need to inherit it from another class. 
+ </details>
 ## TOMCAT
  
 * Inside `apache-tomcat-9.1...` you can find `webapps` folder where 
