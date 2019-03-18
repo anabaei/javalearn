@@ -17,7 +17,8 @@
 * copy and paste `mysql-connection-java-bin.jar` file into `lib` folder
 * Right click on your `project` and `java Build Path` -> `module path` -> `Add Library` Select JRE System Library click Next Then select JRE from options as per your requirement. Click Finish
  *  Also need to add it to project path. `project` -> `properties` -> `java Build Path` -> `module path` ->`libraries` -> `Add JARs..` -> travers to lib folder and pick .jar file 
- 
+
+* At src -> crate package -> create class // should not produce error otherwise the importing JRE has not complteted
 * To run click right project -> `Run as` -> `Run on Server` -> then you see it in configured now it should run
 
 
