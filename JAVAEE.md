@@ -64,9 +64,46 @@ public class GetTest {
 		writer.write(htmlResponse);
 	}
  ```
+ * `PrintWriter` is an `api` to help you write into api
  
  </details>
- 
+ <details>
+     <summary> Config Servlet web.xml  </summary>
+
+*  In order to simply add `web.xml` you need to add below to file as 
+```java
+<servlet>
+     <servlet-name>GetServlet</servlet-name>
+     <servlet-class>testService4.PassJson</servlet-class>
+  </servlet>
+  <servlet-mapping>
+     <servlet-name>GetServlet</servlet-name>
+     <url-pattern>/test</url-pattern>
+  </servlet-mapping>
+```
+* Above package just define one `route` to a `controller class`. To have another address you need to have same package below it
+* Remember: `servlet-class` is the address of `package.funcionName` and in `servlet-mapping` at url address the url you want. 
+* Also we can assign configuration via annotaions. On top of a class add
+```java
+@WebServlet("/getServlet")
+public class PassJson extends HttpServlet{
+```
+</details>
+ <details>
+     <summary> pass and get params </summary>
+
+* To read a params with name `name` just need `req.getParameter("name");` 
+* so at a url like `http://localhost:8080/testService4/test?name=amir` and a class like
+```java
+protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	// TODO Auto-generated method stub
+	  String value = req.getParameter("name");
+	  String htmlResponse = "<html><h3> hi </h3></html>";
+	   	PrintWriter writer = resp.getWriter();
+	   	writer.write(htmlResponse+ " "+ value);
+}
+```
+ </details>
 ## TOMCAT
  
 * Inside `apache-tomcat-9.1...` you can find `webapps` folder where 
