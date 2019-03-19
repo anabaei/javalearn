@@ -58,14 +58,21 @@ public class GetTest {
  * [`Abstract class`](https://www.tutorialspoint.com/java/java_abstraction.htm) it cannot be instantiated, to use an abstract class we need to inherit it from another class. 
  * Now write `doget` and `ctr+space` to produce first get. So everytime it is going to written back into page as
  ```java
+ // This is depricated 
  @Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String htmlResponse = "<html><h3> hi </h3></html>";
 		PrintWriter writer = resp.getWriter();
 		writer.write(htmlResponse);
 	}
+// it is prefered controller dispatch views 
+        protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	        RequestDispatcher view = request.getRequestDispatcher("html/welcome.html"); // it can be json as well 
+    	        view.forward(request, response);
+    }
  ```
  * `PrintWriter` is an `api` to help you write into api
+ * 
  
  </details>
  <details>
@@ -110,6 +117,7 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 	<summary> JSON </summary>
  
  * Google resource is [here](https://google.github.io/gson/apidocs/index.html?com/google/gson/stream/JsonWriter.html)
+ 
 </details>
  
 ## TOMCAT
