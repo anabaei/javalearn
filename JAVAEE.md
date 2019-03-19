@@ -105,6 +105,12 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 ```
  </details>
  
+ <details>
+	<summary> JSON </summary>
+ 
+ * Google resource is [here](https://google.github.io/gson/apidocs/index.html?com/google/gson/stream/JsonWriter.html)
+</details>
+ 
 ## TOMCAT
  
 * Inside `apache-tomcat-9.1...` you can find `webapps` folder where 
