@@ -139,7 +139,12 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 * `parallelism` running tasks exactly at the same time
 * `Synchronous` means only one task can execute at a time , after the completion of that task the other task will execute, it blocks the tasks to only one at a time. `Asynchronous` means more than one tasks can execute simultaneously, it unblock the tasks to execute simultaneously. OR an easy way `Asynchronous` tasks are the ones that can run in the background while users are doing something else 
 </details>
-
+<details>
+	<summary> Memory Leak </summary>
+</details>
+<details>
+	<summary> Testing jUnit </summary>
+</details>
 ## TOMCAT
  
 * Inside `apache-tomcat-9.1...` you can find `webapps` folder where 
