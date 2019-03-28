@@ -122,11 +122,23 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
  <details>
 	<summary> Multithreading </summary>
 	
+
+* `process` is running an application or program, it has self contained execution environemnt and needs space and memory. It starts with a single thread and can produce many threads. Every process has unique process id. Adding new process is expensive because you want to add all self-container executions environments again. Switch between processes has be inter process communication which can cause overhead. 
+* `thread` is a lightweight process an entity and a part of process exeuction environment so when you create new thread it requires less resources and we call it `multithreading`. 
+* Every thread has id, exception handlers, priority, registers, uses stacks to save local vars and set of structurs to save state of the thread until it is picked up for execution 
+* `Scheduling` is order of threads executing in application. In java `JVM` dont have any algorithm to schedule threads and it relies to OS to do that. Just `JVM` has priority deterministic it means if any thread has `priority` it runs first other than that it picks randomly. During executing if a thread comes with priority then jvm suspends the rest and run new one. Also `JVM` has `time slicing` for each thread if executing elapsed, JVM save it into thread and go over next one until all threads run it back and resume.
+* You can assign `priority` to threads but it is not guarantee since JVM when running time slicing it can skip a high prior thread and move to low prior one in order to avoid starvation
+* Java Standard Edition has basic and high level apis. basic apis have thread and runnable from package java.langpackage and high level api have executor framework from java.util.concurrent package.
+
+#### Thread class
+* Create a class that extends `Threat`. 
+* is in java.lang package, need to create an instance of this class to run an asynchronous task. This class has a run mthod that defines the job of the thread spawned. 
+
 * `concurrency` machine execute multiple tasks
 * `parallelism` running tasks exactly at the same time
 * `Synchronous` means only one task can execute at a time , after the completion of that task the other task will execute, it blocks the tasks to only one at a time. `Asynchronous` means more than one tasks can execute simultaneously, it unblock the tasks to execute simultaneously. OR an easy way `Asynchronous` tasks are the ones that can run in the background while users are doing something else 
-
 </details>
+
 ## TOMCAT
  
 * Inside `apache-tomcat-9.1...` you can find `webapps` folder where 
