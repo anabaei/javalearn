@@ -134,6 +134,7 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 * Create a class that extends `Threat`. 
 * is in java.lang package, need to create an instance of this class to run an asynchronous task. This class has a run mthod that defines the job of the thread spawned. 
 
+#### more
 * `concurrency` machine execute multiple tasks
 * `parallelism` running tasks exactly at the same time
 * `Synchronous` means only one task can execute at a time , after the completion of that task the other task will execute, it blocks the tasks to only one at a time. `Asynchronous` means more than one tasks can execute simultaneously, it unblock the tasks to execute simultaneously. OR an easy way `Asynchronous` tasks are the ones that can run in the background while users are doing something else 
