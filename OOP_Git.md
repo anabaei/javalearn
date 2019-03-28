@@ -23,7 +23,7 @@ is all about building blocks and objects.
 
 ### Multi Threads
 * To have more than one thread when executing a main mehtod in Java, create an object of a class which extends thread class using run method. Therefore inside main method a new object on a nother class call run method for another class which is second thread as [here](https://www.javaworld.com/article/2074217/java-concurrency/java-101--understanding-java-threads--part-1--introducing-threads-and-runnables.html)
-* Instances created in heap memory are available via other threads but static methods can not be accessible by other threads. Thus we say Heap memory is `thread safe`.
+* Instances created in heap memory are available via other threads from non static methods Thus we say Heap memory is `thread safe`. dont forget static methods and static variables can not be accessible by other threads only objects can access to eah other threads. Inside `heap memory` there is one seperated area for statics and one for non static instances.
 * Thread Safe means a method or class instance can be used by multiple threads at the same time without any problems occuring
 * Making a thread safe mehtod is adding the word `synchronized`, this means that only one thread can execute that method at a given time. The other threads wait in line. This makes a method thread safe, but if there is a lot of work to be done in a method, then this wastes a lot of time. 
 * Another technique is to `mark` only a small part of a method as synchronized by creating a `lock` or `semaphore`, and locking this small part (usually called the critical section)
