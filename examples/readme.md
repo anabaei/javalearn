@@ -1,4 +1,12 @@
+<details>
+  <summary> Eclipse IDE </summary>
 
+* You can have web base JAVA EE or just JAVA package. I like to have JAVA EE since we can get advantage of web as well
+```java
+Eclipse -> New -> Project -> Web -> Dynamic web project -> Project Name -> Target runtime Apache Tomcat v.. -> Finish 
+```
+* If `tomcat apache` didn't show up you can download it and then use it
+</details>
 <details>
   <summary>Algorithms </summary>
   
