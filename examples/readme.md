@@ -3,9 +3,11 @@
 
 * You can have web base JAVA EE or just JAVA package. I like to have JAVA EE since we can get advantage of web as well
 ```java
-Eclipse -> New -> Project -> Web -> Dynamic web project -> Project Name -> Target runtime Apache Tomcat v.. -> Finish 
+ New -> Project -> Web -> Dynamic web project -> Project Name -> Target runtime Apache Tomcat 9.1 -> Finish 
 ```
 * If `tomcat apache` didn't show up you can download it and then use it
+* Then you need create a class inside `src` folder
+
 </details>
 <details>
   <summary>Algorithms </summary>
