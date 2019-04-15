@@ -161,6 +161,10 @@ HashMap<String, Node> graph = new HashMap<String, Node>();
  
  </details> 
  
- 
+ <details>
+  <summary> Greedy Algorithms </summary>
+  
+  * There are [4 type](https://www.geeksforgeeks.org/activity-selection-problem-greedy-algo-1/)
+  </details>
  
 
