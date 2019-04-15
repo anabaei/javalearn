@@ -72,6 +72,23 @@ Here are the few commonly used Software Development Life Cycle used in actual te
 
 ### [Git](https://github.com/git/git/blob/master/Documentation/RelNotes/2.9.0.txt#L58-L68)
 
+* Why this command is used?
+```javascript
+git rebase -i HEAD~10  // to list past 10 commits and modify them with either the squash or fixup command 
+```
+* What option you can use to apply git configuration accross entire git env
+```javascript
+git config --global user.name "John Born"
+```
+* 
+```javascript
+git add -A // what does it do 
+git commit -a -m "name" // adds all modified files to staging area 
+```
+* To modify your previous commit 
+```javascript
+--amend 
+```
 
 * Git has two states you can be there `on a branch` and `not on a branch`.
 If you are `on a branch` then all commits are saved into your branch, but if you are `not on a branch` then new commits are not saved and if you get out of that branch git forgets all those commits
