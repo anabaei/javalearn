@@ -38,7 +38,7 @@ java HelloWorld         // this command feeding JRE which use JVM to run it
 ```
 </details>
 
-## Arrays
+## Looping
 
 <details>
   <summary> HashMap </summary>
@@ -51,6 +51,16 @@ java HelloWorld         // this command feeding JRE which use JVM to run it
       System.out.println("temp = "+temp);
       return temp;
     }
+   ```
+   * For nested loops instead of O(n2) we can have O(n+n) by traversing one linklist or list and mark them, then travers the second one. For this we need to put first list into hash [here](https://www.geeksforgeeks.org/write-a-function-to-get-the-intersection-point-of-two-linked-lists/) 
+   ```java
+   import java.util.*;
+    HashMap<Integer, String> temp = new HashMap<Integer, String>();
+	   temp.put(1, "check");
+	   temp.put(2, "check");
+     ....
+     //second loop first check
+     temp.containsKey(2);
    ```
  </details>
  <details>
