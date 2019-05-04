@@ -175,6 +175,10 @@ HashMap<String, Node> graph = new HashMap<String, Node>();
   <summary> Greedy Algorithms </summary>
   
   * There are [4 type](https://www.geeksforgeeks.org/activity-selection-problem-greedy-algo-1/)
+  * Minimum Spaning Tree (MST)[https://www.geeksforgeeks.org/kruskals-minimum-spanning-tree-algorithm-greedy-algo-2/]
+  ```java
+  
+  ```
   </details>
  
 
