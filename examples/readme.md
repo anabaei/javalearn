@@ -168,6 +168,7 @@ class Node {
 HashMap<String, Node> graph = new HashMap<String, Node>();
   ```
  * BFS search [BFS for a Graph](https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/) 
+ * Binary search [here](https://medium.com/@jeffrey.allen.lewis/javascript-algorithms-explained-binary-search-25064b896470)
  
  </details> 
  
