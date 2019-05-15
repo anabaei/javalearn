@@ -56,6 +56,7 @@ is all about building blocks and objects.
 As an example [NGINX](https://www.nginx.com/resources/glossary/reverse-proxy-server/) can be used.
 #### [REST](https://www.sitepoint.com/developers-rest-api/)
 * Interview: what is RESTfull?
+* Layer of tcp/ip
 * what is udp/ssl? Auth2? JWT? [here](https://github.com/anabaei/Blockchain/blob/master/SSL-TLS.md)
 * two ordered arrays make one ordered array.
 * have a string of `1234` make it an interger use Ascii code
