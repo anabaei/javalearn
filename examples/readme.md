@@ -180,6 +180,24 @@ HashMap<String, Node> graph = new HashMap<String, Node>();
   ```java
   
   ```
+  * has a graph a cycle: 
+  ```java
+  * First assume a class with graph has two properties V and E as number of vertixes and edges
+  * define an inside class Edge with two attribute int dest, src
+  * define a function isCycle(graph graph) to 
+  create a parent[] with size of vertices and assign them -1
+  loop through graph.edge[i].dest and graph.edge[i].dest as
+  x = find(graph.edge[i].dest, parent)
+  y = find(graph.edge[i].src, parent)
+  if x == y return 1
+  else parent[x] = y
+  * define find as a recursive function as 
+  public int find(int i, parent[])
+   if parent[i] == -1  // means has no connection or parent
+       return i
+       else fidn(parent[i], parent)
+  
+  ```
   </details>
  
 
