@@ -136,6 +136,35 @@ java HelloWorld         // this command feeding JRE which use JVM to run it
   <summary> Stacks & Queues </summary>
      
  </details>
+  <details>
+  <summary> Sorting </summary>
+ 
+ #### Quick Sort
+ * We take a pivot, then compare everything with that if bigger change with next one then first round would be like all bigger numbers on right side and smaller ones at left side of pivot and then do it recurcsively
+ ```java
+ quickSort(arr[], low, high)
+{
+ // here I take pivot the last one we can take it as first one or accidentaly
+ if (low < high)
+    {
+        pi = partition(arr, low, high);
+	quicksort(arr,pi, high)
+	quicksort(arr,low, pi-1)
+    }
+}
+```
+* In partitions we have two pointer, one i=-1 (low-1) and another is j=low 
+* loop with j=low to high-1
+* if smaller than pivot  i++, then swap arr[i], arr[j] and next loop in j. else just go next loop. finally return i+1 
+```java
+partition(arr[],low,high) {
+   pivot = arr[high]
+   for(int i=0; i<high-1,i++)
+       if(arr[i]> pivot
+}
+ ```
+ 
+ </details>
  
 ### [Hash Table](https://github.com/trekhleb/javascript-algorithms/tree/master/src/data-structures/hash-table)
 * Hash tables by their hash function map keys to an index of an array with buckets.  
