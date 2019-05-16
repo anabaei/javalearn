@@ -9,7 +9,7 @@
  * Stack : When a function is called, a block is reserved on the top of the stack for local variables and some bookkeeping data and stack is LIFO order [stack](https://stackoverflow.com/questions/79923/what-and-where-are-the-stack-and-heap)
  * Static Methods are stored in Permanent Generation space of heap as they are associated to the class and not to the object of that class. ( so they save in heap but not on the object area) 
 
-* procedural uses a list of instrcuctions to tell computer what to do. it uses procedures which contains a series of computation steps to be carried out.
+* procedural uses a list of instrcuctions to tell computer what to do. it uses procedures which contains a series of computation steps to be carried out. 
 procedural programming also called `imperative` programming or top-down language. It is intutitive since it works as we expect how a computer should work.
 Most of first languages are procedural like Cobol RPG II C Fortran. Procedural language expose data to external entities  
 * OOP is made of a number of entities referred to as objects. Program is divided into objects and data is hidden from extenal entities and focus
@@ -56,6 +56,7 @@ is all about building blocks and objects.
 As an example [NGINX](https://www.nginx.com/resources/glossary/reverse-proxy-server/) can be used.
 #### [REST](https://www.sitepoint.com/developers-rest-api/)
 * Interview: what is RESTfull?
+* Difference TCP and UDP: both are protocols using bits to send data over ip. TCP make sure the data is transfered was recevied if not it resend it again but UDP not making sure about receiving data and is used for streaming videos [good explanation](https://support.holmsecurity.com/hc/en-us/articles/212963869-What-is-the-difference-between-TCP-and-UDP-)
 * Layer of tcp/ip? TCP is the layer to assign port numbers in order to assign application to correct destination application, and IP is the layer to assign ip address of destination to connect to correct computer more [info](https://web.stanford.edu/class/msande91si/www-spr04/readings/week1/InternetWhitepaper.htm)
 * what is udp/ssl? Auth2? JWT? [here](https://github.com/anabaei/Blockchain/blob/master/SSL-TLS.md)
 * two ordered arrays make one ordered array.
