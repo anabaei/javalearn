@@ -54,14 +54,17 @@ is all about building blocks and objects.
 - 4 Spoon feeding: reduces resource usage caused by slow clients on the web servers by caching the content the web server sent and slowly "spoon feeding" it to the client. This especially benefits dynamically generated pages.
 - 5 Security: the proxy server is an additional layer of defence and can protect against some OS and Web Server specific attacks. However, it does not provide any protection from attacks against the web application or service itself
 As an example [NGINX](https://www.nginx.com/resources/glossary/reverse-proxy-server/) can be used.
-
+## Interaction/Interview
 ![ss](https://user-images.githubusercontent.com/7471619/58122185-e5720100-7bbd-11e9-8d1d-3f2fd4b0bc4d.jpg)
-##### Porcess
+#### Porcess
 * A process is the instance of a computer program that is being executed by one or many threads
 #### Thread
 * A thread is the smallest unit of processing that can be performed in an OS. Thread exists within a process - that is, a single process may contain multiple threads.
 #### [REST](https://www.sitepoint.com/developers-rest-api/)
-* Interview: what is RESTfull?
+* Interview: what is REST? a software architicte style for web services. Alternatives are Soap (has more bandwith and only can use xml) and Graphql. Web services using this archicte call RESTFULL web services or RESTFULL APIs. REST use http explicitly. 
+* What is http? hyper text transfer protocol is protocol used by the World Wide Web and this protocol defines how messages are formatted and transmitted
+* What is curl? Curl is a tool to transfer data from or to a server, using one of the supported protocols (HTTP, HTTPS, FTP, FTPS, SCP, SFTP, TFTP, DICT, TELNET, LDAP or FILE)
+
 * Difference TCP and UDP: both are protocols using bits to send data over ip. TCP make sure the data is transfered was recevied if not it resend it again but UDP not making sure about receiving data and is used for streaming videos [good explanation](https://support.holmsecurity.com/hc/en-us/articles/212963869-What-is-the-difference-between-TCP-and-UDP-)
 * Layer of tcp/ip? TCP is the layer to assign port numbers in order to assign application to correct destination application, and IP is the layer to assign ip address of destination to connect to correct computer more [info](https://web.stanford.edu/class/msande91si/www-spr04/readings/week1/InternetWhitepaper.htm)
 * what is udp/ssl? Auth2? JWT? [here](https://github.com/anabaei/Blockchain/blob/master/SSL-TLS.md)
