@@ -78,7 +78,7 @@ As an example [NGINX](https://www.nginx.com/resources/glossary/reverse-proxy-ser
 * Also to make it independent than a class type, we define an Abstract class in middle to make it abstract calling the getshape method which is another type of design `Abstract factory pattern`
 
 ### CSRF
-* []()
+* ![csrt](https://user-images.githubusercontent.com/7471619/58136295-70fd8900-7be2-11e9-99c5-8bf6048769c7.png)
 
 ### XSS
 * []()
