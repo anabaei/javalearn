@@ -81,7 +81,7 @@ As an example [NGINX](https://www.nginx.com/resources/glossary/reverse-proxy-ser
 * ![csrt](https://user-images.githubusercontent.com/7471619/58136295-70fd8900-7be2-11e9-99c5-8bf6048769c7.png)
 
 ### XSS
-* []()
+* ![xss](https://user-images.githubusercontent.com/7471619/58136376-ad30e980-7be2-11e9-866b-8e9b862d1318.png)
 
 ### Software Developer Testing Methodologies
 * In today’s Software Testing Class, we will see what all Software Testing Methodologies & software testing technique is used in the day today software testing life cycle [link2](https://www.inflectra.com/ideas/topic/testing-methodologies.aspx)
