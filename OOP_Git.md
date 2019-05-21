@@ -50,6 +50,8 @@ As an example [NGINX](https://www.nginx.com/resources/glossary/reverse-proxy-ser
 #### [REST](https://www.sitepoint.com/developers-rest-api/)
 * Interview: what is REST? a software architicte style for web services. Alternatives are Soap (has more bandwith and only can use xml) and Graphql. Web services using this archicte call RESTFULL web services or RESTFULL APIs. REST use http explicitly. 
 * What is http? hyper text transfer protocol is protocol used by the World Wide Web and this protocol defines how messages are formatted and transmitted
+* What is Https? is the http connection that sends encrypted data toward the network
+
 * What is curl? Curl is a tool to transfer data from or to a server, using one of the supported protocols (HTTP, HTTPS, FTP, FTPS, SCP, SFTP, TFTP, DICT, TELNET, LDAP or FILE)
 
 * Difference TCP and UDP: both are protocols using bits to send data over ip. TCP make sure the data is transfered was recevied if not it resend it again but UDP not making sure about receiving data and is used for streaming videos [good explanation](https://support.holmsecurity.com/hc/en-us/articles/212963869-What-is-the-difference-between-TCP-and-UDP-)
@@ -75,7 +77,11 @@ As an example [NGINX](https://www.nginx.com/resources/glossary/reverse-proxy-ser
 ![image](https://user-images.githubusercontent.com/7471619/34269117-096006c4-e638-11e7-83a7-4b71cdb0d3c5.jpg)
 * Also to make it independent than a class type, we define an Abstract class in middle to make it abstract calling the getshape method which is another type of design `Abstract factory pattern`
 
+### CSRF
+* []()
 
+### XSS
+* []()
 
 ### Software Developer Testing Methodologies
 * In today’s Software Testing Class, we will see what all Software Testing Methodologies & software testing technique is used in the day today software testing life cycle [link2](https://www.inflectra.com/ideas/topic/testing-methodologies.aspx)
