@@ -1,5 +1,13 @@
 
 * [Algorithm and data structure](https://github.com/trekhleb/javascript-algorithms)
+
+### OAuth2
+* OAuth is a protocol to design to solve the application-to-application security problem.
+* [Resource](https://www.wikitechy.com/tutorials/oauth/oauth-1-dot-0-vs-oauth-2-dot-0)
+
+#### JWT
+* JWT (Learn JSON Web Tokens) is just a token format, it defines a compact and self-contained mechanism for transmitting data between parties in a way that can be verified and trusted because it is digitally signed. Additionally, the encoding rules of a JWT also make these tokens very easy to use within the context of HTTP
+
 ### OOP vs Procedural 
 * A class is defined as a template/blueprint that describes the behavior/state that the object of its type support.
 * An object is an instance of a class
