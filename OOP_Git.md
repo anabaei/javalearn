@@ -30,21 +30,8 @@ is all about building blocks and objects.
 * There are even some methods that are implemented as lockless thread safe, which means that they are built in such a way that multiple threads can race through them at the same time without ever causing problems, this can be the case when a method only executes one `atomic` call. Atomic calls are calls that can't be interrupted and can only be done by one thread at a time
 * `race condition` in order to have a race between two threads, there must be shared state between those two threads and interaction (reading and writing) to that state must occur outside of a mutualy exclusive block (aka syncronized) [this](https://stackoverflow.com/questions/25156724/code-to-simulate-race-condition-in-java-thread)
 
-### Design Pattern
-##### 4 authors wrote a book with a name of `Design Patterns - Elements of Reusable Object-Oriented Software` which is known as Gang of four (GOF). According to them design is based on two principles
-- [ ] Program to an interface not an implementation
-- [ ] Favor object composition over inheritance 
-##### There are 23 desgin patterns which can be classified into three categories plus one
-- [ ] [Creational patterns](https://sourcemaking.com/design_patterns/creational_patterns): trying to create objects in a manner suitable to the situation.
-- [ ] Structural pattern: Conecpt of inheritance is used to compose interfaces 
-- [ ] Behavioral pattern: It design based on communication among objects
-- [ ] J2EE pattern: It specifies concerned with the presentation tier.
-[source](https://www.tutorialspoint.com/design_pattern/design_pattern_overview.htm)
-#### Factory pattern Design
-* Is common most used design under creational pattern. 
-* You suppose to draw a java based design on the fly based on below image [link](https://www.tutorialspoint.com/design_pattern/factory_pattern.htm)
-![image](https://user-images.githubusercontent.com/7471619/34269117-096006c4-e638-11e7-83a7-4b71cdb0d3c5.jpg)
-* Also to make it independent than a class type, we define an Abstract class in middle to make it abstract calling the getshape method which is another type of design `Abstract factory pattern`
+
+## Interaction/Interview
 
 ### Reverse Proxy
 * Is a proxy server that apprears to be an ordinary server. They forward requests to one or more ordinary servers which handle requests.There are several benefitial to installing reverse proxy server
@@ -54,7 +41,7 @@ is all about building blocks and objects.
 - 4 Spoon feeding: reduces resource usage caused by slow clients on the web servers by caching the content the web server sent and slowly "spoon feeding" it to the client. This especially benefits dynamically generated pages.
 - 5 Security: the proxy server is an additional layer of defence and can protect against some OS and Web Server specific attacks. However, it does not provide any protection from attacks against the web application or service itself
 As an example [NGINX](https://www.nginx.com/resources/glossary/reverse-proxy-server/) can be used.
-## Interaction/Interview
+
 ![ss](https://user-images.githubusercontent.com/7471619/58122185-e5720100-7bbd-11e9-8d1d-3f2fd4b0bc4d.jpg)
 #### Porcess
 * A process is the instance of a computer program that is being executed by one or many threads
@@ -72,6 +59,24 @@ As an example [NGINX](https://www.nginx.com/resources/glossary/reverse-proxy-ser
 * what is udp/ssl? Auth2? JWT? [here](https://github.com/anabaei/Blockchain/blob/master/SSL-TLS.md)
 * two ordered arrays make one ordered array.
 * have a string of `1234` make it an interger use Ascii code
+### Design Pattern
+##### 4 authors wrote a book with a name of `Design Patterns - Elements of Reusable Object-Oriented Software` which is known as Gang of four (GOF). According to them design is based on two principles
+- [ ] Program to an interface not an implementation
+- [ ] Favor object composition over inheritance 
+##### There are 23 desgin patterns which can be classified into three categories plus one
+- [ ] [Creational patterns](https://sourcemaking.com/design_patterns/creational_patterns): trying to create objects in a manner suitable to the situation.
+- [ ] Structural pattern: Conecpt of inheritance is used to compose interfaces 
+- [ ] Behavioral pattern: It design based on communication among objects
+- [ ] J2EE pattern: It specifies concerned with the presentation tier.
+[source](https://www.tutorialspoint.com/design_pattern/design_pattern_overview.htm)
+#### Factory pattern Design
+* Is common most used design under creational pattern. 
+* You suppose to draw a java based design on the fly based on below image [link](https://www.tutorialspoint.com/design_pattern/factory_pattern.htm)
+![image](https://user-images.githubusercontent.com/7471619/34269117-096006c4-e638-11e7-83a7-4b71cdb0d3c5.jpg)
+* Also to make it independent than a class type, we define an Abstract class in middle to make it abstract calling the getshape method which is another type of design `Abstract factory pattern`
+
+
+
 ### Software Developer Testing Methodologies
 * In today’s Software Testing Class, we will see what all Software Testing Methodologies & software testing technique is used in the day today software testing life cycle [link2](https://www.inflectra.com/ideas/topic/testing-methodologies.aspx)
 Here are the few commonly used Software Development Life Cycle used in actual testing:
