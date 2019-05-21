@@ -67,6 +67,8 @@ As an example [NGINX](https://www.nginx.com/resources/glossary/reverse-proxy-ser
 
 * Difference TCP and UDP: both are protocols using bits to send data over ip. TCP make sure the data is transfered was recevied if not it resend it again but UDP not making sure about receiving data and is used for streaming videos [good explanation](https://support.holmsecurity.com/hc/en-us/articles/212963869-What-is-the-difference-between-TCP-and-UDP-)
 * Layer of tcp/ip? TCP is the layer to assign port numbers in order to assign application to correct destination application, and IP is the layer to assign ip address of destination to connect to correct computer more [info](https://web.stanford.edu/class/msande91si/www-spr04/readings/week1/InternetWhitepaper.htm)
+* What is OAuth: OAuth doesn't share password data but instead uses tokens to prove an identity between consumers and service providers.
+
 * what is udp/ssl? Auth2? JWT? [here](https://github.com/anabaei/Blockchain/blob/master/SSL-TLS.md)
 * two ordered arrays make one ordered array.
 * have a string of `1234` make it an interger use Ascii code
