@@ -55,7 +55,7 @@ is all about building blocks and objects.
 - 5 Security: the proxy server is an additional layer of defence and can protect against some OS and Web Server specific attacks. However, it does not provide any protection from attacks against the web application or service itself
 As an example [NGINX](https://www.nginx.com/resources/glossary/reverse-proxy-server/) can be used.
 
-![]()
+![ss](https://user-images.githubusercontent.com/7471619/58122185-e5720100-7bbd-11e9-8d1d-3f2fd4b0bc4d.jpg)
 ##### Porcess
 * A process is the instance of a computer program that is being executed by one or many threads
 #### Thread
