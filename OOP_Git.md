@@ -90,8 +90,9 @@ As an example [NGINX](https://www.nginx.com/resources/glossary/reverse-proxy-ser
 * Cros site Request Forgery ![csrt](https://user-images.githubusercontent.com/7471619/58136295-70fd8900-7be2-11e9-99c5-8bf6048769c7.png)
 
 ### XSS
-* Cross site scripting ![xss](https://user-images.githubusercontent.com/7471619/58136376-ad30e980-7be2-11e9-866b-8e9b862d1318.png)
 * 5 common scenarios for [xss](https://pentest-tools.com/blog/xss-attacks-practical-scenarios/)
+* Cross site scripting ![xss](https://user-images.githubusercontent.com/7471619/58136376-ad30e980-7be2-11e9-866b-8e9b862d1318.png)
+
 ### Software Developer Testing Methodologies
 * In today’s Software Testing Class, we will see what all Software Testing Methodologies & software testing technique is used in the day today software testing life cycle [link2](https://www.inflectra.com/ideas/topic/testing-methodologies.aspx)
 Here are the few commonly used Software Development Life Cycle used in actual testing:
